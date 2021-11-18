@@ -10,7 +10,7 @@ const Footer = () => {
     return (
 
         <>
-            <Navbar collapseOnSelect expand="lg" className="navbar">
+            <Navbar collapseOnSelect expand="lg" className="footer">
                 <Container>
                         <Nav>
                             <Nav.Link href="">HOME</Nav.Link>

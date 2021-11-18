@@ -6,12 +6,35 @@ html{
 .body{
   display: flex;
 }
-
-.home{
+.contenedor{
+  height: 50vh;
   display: flex;
-  height: 1000vh;
-
+  justify-content: center;
+  align-items: center;
 }
+.videoHero{
+  position: absolute;
+  object-fit: cover;
+  height: 50vh;
+  width: 100%;
+  z-index: -1;
+}
+.bienvenida{
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.callToAction{
+  display: flex; 
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  
+}
+
 .footer{
   display: flex;
   justify-content: space-around;
