@@ -4,16 +4,19 @@ import Button from 'react-bootstrap/Button'
 const CallToAction = () => {
 
     return (
-        <div className=" callToAction">
-            <h1>Dive into this adventure!</h1>
-            <div className=" gap-2" >
-                <Button variant="dark" size="lg">
+        <div className="callToAction">
+            <div className="col-6 d-flex flex-column justify-content-center align-items-center text-center">
+            <h1>Dive into this adventure!</h1>            
+                <Button size="lg">
                   GO!
                 </Button>
             </div>
-
+            <div className="col-6 p-3">
+                <img width="100%" height="100%" src="./assets/fotoGo.jpg" alt="fotoGo"/>
+            </div>
         </div>
+        
             )
 }
 
-            export default CallToAction
+export default CallToAction

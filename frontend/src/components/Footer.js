@@ -11,17 +11,19 @@ const Footer = () => {
 
         <>
             <Navbar collapseOnSelect expand="lg" className="footer">
-                <Container>
-                        <Nav>
-                            <Nav.Link href="">HOME</Nav.Link>
-                            <Nav.Link href="">CITIES</Nav.Link>
-                        </Nav>
-                        <Nav className="me-auto">
-                        </Nav>
-
-                    <Nav> 
-                    <p> REDES SOCIALES</p>
-                    <img src='./assets/facebook.svg' alt = "logo facebook" />
+                <Container >
+                    <Nav>
+                        <Nav.Link href="">HOME</Nav.Link>
+                        <Nav.Link href="">CITIES</Nav.Link>
+                    </Nav>
+                    <Nav className="copyright m-auto">
+                        <p>MYTINERAY | COPYRIGHT-ALL RIGHTS RESERVED</p>
+                    </Nav>
+                    <Nav>
+                        <img className="p-1" src='./assets/facebook.svg' alt="logo facebook" />
+                        <img className="p-1" src='./assets/instagram.svg' alt="logo instagram" />
+                        <img className="p-1" src='./assets/whatsapp.svg' alt="logo whatsapp" />
+                        <img className="p-1" src='./assets/youtube.svg' alt="logo youtube" />
                     </Nav>
                 </Container>
             </Navbar>

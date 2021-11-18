@@ -6,8 +6,8 @@ html{
 .body{
   display: flex;
 }
-.contenedor{
-  height: 50vh;
+.heroContenedor{
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ html{
 .videoHero{
   position: absolute;
   object-fit: cover;
-  height: 50vh;
+  height: 80vh;
   width: 100%;
   z-index: -1;
 }
@@ -25,20 +25,36 @@ html{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
 }
+
+.mensaje{
+  font-size: 3vh;
+  background-color:rgb(255, 255, 255,0.5);
+  padding: 1rem;
+  }
 
 .callToAction{
-  display: flex; 
-  height: 20vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;  
+  height: 40vh;
+  display: flex;
 }
 
+.carrousel{
+  height: 60vh;
+  background-color: lightskyblue;
+}
 .footer{
-  display: flex;
-  justify-content: space-around;
-  background-color: lightcoral ;
+
+  height: 10vh;
+  /* background-color:black; */
+  
+}
+
+.copyright{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 2vh;
+
 }
 
 
