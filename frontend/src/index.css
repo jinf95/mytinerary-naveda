@@ -37,25 +37,30 @@ html{
 .callToAction{
   height: 40vh;
   display: flex;
+  }
+
+.boton-call{
+  background-color: hsl(251, 100%, 15%);
 }
 
-.carrousel{
-  height: 60vh;
-  background-color: lightskyblue;
-}
+
 .footer{
-
   height: 10vh;
-  /* background-color:black; */
-  
 }
 
 .copyright{
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  font-size: 2vh;
+  font-size: 80%;
 
 }
 
+.item{
+  
+  background-color: hsl(251, 100%, 15%);
+  padding: 2rem;
+}
 
-
+.card{
+  width: 90%;
+}

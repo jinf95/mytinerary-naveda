@@ -5,8 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Footer = () => {
 
-    // const facebook = <img src='./assets/facebook.svg' alt = "logo facebook" />
+    const redes = [
+        {imagen : "./assets/facebook.svg", alt : "facebook"},
+        {imagen : "./assets/instagram.svg", alt : "instagram"},
+        {imagen : "./assets/whatsapp.svg", alt : "whatsapp"},
+        {imagen : "./assets/youtube.svg", alt : "youtube"},
 
+    ]
     return (
 
         <>
@@ -16,14 +21,13 @@ const Footer = () => {
                         <Nav.Link href="">HOME</Nav.Link>
                         <Nav.Link href="">CITIES</Nav.Link>
                     </Nav>
-                    <Nav className="copyright m-auto">
-                        <p>MYTINERAY | COPYRIGHT-ALL RIGHTS RESERVED</p>
-                    </Nav>
                     <Nav>
-                        <img className="p-1" src='./assets/facebook.svg' alt="logo facebook" />
-                        <img className="p-1" src='./assets/instagram.svg' alt="logo instagram" />
+                        <p className="copyright m-auto">MYTINERAY | COPYRIGHT-ALL RIGHTS RESERVED</p>
+                    </Nav>
+                    <Nav className="redes p-1"> {redes.imagen}
+                        {/* <img className="p-1" src='./assets/instagram.svg' alt="logo instagram" />
                         <img className="p-1" src='./assets/whatsapp.svg' alt="logo whatsapp" />
-                        <img className="p-1" src='./assets/youtube.svg' alt="logo youtube" />
+                        <img className="p-1" src='./assets/youtube.svg' alt="logo youtube" /> */}
                     </Nav>
                 </Container>
             </Navbar>
