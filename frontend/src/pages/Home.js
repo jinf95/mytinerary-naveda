@@ -14,9 +14,7 @@ class Home extends React.Component{
             <SideNav/>
             <Hero/>
             <CallToAction/>
-            <div className="carrousel">
             <Carrousel/>
-            </div>
             <Footer/>   
         </>
         ) 

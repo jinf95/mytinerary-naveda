@@ -27,7 +27,9 @@ const Carrousel = () => {
 
     return (
 
-        <Carousel fade>
+        <div>
+            <h2 className="titulo-carrousel">POPULAR MYTINERARIES</h2>
+            <Carousel >
             {ciudades.map((arrayCiudad) => {
                 return (
                     <Carousel.Item className="item">
@@ -35,10 +37,10 @@ const Carrousel = () => {
                             {arrayCiudad.map((ciudad) => {
                                 let imagenes = `./assets/ciudades/${ciudad.imagen}`
                                 return (
-                                    <Col className="columnas d-flex justify-content-center">
+                                    <Col className="d-flex justify-content-center">
                                         <Card className="card">
-                                            <Card.Img variant="top" src={imagenes} />
-                                            <Card.Body>
+                                            <Card.Img variant="top" src={imagenes} className="imagen-cards"/>
+                                            <Card.Body className="card-body">
                                                 <Card.Title>{ciudad.ciudad} </Card.Title>
                                                 <Card.Text>
                                                     {ciudad.pais}
@@ -56,6 +58,8 @@ const Carrousel = () => {
             )}
 
         </Carousel>
+        </div>
+        
     )
 }
 

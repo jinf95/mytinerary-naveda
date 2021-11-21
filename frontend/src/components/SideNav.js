@@ -18,8 +18,8 @@ const SideNav = () => {
                         <Nav className="me-auto">
                         </Nav>
                         <Nav>
-                            <Nav.Link href="">HOME</Nav.Link>
-                            <Nav.Link href="">CITIES</Nav.Link>
+                            <Nav.Link className="hover-nav" href="">HOME</Nav.Link>
+                            <Nav.Link className="hover-nav" href="">CITIES</Nav.Link>
                             <NavDropdown title={logo} id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="">Sign In</NavDropdown.Item>
                                 <NavDropdown.Item href="">Sign Up</NavDropdown.Item>
