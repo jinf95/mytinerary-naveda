@@ -1,6 +1,7 @@
 import React from "react"
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap/'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 
 
 const SideNav = () => {
@@ -18,11 +19,11 @@ const SideNav = () => {
                         <Nav className="me-auto">
                         </Nav>
                         <Nav>
-                            <Nav.Link className="hover-nav" href="">HOME</Nav.Link>
-                            <Nav.Link className="hover-nav" href="">CITIES</Nav.Link>
+                            <Nav.Link as={Link} to="/"  className="hover-nav">HOME</Nav.Link>
+                            <Nav.Link as={Link} to="/Cities"  className="hover-nav">CITIES</Nav.Link>
                             <NavDropdown title={logo} id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="">Sign In</NavDropdown.Item>
-                                <NavDropdown.Item href="">Sign Up</NavDropdown.Item>
+                                <NavDropdown.Item>Sign In</NavDropdown.Item>
+                                <NavDropdown.Item>Sign Up</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

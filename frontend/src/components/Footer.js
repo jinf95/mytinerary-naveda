@@ -1,6 +1,7 @@
 import React from "react";
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -18,8 +19,8 @@ const Footer = () => {
             <Navbar collapseOnSelect expand="lg" className="footer">
                 <Container >
                     <Nav>
-                        <Nav.Link className="hover-nav text-dark" href="">HOME</Nav.Link>
-                        <Nav.Link className="hover-nav text-dark" href="">CITIES</Nav.Link>
+                        <Nav.Link className="hover-nav text-dark" as={Link} to='/' >HOME</Nav.Link>
+                        <Nav.Link className="hover-nav text-dark" as={Link} to='/Cities' >CITIES</Nav.Link>
                     </Nav>
                     <Nav>
                         <p className="copyright m-auto">MYTINERAY | COPYRIGHT-ALL RIGHTS RESERVED</p>

@@ -17,6 +17,7 @@ html{
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .videoHero{
   position: absolute;
@@ -24,6 +25,8 @@ html{
   height: 80vh;
   width: 100%;
   z-index: -1;
+  border-radius: 0 0 85% 85% / 10%;
+
 }
 .bienvenida{
   color: black;
@@ -54,7 +57,6 @@ html{
 .boton-call{
   background-color: hsl(251, 100%, 15%);
   font-family:cursive;
-
   
 }
 

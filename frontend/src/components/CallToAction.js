@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
+import {Link} from 'react-router-dom'
 
 const CallToAction = () => {
     let imagen = `./assets/fotoGo.jpg`
@@ -8,7 +9,7 @@ const CallToAction = () => {
         <div className="callToAction">
             <div className="col-6 d-flex flex-column justify-content-center align-items-center text-center">
             <h1 className="texto-call">Dive into this adventure!</h1>            
-                <Button size="lg" className="boton-call">
+                <Button size="lg" as={Link} to='/Cities' className="boton-call">
                 COME ON!
                 </Button>
             </div>
