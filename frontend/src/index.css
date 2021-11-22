@@ -6,6 +6,7 @@ html{
 }
 .body{
   display: flex;
+
   
   
 }
@@ -108,7 +109,7 @@ background-color: rgb(0, 0, 89);
    transform:scale(1.1)
    }
 .card-body{
-  background-color: black;
+  background-color: hsl(0, 0%, 0%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,11 +121,16 @@ background-color: rgb(0, 0, 89);
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   
 }
-
+.carousel-control-next-icon{
+  background-color: black;
+}
+.carousel-control-prev-icon{
+  background-color: black;
+}
 
 /* FOOTER */
 .footer{
-  height: 10vh;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -136,8 +142,8 @@ background-color: rgb(0, 0, 89);
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 1rem;
   font-weight: bold;
-
-}
+  color: rgb(238, 238, 70);
+  }
 
 .logos{
   padding: 1vh;
@@ -148,4 +154,44 @@ background-color: rgb(0, 0, 89);
 .hover-footer:hover{
   background-color: rgba(232, 232, 232, 0.296);
   border-radius: 30%;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 425px) {
+  .carousel-control-next-icon{
+    display: none;
+  }
+  .carousel-control-prev-icon{
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 767px){
+ .footer-contenedor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.link-footer{
+  display: flex;
+  flex-direction: row;
+  }
+.copyright{
+  padding: .5rem;
+  }
+}
+
+@media screen and (max-width:1000px) {
+  .link-footer{
+    display: flex;
+    flex-direction: row;
+    margin:0%;
+    justify-content: space-between;
+    }
+
+
 }

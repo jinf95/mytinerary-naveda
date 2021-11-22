@@ -17,9 +17,9 @@ const Footer = () => {
 
         <>
             <Navbar collapseOnSelect expand="lg" className="footer">
-                <Container >
-                    <Nav>
-                        <Nav.Link className="hover-footer text-white" as={Link} to='/'>HOME</Nav.Link>
+                <Container className="footer-contenedor">
+                    <Nav className="link-footer">
+                        <Nav.Link className="hover-footer me-2 text-white" as={Link} to='/'>HOME</Nav.Link>
                         <Nav.Link className="hover-footer text-white" as={Link} to='/Cities' >CITIES</Nav.Link>
                     </Nav>
                     <Nav>
@@ -29,7 +29,7 @@ const Footer = () => {
                         {redes.map((red)=>{
                             let logo = `./assets/${red.imagen}`
                             return(
-                                 <img src= {logo} className="logos me-2 ms-2"/>
+                                 <img src= {logo} alt="social networks" className="logos me-2 ms-2"/>
                             )
                         })}
                     </div>
