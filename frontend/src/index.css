@@ -7,11 +7,18 @@ html{
 .body{
   display: flex;
   
+  
 }
-
+/* SIDENAV */
 .hover-nav:hover{
   background-color: rgb(232, 232, 232);
+  border-radius: 30%;
+
 }
+.navbar{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/* HERO */
 .heroContenedor{
   height: 80vh;
   display: flex;
@@ -34,7 +41,9 @@ html{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family:cursive;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+  
 }
 
 .mensaje{
@@ -44,43 +53,55 @@ html{
   
   }
 
+  /* CALL TO ACTION */
 .callToAction{
   height: 40vh;
   display: flex;
+  background-color: lightcyan;
   
   }
-  .texto-call{
-    font-family:cursive;
+.texto-call{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
 
   }
 
 .boton-call{
-  background-color: hsl(251, 100%, 15%);
-  font-family:cursive;
-  
-}
+  background-color: black;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
 
+  .boton-call:hover{
+    background-color: rgb(0, 0, 89);
+  }
+
+/* CARROUSEL */
 .titulo-carrousel{
-  background-color: lightblue;
+  background-color: black;
+  color: white;
   display: flex;
   justify-content: center;
-  font-family: cursive;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0%;
+  padding: 1rem;
 }
 
 .item{
-  background-color: rgb(2, 1, 67);
+background-color: rgb(0, 0, 89);
 }
 
 .imagen-cards{
   height: 100%;
   object-fit: cover;
-}
+  }
+  
 .card{
   width: 80%;
   margin-top: 2rem;
   margin-bottom: 2rem;
   border-color: black;
   height: 80vh;
+  
  }
 
  .card:hover{
@@ -96,20 +117,35 @@ html{
   margin: 0;
   color: white;
   height: 15vh;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   
 }
 
+
+/* FOOTER */
 .footer{
   height: 10vh;
-  background-color: white;
-  color: black;
-  font-family:cursive;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
 }
 
 .copyright{
-  font-family: cursive;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1rem;
   font-weight: bold;
-  font-size: 80%;
 
+}
+
+.logos{
+  padding: 1vh;
+  background-color: white;
+  border-radius: 30%;
+}
+
+.hover-footer:hover{
+  background-color: rgba(232, 232, 232, 0.296);
+  border-radius: 30%;
 }
