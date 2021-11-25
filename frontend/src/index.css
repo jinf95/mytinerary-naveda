@@ -193,5 +193,32 @@ background-color: rgb(0, 0, 89);
     justify-content: space-between;
     }
 
+}
 
+/* PAGINA CITIES */
+
+/* HEADER */
+.headerContenedor{
+  height: 40 vh;
+}
+
+.imagenHeader{
+  height: 40vh;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  }
+
+/* TARJETAS */
+.card-contenedor{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.tarjetas{
+  height: 30vh;
+  width: 70%;
+  display: flex;
 }
