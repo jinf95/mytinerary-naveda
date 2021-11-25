@@ -1,11 +1,4 @@
-
-const express = require("express")
-const cors = require ("cors")
-
-const app = express()
-app.use = (cors())
-
-    const ciudades = [
+  const ciudades = [
             { ciudad: "New York", pais: "United States", imagen: "newYork.jpg" },
             { ciudad: "Paris", pais: "France", imagen: "paris.jpg" },
             { ciudad: "Rome", pais: "Italy", imagen: "roma.jpg" },
@@ -24,6 +17,13 @@ app.use = (cors())
 
             ]
 
+const express = require("express")
+const cors = require ("cors")
+
+const app = express()
+app.use(cors())
+
+  
 
 app.get("/api/ciudades", (req,res) => {
     res.json({response: {ciudades}})
