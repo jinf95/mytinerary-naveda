@@ -6,12 +6,11 @@ const HeaderCities = () =>{
     
     return(
 
-    <div className="headerContenedor">
+    <div className="headerContenedor">       
         <img className="imagenHeader" src={header} alt="foto"></img>
-        <div className="bienvenida">
+         <div className="bienvenida">
             <h1> MyTinerary!</h1>
-        </div>
-        
+        </div>        
     </div>
 
     )

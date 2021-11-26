@@ -1,5 +1,5 @@
   const ciudades = [
-            { ciudad: "New York", pais: "United States", imagen: "newYork.jpg" },
+            { ciudad: "New York", pais: "United States", imagen: "newYork.jpg"},
             { ciudad: "Paris", pais: "France", imagen: "paris.jpg" },
             { ciudad: "Rome", pais: "Italy", imagen: "roma.jpg" },
             { ciudad: "Moscow", pais: "Russia", imagen: "moscu.jpg" },

@@ -13,7 +13,6 @@ html{
 /* SIDENAV */
 .hover-nav:hover{
   background-color: rgb(232, 232, 232);
-  border-radius: 30%;
 
 }
 .navbar{
@@ -102,12 +101,14 @@ background-color: rgb(0, 0, 89);
   margin-bottom: 2rem;
   border-color: black;
   height: 80vh;
+  transition: 1s;
   
  }
 
  .card:hover{
    transform:scale(1.1)
    }
+
 .card-body{
   background-color: hsl(0, 0%, 0%);
   display: flex;
@@ -197,17 +198,34 @@ background-color: rgb(0, 0, 89);
 
 /* PAGINA CITIES */
 
-/* HEADER */
-.headerContenedor{
-  height: 40 vh;
+.cities{
+  background-color: lightblue;
 }
 
+/* HEADER */
+.headerContenedor{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;}
+
 .imagenHeader{
-  height: 40vh;
-  width: 100%;
+  position: absolute;
   object-fit: cover;
+  height: 50vh;
+  width: 100%;
   z-index: -1;
   }
+
+  /* INPUT BUSQUEDA */
+  .input-contenedor{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5vh;
+    padding: .5rem;
+    background-color: black;
+      }
+
 
 /* TARJETAS */
 .card-contenedor{
@@ -219,12 +237,39 @@ background-color: rgb(0, 0, 89);
 }
 
 .tarjetas{
-  height: 20vh;
+  height: 30vh;
   width: 80%;
-  display: flex;
-}
+  margin: 2vh;
+  }
+
+
 
 .card-imagen{
   height: 100%;
   object-fit: cover;
+    }
+
+.nombre-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0pt;
+   }
+
+.card-title{
+  background-color: rgb(0, 0, 0,0.6);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0pt; 
+  color: white;
+  font-weight: bold;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.2rem;
+
 }
+
+
+
