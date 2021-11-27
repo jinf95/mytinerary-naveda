@@ -1,22 +1,18 @@
 import { Card } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-function MainCities() {
-    const [ciudades, setCiudades] = useState([]);
+const MainCities = (props) => {
 
-    useEffect(() => {
-        fetch("http://localhost:4000/api/ciudades")
-            .then((res) => res.json())
-            .then((data) => setCiudades(data.response.ciudades))
-            .catch((err) => console.error(err));
-    }, []);
+    const ciudades = props.ciudades
+        console.log(ciudades)
 
-    return (
+ return (
         <div className="card-contenedor">
+            
             {ciudades.map((ciudad) => {
                 let imagenes = `./assets/ciudades/${ciudad.imagen}`
                 return (
-                    <Card className="tarjetas bg-dark text-white">
+                    <Card to={'/Cities/${} '} className="tarjetas bg-dark text-white" key={ciudad.ciudad}>
                         <Card.Img className="card-imagen" src={imagenes} alt="Card imagen" />
                         <Card.ImgOverlay className="nombre-card">
                             <Card.Title className="card-title" >{ciudad.ciudad} </Card.Title>
