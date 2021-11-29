@@ -1,11 +1,14 @@
+require('dotenv').config()
+
 const express = require("express")
-const {response} = require("express")
 const cors = require ("cors")
 const Router = require('./routes/routes')
 
+require('./config/database')
+
 const app = express()
 app.use(cors())
-
+app.use(express.json())
 app.use('/api', Router)  
 
 

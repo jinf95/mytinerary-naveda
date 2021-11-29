@@ -1,24 +1,24 @@
 import React from 'react';
 import HeaderCities from '../components/HeaderCities';
-import Input from '../components/Input';
 import MainCities from '../components/MainCities';
+import axios from 'axios';
 
 class Cities extends React.Component {
 
     constructor() {
         super()
         console.log("soy el constructor")
-        this.state = { ciudades: [] }
+        this.state = {
+            
+        }
 
     }
 
     componentDidMount() {
         console.log("soy componentDiMount")
 
-        fetch("http://localhost:4000/api/ciudades")
-            .then((res) => res.json())
-            .then((data) => this.setState({ ciudades: data.response.ciudades }))
-            .catch((err) => console.error(err));
+        axios.get(`http://localhost:4000/api/ciudades`)
+        .then(res => this.setState({ciudades : res.data.respuesta}))
      
     }
 
@@ -29,8 +29,7 @@ class Cities extends React.Component {
             <>
                 <HeaderCities />
                 <div className="cities">
-                    <Input />
-                    <MainCities ciudades={this.state.ciudades} />
+                   { this.state.ciudades && <MainCities ciudades={this.state.ciudades} /> } 
                 </div>
 
             </>

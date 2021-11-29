@@ -1,26 +1,83 @@
-const ciudades = [
-    { ciudad: "New York", pais: "United States", imagen: "newYork.jpg"},
-    { ciudad: "Paris", pais: "France", imagen: "paris.jpg" },
-    { ciudad: "Rome", pais: "Italy", imagen: "roma.jpg" },
-    { ciudad: "Moscow", pais: "Russia", imagen: "moscu.jpg" },
-    { ciudad: "Guiza", pais: "Egypt", imagen: "egipto.jpg" },
-    { ciudad: "Pekin", pais: "China", imagen: "china.jpg" },
-    { ciudad: "Tokyo", pais: "Japan", imagen: "tokio.jpg" },
-    { ciudad: "Sidney", pais: "Australia", imagen: "sidney.jpg" },
-    { ciudad: "San Juan", pais: "Argentina", imagen: "sanJuan.jpg" },
-    { ciudad: "Misiones", pais: "Argentina", imagen: "misiones.jpg" },
-    { ciudad: "Rio de Janeiro", pais: "Brazil", imagen: "rioDeJaneiro.jpg" },
-    { ciudad: "Cancún", pais: "Mexico", imagen: "cancun.jpg" },
-    { ciudad: "Dubai", pais: "United Arab Emirates", imagen: "dubai.jpg" },
-    { ciudad: "London", pais: "England", imagen: "londres.jpg" },
-    { ciudad: "Doha", pais: "Qatar", imagen: "doha.jpg" },
 
-    ]
+const Ciudad = require('../models/Ciudad')
 
-    const controllerCities = {
-        getCities: (req, res) => {
-            res.json({response:{ciudades}})
+const controllerCities = {
+    obtenerCities: async (req, res) => {
+        let ciudades
+        let error = null
+
+      try{
+       ciudades = await Ciudad.find()
+
+     }catch(error){
+            error = true
+            console.error(error)
+        }   
+       
+       res.json({
+            respuesta: error ? 'ERROR' : ciudades, 
+            success: error ? false : true,
+            error: error
+        })
+
+    },
+
+    obtenerCity: async (req, res) => {
+        let ciudad
+        const id = req.params.id        
+        try{
+            ciudad = await Ciudad.findOne({_id:id})
+
+        }catch(error){
+            console.log(error)
         }
+
+        res.json({respuesta:ciudad,success:true})
+    },
+
+    cargarCity: async(req, res) => {
+        let ciudad
+        const { nombre, pais, imagen } = req.body
+
+        try{
+           ciudad = await new Ciudad({ nombre, pais, imagen }).save()
+        
+        }catch(error){
+            console.log(error)
+        } 
+       
+        res.json({respuesta:ciudad,succes:true})
+
+    },
+
+    borrarCity: async(req,res)=>{
+        let ciudades
+        const id = req.params.id
+        try{
+            await Ciudad.findOneAndDelete({_id:id})
+            ciudades = await Ciudad.find()
+
+        }catch(error){
+            console.log(error)
+        }
+
+        res.json({respuesta: ciudades,success:true})
+    },
+
+    actualizarCity: async(req,res)=>{
+        let id = req.params.id
+        let ciudad = req.body
+        let actualizado
+
+        try{
+            actualizado = await Ciudad.findOneAndUpdate({_id:id},ciudad,{new:true})
+        }catch(error){
+            console.log(error)
+        }
+        res.json({success:actualizado ? true : false})
     }
 
-    module.exports = controllerCities
+}
+
+
+module.exports = controllerCities

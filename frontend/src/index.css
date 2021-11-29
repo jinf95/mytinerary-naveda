@@ -50,7 +50,7 @@ html{
   font-size: 3vh;
   background-color:rgb(255, 255, 255,0.5);
   padding: 1rem;
-  
+  text-align: center;
   }
 
   /* CALL TO ACTION */
@@ -72,7 +72,7 @@ html{
   }
 
   .boton-call:hover{
-    background-color: rgb(0, 0, 89);
+    background-color: rgb(64, 64, 255);
   }
 
 /* CARROUSEL */
@@ -87,7 +87,7 @@ html{
 }
 
 .item{
-background-color: rgb(0, 0, 89);
+background-color: rgb(171, 171, 245);
 }
 
 .imagen-cards{
@@ -167,6 +167,7 @@ background-color: rgb(0, 0, 89);
     display: none;
   }
 
+
 }
 
 @media screen and (max-width: 767px){
@@ -183,6 +184,11 @@ background-color: rgb(0, 0, 89);
   }
 .copyright{
   padding: .5rem;
+  text-align: center;
+  }
+  .mensaje{
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 
@@ -199,7 +205,7 @@ background-color: rgb(0, 0, 89);
 /* PAGINA CITIES */
 
 .cities{
-  background-color: lightblue;
+  background-color: rgb(171, 171, 245);
 }
 
 /* HEADER */
@@ -219,6 +225,7 @@ background-color: rgb(0, 0, 89);
 
   /* INPUT BUSQUEDA */
   .input-contenedor{
+    width: 50%;
     margin-left: 20%;
     margin-right: 20%;
     margin-bottom: 5vh;
@@ -271,5 +278,17 @@ background-color: rgb(0, 0, 89);
 
 }
 
+/* CITY */
 
+.nombre-ciudad{
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+
+
+
+}
 
