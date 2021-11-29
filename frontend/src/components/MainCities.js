@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { InputGroup, FormControl, Alert} from "react-bootstrap";
@@ -40,7 +40,7 @@ return (
                                 <Card.Text className="card-title" >{ciudad.pais}</Card.Text>
                             </Card.ImgOverlay>
                         </Card> )
-            :   <Alert variant="primary">
+            :   <Alert className="alerta-filtro" variant="primary">
                  <Alert.Heading>HEY, NICE TO SEE YOU</Alert.Heading>
                  <p>
                  VERIFY THAT THE NAME OF THE CITY YOU ARE LOOKING FOR IS SPELLED CORRECTLY

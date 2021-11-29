@@ -28,10 +28,10 @@ class City extends React.Component {
             <>
             <div className="headerContenedor">
                 {this.state.ciudad && <h1 className="nombre-ciudad">{this.state.ciudad.nombre}</h1> }
-                {this.state.ciudad && <img src= {`/assets/ciudades/${this.state.ciudad.imagen}`} className="imagenHeader"></img> }
+                {this.state.ciudad && <img src= {`/assets/ciudades/${this.state.ciudad.imagen}`} alt="city" className="imagenHeader"></img> }
 
             </div>
-            <div className="d-flex align-items-center flex-column">
+            <div className="main-city d-flex align-items-center flex-column">
                     <h2>Under construction</h2>
                 <Button size="lg" as={Link} to='/Cities' className="boton-call">
                     Cities

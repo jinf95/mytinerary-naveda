@@ -190,6 +190,10 @@ background-color: rgb(171, 171, 245);
     margin-left: 10%;
     margin-right: 10%;
   }
+  .alerta-filtro{
+    margin-right: 10%;
+    margin-left: 10%;
+  }
 }
 
 @media screen and (max-width:1000px) {
@@ -250,7 +254,6 @@ background-color: rgb(171, 171, 245);
   }
 
 
-
 .card-imagen{
   height: 100%;
   object-fit: cover;
@@ -287,8 +290,11 @@ background-color: rgb(171, 171, 245);
   width: 30%;
   display: flex;
   justify-content: center;
-
-
-
+  
 }
 
+.main-city{
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+}
