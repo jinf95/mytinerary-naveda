@@ -38,7 +38,7 @@ const Carrousel = () => {
                                 let imagenes = `./assets/ciudades/${ciudad.imagen}`
                                 return (
                                     <Col className="d-flex justify-content-center">
-                                        <Card className="card">
+                                        <Card className="card-carousel">
                                             <Card.Img variant="top" src={imagenes} className="imagen-cards"/>
                                             <Card.Body className="card-body">
                                                 <Card.Title>{ciudad.ciudad} </Card.Title>

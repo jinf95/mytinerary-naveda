@@ -6,9 +6,7 @@ html{
 }
 .body{
   display: flex;
-
-  
-  
+ 
 }
 /* SIDENAV */
 .hover-nav:hover{
@@ -105,7 +103,7 @@ background-color: rgb(171, 171, 245);
   
  }
 
- .card:hover{
+ .card-carousel:hover{
    transform:scale(1.1)
    }
 
@@ -246,9 +244,12 @@ background-color: rgb(171, 171, 245);
   align-items: center;
   
 }
+.tarjetas:hover{
+  transform:scale(1.1)
+  }
 
 .tarjetas{
-  height: 30vh;
+  height: 40vh;
   width: 80%;
   margin: 2vh;
   }
@@ -294,7 +295,42 @@ background-color: rgb(171, 171, 245);
 }
 
 .main-city{
-  height: 30vh;
-  display: flex;
-  justify-content: center;
+  height: 100vh;
+
 }
+
+
+.card-itinerary{
+  height: 70vh;
+  width: 80%;
+  margin: 0%;
+  background-color: black;
+}
+
+.card-body{
+  background-color:lightseagreen;
+}
+.card-accordion{
+  height: 20vh;
+}
+
+.imagen-celebrity{
+  border-radius: 50%;
+  height: 20vh;
+}
+
+.div-card{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.money{
+  height: 5vh;
+}
+.hashtag{
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+}
+

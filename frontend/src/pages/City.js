@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
 import { Link } from "react-router-dom";
+import Itinerary from "../components/Itinerary";
 
 class City extends React.Component {
 
@@ -29,14 +30,14 @@ class City extends React.Component {
             <div className="headerContenedor">
                 {this.state.ciudad && <h1 className="nombre-ciudad">{this.state.ciudad.nombre}</h1> }
                 {this.state.ciudad && <img src= {`/assets/ciudades/${this.state.ciudad.imagen}`} alt="city" className="imagenHeader"></img> }
-
             </div>
             <div className="main-city d-flex align-items-center flex-column">
-                    <h2>Under construction</h2>
+                <Itinerary/>
                 <Button size="lg" as={Link} to='/Cities' className="boton-call">
                     Cities
                 </Button>
             </div>
+           
             
 
             </>
