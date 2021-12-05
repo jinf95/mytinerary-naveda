@@ -1,8 +1,11 @@
 import React from "react";
-import axios from 'axios'
 import Button from 'react-bootstrap/Button'
 import { Link } from "react-router-dom";
-import Itinerary from "../components/Itinerary";
+import { connect } from "react-redux";
+import citiesActions from "../redux/actions/citiesActions";
+import itinerariesActions from "../redux/actions/itinerariesActions";
+import Itinerary from "../components/Itineraries";
+import { Spinner } from "reactstrap";
 
 class City extends React.Component {
 
@@ -14,35 +17,43 @@ class City extends React.Component {
         }
     }
     
-    id = this.props.params.id
-
     componentDidMount() {
        
-
-        axios.get(`http://localhost:4000/api/ciudades/`+ this.id)
-            .then(res => this.setState({ciudad : res.data.respuesta}))
+        this.props.obtenerCiudad(this.props.params.id)
+        this.props.fetchearItinerarios(this.props.params.id)
+     
     }
 
-
     render() {
+
         return (
             <>
-            <div className="headerContenedor">
-                {this.state.ciudad && <h1 className="nombre-ciudad">{this.state.ciudad.nombre}</h1> }
-                {this.state.ciudad && <img src= {`/assets/ciudades/${this.state.ciudad.imagen}`} alt="city" className="imagenHeader"></img> }
+             <div className="headerContenedor">
+                {this.props.ciudad && <h1 className="nombre-ciudad">{this.props.ciudad.nombre}</h1>}
+                {this.props.ciudad && <img src= {`/assets/ciudades/${this.props.ciudad.imagen}`} alt="city" className="imagenHeader"></img> }
             </div>
             <div className="main-city d-flex align-items-center flex-column">
-                <Itinerary/>
+            {this.props.itinerarios ? <Itinerary itinerarios={this.props.itinerarios}/> : <Spinner color="info" size=""></Spinner>}
                 <Button size="lg" as={Link} to='/Cities' className="boton-call">
                     Cities
                 </Button>
             </div>
-           
-            
-
             </>
         )
     }
 }
 
-export default City
+const mapStateToProps = (state) =>{
+    return {
+        ciudad: state.citiesReducer.ciudad,
+        itinerarios: state.itinerariesReducer.itinerarios
+    }
+}
+
+const mapDispatchToProps = {
+    
+    obtenerCiudad : citiesActions.obtenerCiudad,
+    fetchearItinerarios : itinerariesActions.fetchearItinerarios
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(City)

@@ -1,41 +1,46 @@
 import React from 'react';
 import HeaderCities from '../components/HeaderCities';
 import MainCities from '../components/MainCities';
-import axios from 'axios';
+import { connect } from 'react-redux'
+import citiesActions from '../redux/actions/citiesActions';
+import { Spinner } from 'reactstrap';
 
 class Cities extends React.Component {
 
     constructor() {
         super()
-        console.log("soy el constructor")
         this.state = {
-            
+
         }
 
     }
 
     componentDidMount() {
-        console.log("soy componentDiMount")
+        this.props.fetchCiudades()
 
-        axios.get(`http://localhost:4000/api/ciudades`)
-        .then(res => this.setState({ciudades : res.data.respuesta}))
-     
     }
 
     render() {
-        console.log("soy render")
-
         return (
             <>
                 <HeaderCities />
                 <div className="cities">
-                   { this.state.ciudades && <MainCities ciudades={this.state.ciudades} /> } 
+                    {this.props.ciudades.length > 0 ? <MainCities /> : <Spinner color="info" size=""></Spinner>}
                 </div>
 
             </>
         )
     }
+}
+
+const mapStateToProps = (state) => {
+    return { ciudades: state.citiesReducer.ciudades }
+}
+
+const mapDispatchToProps = {
+    fetchCiudades: citiesActions.obtenerCiudades
 
 }
 
-export default Cities
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities)
