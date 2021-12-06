@@ -7,6 +7,8 @@ import Carrousel from '../components/Carrousel.js'
 class Home extends React.Component{
     
     render(){
+        window.scrollTo(0, 0);
+
         return(
         <>
             <Hero/>

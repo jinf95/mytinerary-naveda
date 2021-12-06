@@ -1,11 +1,10 @@
 import React from "react";
-import Button from 'react-bootstrap/Button'
+import {Button, Alert} from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Itinerary from "../components/Itineraries";
-import { Spinner } from "reactstrap";
 
 class City extends React.Component {
 
@@ -25,6 +24,7 @@ class City extends React.Component {
     }
 
     render() {
+        window.scrollTo(0, 0);
 
         return (
             <>
@@ -33,7 +33,12 @@ class City extends React.Component {
                 {this.props.ciudad && <img src= {`/assets/ciudades/${this.props.ciudad.imagen}`} alt="city" className="imagenHeader"></img> }
             </div>
             <div className="main-city d-flex align-items-center flex-column">
-            {this.props.itinerarios ? <Itinerary itinerarios={this.props.itinerarios}/> : <Spinner color="info" size=""></Spinner>}
+            {this.props.itinerarios.length > 0 ? <Itinerary itinerarios={this.props.itinerarios}/> 
+            : <Alert className="alerta-itinerarios" variant="primary">
+            <p className="mensaje-itinerarios">
+            THERE ARE NO ITINERARIES YET FOR THIS CITY
+           </p>
+            </Alert>}
                 <Button size="lg" as={Link} to='/Cities' className="boton-call">
                     Cities
                 </Button>
