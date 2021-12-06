@@ -22,8 +22,8 @@ const SideNav = () => {
                             <Nav.Link as={Link} to="/"  className="hover-nav">HOME</Nav.Link>
                             <Nav.Link as={Link} to="/Cities"  className="hover-nav">CITIES</Nav.Link>
                             <NavDropdown title={logo} id="collasible-nav-dropdown">
-                                <NavDropdown.Item>Sign In</NavDropdown.Item>
-                                <NavDropdown.Item>Sign Up</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/SignIn">Sign In</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/SignUp">Sign Up</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

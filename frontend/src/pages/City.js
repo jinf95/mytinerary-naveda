@@ -39,7 +39,7 @@ class City extends React.Component {
             THERE ARE NO ITINERARIES YET FOR THIS CITY
            </p>
             </Alert>}
-                <Button size="lg" as={Link} to='/Cities' className="boton-call">
+                <Button size="lg" as={Link} to='/Cities' className="boton-cities">
                     Cities
                 </Button>
             </div>

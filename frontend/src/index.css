@@ -300,6 +300,7 @@ background-color: rgb(171, 171, 245);
 
 .main-city{
   background-color: rgb(171, 171, 245);
+  min-height: 40vh;
 
  
 }
@@ -398,6 +399,14 @@ background-color: rgb(171, 171, 245);
   
 }
 
+.boton-cities{
+  margin: 2vh;
+  background-color: black;
+}
+.boton-cities:hover{
+  background-color: rgb(66, 65, 65);
+}
+
 @media screen and (max-width:495px) {
   .div-card{
     display: flex;
@@ -419,4 +428,39 @@ background-color: rgb(171, 171, 245);
   .div-card{
     height: 10vh;
   }
+}
+
+/* SignUp */
+
+.form-contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(70, 69, 69);
+}
+
+.formulario-signUp{
+  width: 50%;
+  color: white;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* SIGN IN */
+
+.signIn-contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: rgb(70, 69, 69);
+
+}
+
+.form-signIn{
+  width: 20%;
+  color: white;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
