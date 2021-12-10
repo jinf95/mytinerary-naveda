@@ -40,9 +40,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    fetchCiudades: citiesActions.obtenerCiudades
+    fetchCiudades: citiesActions.obtenerCiudades     
 
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cities)

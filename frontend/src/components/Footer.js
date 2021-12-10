@@ -27,7 +27,7 @@ const Footer = () => {
                     </Nav>
                     <div>
                         {redes.map((red)=>{
-                            let logo = `./assets/${red.imagen}`
+                            let logo = `/assets/${red.imagen}`
                             return(
                                  <img src= {logo} alt="social networks" className="logos me-2 ms-2"/>
                             )

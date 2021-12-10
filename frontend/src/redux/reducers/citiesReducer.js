@@ -17,7 +17,7 @@ const citiesReducer = (state = inicialState, action) => {
          case 'obtenerCity':
                 const ciudad = state.ciudades.find(ciudad => ciudad._id === action.payload.id)
 
-                return {
+                return {    
                     ...state,
                     ciudad: ciudad
                 }

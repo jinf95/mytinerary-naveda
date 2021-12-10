@@ -33,12 +33,15 @@ class City extends React.Component {
                 {this.props.ciudad && <img src= {`/assets/ciudades/${this.props.ciudad.imagen}`} alt="city" className="imagenHeader"></img> }
             </div>
             <div className="main-city d-flex align-items-center flex-column">
-            {this.props.itinerarios.length > 0 ? <Itinerary itinerarios={this.props.itinerarios}/> 
+            {this.props.itinerarios.length > 0          
+            ? <Itinerary itinerarios={this.props.itinerarios}/> 
+            //  <div class="loader"></div>
             : <Alert className="alerta-itinerarios" variant="primary">
-            <p className="mensaje-itinerarios">
-            THERE ARE NO ITINERARIES YET FOR THIS CITY
-           </p>
-            </Alert>}
+                 <p className="mensaje-itinerarios">
+                    THERE ARE NO ITINERARIES YET FOR THIS CITY
+            </p>
+            </Alert> }
+            
                 <Button size="lg" as={Link} to='/Cities' className="boton-cities">
                     Cities
                 </Button>

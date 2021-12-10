@@ -2,6 +2,7 @@ import React from "react";
 import { Carousel, Row, Col, Card } from 'react-bootstrap'
 
 
+
 const Carrousel = () => {
 
     const ciudades = [
@@ -27,9 +28,9 @@ const Carrousel = () => {
 
     return (
 
-        <div>
+        <div >
             <h2 className="titulo-carrousel">POPULAR MYTINERARIES</h2>
-            <Carousel >
+            <Carousel  >
             {ciudades.map((arrayCiudad) => {
                 return (
                     <Carousel.Item className="item">
@@ -67,4 +68,3 @@ export default Carrousel
 
 
 
-// d-flex align-items-center justify-content-center

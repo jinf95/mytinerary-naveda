@@ -102,8 +102,7 @@ background-color: rgb(171, 171, 245);
   border-color: black;
   height: 80vh;
   transition: 1s;
-  
-  
+    
  }
 
  .card-carousel:hover{
@@ -321,12 +320,14 @@ background-color: rgb(171, 171, 245);
 }
 .titulo-itinerario{
   height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .body-itinerary{
   background-color:rgba(43, 132, 233, 0.541);
   display: flex;
-  justify-content: space-evenly;
-  color: black;
+  justify-content: space-between;
   height: 80vh;
   color: white;
 
@@ -338,6 +339,17 @@ background-color: rgb(171, 171, 245);
 .imagen-celebrity{
   border-radius: 50%;
   height: 20vh;
+  width: 25%;
+}
+
+.celebrity-fondo{
+  width: 100%;
+  height: 30vh;
+  background-color: rgb(0, 4, 59);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .div-card{
@@ -367,7 +379,7 @@ background-color: rgb(171, 171, 245);
 }
 .hashtag{
   width: 80%;
-  margin-bottom: 0%;
+  margin-bottom: 2vh;
 }
 
 .alerta-itinerarios{
@@ -418,16 +430,22 @@ background-color: rgb(171, 171, 245);
   .card-itinerary{
     height: 85vh;
   }
+  .imagen-celebrity{
+    width: 35%;
+  }
 
+  .duration{
+    margin-top: 3vh;
+  }
   .favorito{
     display: flex;
     flex-direction: row;
-    margin-bottom: 3vh;
   }
 
   .div-card{
     height: 10vh;
   }
+
 }
 
 /* SignUp */
@@ -436,16 +454,26 @@ background-color: rgb(171, 171, 245);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: rgb(70, 69, 69);
+  min-height: 100vh;
 }
 
 .formulario-signUp{
+  height: 80%;
   width: 50%;
+  padding: 2vh;
+  border-radius: 5%;
+  background-color: rgb(59, 59, 59);
   color: white;
   font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.fondo-signUp{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  
+  }
 
 /* SIGN IN */
 
@@ -454,13 +482,56 @@ background-color: rgb(171, 171, 245);
   justify-content: center;
   align-items: center;
   min-height: 80vh;
-  background-color: rgb(70, 69, 69);
 
 }
 
 .form-signIn{
   width: 20%;
+  padding: 2vh;
+  border-radius: 5%;
+  background-color: rgb(59, 59, 59);
   color: white;
   font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.fondo-signIn{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 80%;
+}
+
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 30px solid #f3f3f3;
+  margin:5% auto;
+  border-left: 30px solid   rgb(0, 0, 153);
+  border-right: 30px solid rgb(0, 0, 153);
+  border-radius: 50%;
+  animation: spinIT 0.8s linear infinite;
+  filter: drop-shadow(0px 0px 8px gray)
+} 
+
+@keyframes spinIT {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+} 
+
+@media screen and (max-width:1280px) {
+  }
+
+@media screen and (max-width:768px) {
+  .formulario-signUp{
+    width: 55%;
+    /* height: 0%; */
+  }
+}
+  @media screen and (max-width:375px) {
+    .formulario-signUp{
+      display: flex !important;
+      flex-direction: column!important;
+    }
+
 }

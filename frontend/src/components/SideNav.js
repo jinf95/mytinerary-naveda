@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 
 const SideNav = () => {
 
-    const logo = <img src='./assets/logosesion.svg' alt = "logoSesion" />
+    const logo = <img src='/assets/logosesion.svg' alt = "logoSesion" />
 
     return (
 
         <>
             <Navbar collapseOnSelect expand="lg" className ="navbar">
                 <Container>
-                <img width="70" height="70" src="./assets/logo.png" alt="imagen"/>
+                <img width="70" height="70" src="/assets/logo.png" alt="imagen"/>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
