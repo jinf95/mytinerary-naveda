@@ -29,7 +29,7 @@ const Footer = () => {
                         {redes.map((red)=>{
                             let logo = `/assets/${red.imagen}`
                             return(
-                                 <img src= {logo} alt="social networks" className="logos me-2 ms-2"/>
+                                 <img key={red.imagen} src= {logo} alt="social networks" className="logos me-2 ms-2"/>
                             )
                         })}
                     </div>

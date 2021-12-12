@@ -2,14 +2,15 @@ import axios from 'axios'
 
 const authActions = {
 
-    registrarUsuario : (email, password) => {
+    registrarUsuario : (nuevoUsuario) => {
         return async (dispatch, getState) => {
             try{
-                const usuario = await axios.post('http://localhost:4000/api/signUp',{email,password})
+                const usuario = await axios.post('http://localhost:4000/api/signUp',{...nuevoUsuario})
                 if(usuario.data.success && !usuario.data.error){
-                dispatch({type:'usuario', payload: {email}})
+                localStorage.setItem('token', usuario.data.response.token)
+                dispatch({type:'usuario', payload: {...nuevoUsuario}})
                 }else{
-                    alert(usuario.data.error)
+                    console.log(usuario.data.error)
                 }
             } catch(error){
 
@@ -17,14 +18,15 @@ const authActions = {
         }
     },
 
-    iniciarSesion :(email, password) =>{
+    iniciarSesion :(ingresarUsuario) =>{
         return async(dispatch, getState) => {
             try{
-                const usuario = await axios.post('http://localhost:4000/api/signIn', {email, password})
+                const usuario = await axios.post('http://localhost:4000/api/signIn', {...ingresarUsuario})
                 if(usuario.data.success && !usuario.data.error){
+                    localStorage.setItem('token', usuario.data.response.token)
                 dispatch({type:'usuario', payload: {email: usuario.data.response}})
                 }else{
-                    alert(usuario.data.response)
+                    console.log(usuario.data.response)
                 }
             }catch(error){
 

@@ -33,12 +33,12 @@ const Carrousel = () => {
             <Carousel  >
             {ciudades.map((arrayCiudad) => {
                 return (
-                    <Carousel.Item className="item">
+                    <Carousel.Item key={arrayCiudad.ciudad} className="item">
                         <Row xs={1} md={2} className="g-4">
                             {arrayCiudad.map((ciudad) => {
                                 let imagenes = `./assets/ciudades/${ciudad.imagen}`
                                 return (
-                                    <Col className="d-flex justify-content-center">
+                                    <Col key={ciudad.imagen} className="d-flex justify-content-center">
                                         <Card className="card-carousel">
                                             <Card.Img variant="top" src={imagenes} className="imagen-cards"/>
                                             <Card.Body className="card-body">

@@ -8,7 +8,7 @@ const personaSchema = new mongoose.Schema({
     url:{type: String, required: true},
     ciudad:{type: String, required: true},
     pais:{type: String, required: true},
-    
+    google: {type: Boolean, default: false}
 })
 
 const Persona = mongoose.model('usuario', personaSchema)

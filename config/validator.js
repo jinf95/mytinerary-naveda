@@ -18,7 +18,8 @@ const validator = (req, res, next) => {
     ciudad: joi.string().optional(),
     pais: joi.string().required().messages({
         'string.empty':'This field cannot be empty, it is required',
-    })
+    }),
+    google: joi.boolean(),
 
 })
 

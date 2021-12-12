@@ -1,11 +1,12 @@
 const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 const Persona = require('../models/Persona')
 
 const controllersUsers = {
 
     nuevoUsuario: async (req, res) => {
 
-        const {nombre, apellido, email, contraseña, url, ciudad, pais} = req.body
+        const {nombre, apellido, email, contraseña, url, ciudad, pais, google} = req.body
 
         try {
 
@@ -24,10 +25,14 @@ const controllersUsers = {
                 contraseña: contraseñaHasheada,
                 url,
                 ciudad,
-                pais
+                pais,
+                google
             })
+
+            const token = jwt.sign({...nuevoUsuario}, process.env.SECRET_KEV)
+
             await nuevoUsuario.save()
-            res.json({ success: true, response: nuevoUsuario, error: null })
+            res.json({ success: true, response: {token, nuevoUsuario}, error: null })
             }
           
 
@@ -39,15 +44,17 @@ const controllersUsers = {
     },
 
     accederACuenta: async(req, res) => {
-        const {email, contraseña} = req.body
+        const {email, contraseña, google} = req.body
     try{
         const usuarioExiste = await Persona.findOne({email})
+        if(usuarioExiste.google && !google) throw new Error ("Email Invalido")
         if(!usuarioExiste){
             res.json({success: false, error: "Usuario y/o contraseña incorrectos"})
         }else{
             let autContraseña = bcryptjs.compareSync(contraseña, usuarioExiste.contraseña)
-        if(autContraseña){
-            res.json({success: true , response: {email}, error: null})
+            if(autContraseña){
+                const token = jwt.sign({...usuarioExiste}, process.env.SECRET_KEV)
+            res.json({success: true , response: {token,email}, error: null})
 
             }  
         }
