@@ -2,10 +2,12 @@ import React from "react"
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap/'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux'
 
 
-const SideNav = () => {
+const SideNav = (props) => {
 
+    console.log(props)
     const logo = <img src='/assets/logosesion.svg' alt = "logoSesion" />
 
     return (
@@ -26,6 +28,7 @@ const SideNav = () => {
                                 <NavDropdown.Item as={Link} to="/SignUp">Sign Up</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
+                        {props.usuario.email !== "" ? <h1 className="bienvenida-sidenav">Bienvenido {props.usuario.email}</h1> : <h1 className="bienvenida-sidenav">No estas registrado</h1>}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
@@ -35,4 +38,10 @@ const SideNav = () => {
 
 }
 
-export default SideNav
+const mapStateToProps = (state) => {
+    return{
+        usuario: state.authReducer.usuario
+    }
+}
+
+export default connect(mapStateToProps)(SideNav)

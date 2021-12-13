@@ -9,7 +9,7 @@ const Itinerary = ({ itinerarios }) => {
     return (
         <>
             {itinerarios.map(itinerario =>
-                <Card className="card-itinerary text-center">
+                <Card key={itinerario.titulo} className="card-itinerary text-center">
                     <Card.Header className="titulo-itinerario">{itinerario.titulo} </Card.Header>
                     <Card.Body className="body-itinerary">
                         <div className="celebrity-fondo">

@@ -27,25 +27,25 @@ const FormSignUp = (props) => {
         })
     }
 const responseGoogle = (res) => {
+    console.log(res)
         let googleUser = {
-            nombre: res.profileObj.name,
+            nombre: res.profileObj.givenName,
             apellido: res.profileObj.familyName,
             email: res.profileObj.email, 
             contraseña: res.profileObj.googleId,
             url: res.profileObj.imageUrl,
-            ciudad: "",
-            pais: "",
+            ciudad: "San Juan",
+            pais: "Argentina",
             google: true,
         }
 
         props.registrarUsuario(googleUser)
-        .then((response) => response.data.success)
+        .then((res) => console.log(res.data.success))
         .catch((error) => console.log(error))
       }
 
     const submitForm = () => {
         props.registrarUsuario(nuevoUsuario)
-        console.log(props.registrarUsuario)
     }
 
     const [paises, setPaises] = useState([])
@@ -53,15 +53,16 @@ const responseGoogle = (res) => {
     useEffect(() => {
         axios.get(`https://restcountries.com/v2/all?fields=name`)
             .then(res => setPaises(res.data))
-    }, [])
+
+        }, [])
 
     
     return (
         <div className="form-contenedor">
             <img className="fondo-signUp" src="./assets/fondo-signUp.jpg" alt="fund-signUp" />
-
             <Form className="formulario-signUp">
-                <Row className="mb-3">
+                <h3 className="d-flex justify-content-center">Create an Account</h3>
+                <Row className="">
                     <Form.Group as={Col} controlId="formGridFirstName">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" onChange={inputHandler} placeholder="FIRST NAME" required="required" autoComplete="off" />
@@ -71,7 +72,7 @@ const responseGoogle = (res) => {
                         <Form.Control type="text" onChange={inputHandler} placeholder="FIRST LAST NAME" required="required" autoComplete="off" />
                     </Form.Group>
                 </Row>
-                <Row className="mb-3">
+                <Row className="">
                     <Form.Group as={Col} controlId="formGridEmail">
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" onChange={inputHandler} placeholder="EMAIL" required="required" autoComplete="off" />
@@ -85,7 +86,7 @@ const responseGoogle = (res) => {
                     <Form.Label>Profile Picture (URL)</Form.Label>
                     <Form.Control type="text" onChange={inputHandler} placeholder="PHOTO URL" autoComplete="off" />
                 </Form.Group>
-                <Row className="mb-3">
+                <Row className="">
                     <Form.Group as={Col} className="mb-3" controlId="formGridCity">
                         <Form.Label>City</Form.Label>
                         <Form.Control type="text" onChange={inputHandler} placeholder="CITY" autoComplete="off" />
@@ -105,20 +106,23 @@ const responseGoogle = (res) => {
                 <Form.Group className="mb-3" id="formGridCheckbox">
                     <Form.Check type="checkbox" label="Accept terms and conditions" required="required" />
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={submitForm} >
+                <div className="boton-contenedor">
+                    <Button className="boton-Up" variant="primary" type="submit" onClick={submitForm} >
                     Sign Up
-                </Button>
+                </Button> 
+                </div>               
+              
+                <GoogleLogin className="google mt-2"
+                    clientId="31750726580-hd0f94k1n8pudt2igabf9l9mp13vr7m1.apps.googleusercontent.com"
+                    buttonText="Sign Up with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'} 
+                />  
                 <Nav className="d-flex align-items-center">
                     Already have an account?
                     <NavLink as={Link} to="/SignIn">Sign in here !</NavLink>
                 </Nav>
-                <GoogleLogin
-                    clientId="31750726580-hd0f94k1n8pudt2igabf9l9mp13vr7m1.apps.googleusercontent.com"
-                    buttonText="Login"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'} 
-                />
             </Form> 
            
         </div>

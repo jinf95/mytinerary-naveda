@@ -31,14 +31,14 @@ const Carrousel = () => {
         <div >
             <h2 className="titulo-carrousel">POPULAR MYTINERARIES</h2>
             <Carousel  >
-            {ciudades.map((arrayCiudad) => {
+            {ciudades.map((arrayCiudad,index) => {
                 return (
-                    <Carousel.Item key={arrayCiudad.ciudad} className="item">
+                    <Carousel.Item key={index} className="item">
                         <Row xs={1} md={2} className="g-4">
-                            {arrayCiudad.map((ciudad) => {
+                            {arrayCiudad.map((ciudad, index) => {
                                 let imagenes = `./assets/ciudades/${ciudad.imagen}`
                                 return (
-                                    <Col key={ciudad.imagen} className="d-flex justify-content-center">
+                                    <Col key={index} className="d-flex justify-content-center">
                                         <Card className="card-carousel">
                                             <Card.Img variant="top" src={imagenes} className="imagen-cards"/>
                                             <Card.Body className="card-body">

@@ -1,8 +1,9 @@
 const inicialState = {
-    usuario : {email:''},
+    usuario : {email: ""}
 }
 
 const authReducer = (state = inicialState, action) => {
+    
     switch(action.type){
 
         case 'usuario':
@@ -10,10 +11,16 @@ const authReducer = (state = inicialState, action) => {
                 ...state,
                 usuario:action.payload
             }
-
+        
+        case 'cerrarSesion':
+            return{
+                ...inicialState,
+    
+            } 
             default:
                 return state
-                
+        
+    
     }
 }
 

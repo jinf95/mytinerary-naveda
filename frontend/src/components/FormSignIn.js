@@ -32,7 +32,8 @@ const FormSignIn = (props) => {
             .catch((error) => console.log(error))
           }
 
-        const submitForm = () => {
+        const submitForm = (e) => {
+            e.preventDefault()
             props.iniciarSesion(ingresarUsuario)
         }
 
@@ -48,20 +49,23 @@ const FormSignIn = (props) => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" onChange={inputHandler} placeholder="PASSWORD" required="required" />
                 </Form.Group>
+                <div className="mb-2">
                 <Button variant="primary" type="submit" onChange={submitForm}>
                     Get in
                 </Button>
+                </div>              
+               
+                <GoogleLogin
+                    clientId="31750726580-hd0f94k1n8pudt2igabf9l9mp13vr7m1.apps.googleusercontent.com"
+                    buttonText="Log In with Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                /> 
                 <Nav className="d-flex align-items-center">
                     Don't have an account?
                     <NavLink as={Link} to="/SignUp">Register here !</NavLink>
                 </Nav>
-                <GoogleLogin
-                    clientId="31750726580-hd0f94k1n8pudt2igabf9l9mp13vr7m1.apps.googleusercontent.com"
-                    buttonText="Login"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                />
             </Form>
         </div>
     )

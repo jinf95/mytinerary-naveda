@@ -8,5 +8,16 @@ module.exports = passport.use(new jwtStrategy({
     jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: process.env.SECRET_KEY
 },(jwt_payload,done) =>{
-
+    
+    Persona.findOne({_id:jwt_payload._doc._id})
+    .then(persona => {
+        if(persona){
+            return done(null, persona)
+        }else{
+            return done(null, false)
+        }
+    })
+    .catch(err => {
+        return done (err, false)
+    })
 }))

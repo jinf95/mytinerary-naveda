@@ -18,7 +18,7 @@ const filtrar = e => props.filtro(e.target.value)
             </div>
            {props.lugaresFiltrados.length > 0 
             ? props.lugaresFiltrados.map(ciudad => 
-                <Card as={Link} to={`/City/${ciudad._id}`} className="tarjetas bg-dark text-white" key={ciudad.nombre} datos={ciudad}>
+                <Card key={ciudad.nombre} as={Link} to={`/City/${ciudad._id}`} className="tarjetas bg-dark text-white" datos={ciudad}>
                             <Card.Img className="card-imagen" src={`./assets/ciudades/${ciudad.imagen}`} alt="Card imagen" />
                             <Card.ImgOverlay className="nombre-card">
                                 <Card.Title className="card-title" >{ciudad.nombre} </Card.Title>
