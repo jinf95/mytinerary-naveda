@@ -32,10 +32,10 @@ useEffect(() => {
           <Route path='/' element={<Home />} />
           <Route path='Cities' element={<Cities />} />
           <Route path='/City/:id' element={<CityC />} />
-          {!props.usuario && <Route path='/SignUp' element={<SignUp />} />}
-          {!props.usuario && <Route path='/SignIn' element={<SignIn />} />}
+          <Route path='/SignUp' element={<SignUp />} />
+          <Route path='/SignIn' element={<SignIn />} />
           <Route path='*' element={<Home />} />
-
+        
         </Routes>
         <Footer />
 

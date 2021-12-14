@@ -4,19 +4,20 @@ const authActions = {
 
     registrarUsuario : (nuevoUsuario) => {
         return async (dispatch, getState) => {
-            console.log(nuevoUsuario)
             try{
                 const usuario = await axios.post('http://localhost:4000/api/signUp',{...nuevoUsuario})
-                console.log(usuario)
                 if(usuario.data.success && !usuario.data.error){
                 localStorage.setItem('token', usuario.data.response.token)
+                localStorage.setItem('nombre', usuario.data.response._doc.nombre)
+                localStorage.setItem('url', usuario.data.response._doc.url)
+
                 dispatch({type:'usuario', payload:{nombre: usuario.data.response.nombre, url: usuario.data.response.url}})
                 }else{
-                    alert("Else de registrar usuario")
+                    console.log(usuario.data.response)
 
                 }                                  
             } catch(error){
-                alert("Cayo en el catch RegistrarUsuario")
+                
             }
         }
     },
@@ -29,12 +30,14 @@ const authActions = {
                 if(usuario.data.success && !usuario.data.error){
                     console.log(usuario.data)
                     localStorage.setItem('token', usuario.data.response.token)
+                    localStorage.setItem('nombre', usuario.data.response._doc.nombre)
+                    localStorage.setItem('url', usuario.data.response._doc.url)
                 dispatch({type:'usuario', payload: {email: usuario.data.response.email}})
                 }else{
                     console.log(usuario.data.response)
                 }
             }catch(error){
-               alert("Cayo en cath IniciarSesion")
+               console.log(error)
             }
         }
     },
@@ -58,7 +61,7 @@ const authActions = {
             usuario.data.success && dispatch({type:'usuario', payload: {nombre: usuario.data.response.nombre, url: usuario.data.response.url} })
             }
             catch(error) {
-               alert("Cayo en catch loguearConToken")
+               console.log(error)
             }
         }
     }

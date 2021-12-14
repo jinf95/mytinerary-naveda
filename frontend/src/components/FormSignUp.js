@@ -5,8 +5,7 @@ import axios from "axios";
 import authActions from "../redux/actions/authActions";
 import { connect } from 'react-redux'
 import GoogleLogin from 'react-google-login';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const FormSignUp = (props) => {
@@ -75,21 +74,10 @@ const responseGoogle = (res) => {
 
         }, [])
 
-        // toast.dark('Successful registration', {
-        //     position: "top-left",
-        //     autoClose: 2000,
-        //     hideProgressBar: false,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: true,
-        //     progress: undefined,
-        // });
-
-    return (
+        return (
 
         <div className="form-contenedor">
             <img className="fondo-signUp" src="./assets/fondo-signUp.jpg" alt="fund-signUp" />
-            {/* <ToastContainer></ToastContainer> */}
 
             <Form className="formulario-signUp" onSubmit={submitForm}>                
              <div className="row">
@@ -105,16 +93,16 @@ const responseGoogle = (res) => {
             <div className="row">
                 <Form.Group className="col-12 col-sm-6 mb-3" controlId="formEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control onChange={()=>inputHandler(email, "email")} ref={email} type="email" placeholder="EMAIL" />
+                <Form.Control onChange={()=>inputHandler(email, "email")} ref={email} type="email" placeholder="EMAIL" required="required" />
             </Form.Group>
             <Form.Group className="col-12 col-sm-6 mb-3" controlId="formPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control onChange={()=>inputHandler(contraseña, "contraseña")} ref={contraseña} type="password" placeholder="PASSWORD" rows={3} />
+                <Form.Control onChange={()=>inputHandler(contraseña, "contraseña")} ref={contraseña} type="password" placeholder="PASSWORD" rows={3} required="required"/>
             </Form.Group>
             </div>
             <Form.Group className="mb-3" controlId="formUrl">
                 <Form.Label>Profile Picture</Form.Label>
-                <Form.Control onChange={()=>inputHandler(url, "url")} ref={url} type="text" placeholder="PHOTO URL" rows={3} />
+                <Form.Control onChange={()=>inputHandler(url, "url")} ref={url} type="text" placeholder="PHOTO URL" rows={3} required="required"/>
             </Form.Group>
             <div className="row">
             <Form.Group className="col-12 col-sm-6 mb-3" controlId="formCity">
@@ -134,10 +122,7 @@ const responseGoogle = (res) => {
                     </Form.Group>
             </div>
           
-                    <Form.Group className="mb-3" id="formCheckbox">
-                     <Form.Check type="checkbox" label="Accept terms and conditions" required="required" />
-                 </Form.Group>
-                 <div className="boton-contenedor">
+                <div className="boton-contenedor">
                      <Button className="boton-Up" variant="primary" type="submit" >
                      Sign Up
                  </Button> 
@@ -155,7 +140,6 @@ const responseGoogle = (res) => {
                  </Nav>
             </Form>
             
-           
         </div>
     )
 

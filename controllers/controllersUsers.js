@@ -32,7 +32,7 @@ const controllersUsers = {
 
             await nuevoUsuario.save()
 
-            res.json({ success: true, response: {token, nuevoUsuario}, error: null })
+            res.json({ success: true, response: {token,...nuevoUsuario}, error: null })
             }
           
         } catch (error) {
@@ -54,7 +54,7 @@ const controllersUsers = {
             let autContraseña = bcryptjs.compareSync(contraseña, usuarioExiste.contraseña)
             if(autContraseña){
                 const token = jwt.sign({...usuarioExiste}, process.env.SECRET_KEY)
-            res.json({success: true , response: {token,email}, error: null})
+            res.json({success: true , response: {token,...usuarioExiste}, error: null})
 
             }  
         }

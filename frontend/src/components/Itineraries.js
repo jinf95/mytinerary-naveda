@@ -33,13 +33,12 @@ const Itinerary = ({ itinerarios }) => {
                             <p className="hashtag">{itinerario.hashtag}</p>
                         </div>
                     </Card.Body>   
-                              
-                </Card>   
-           
+                         <Button onClick={HandleDisplay} className="boton-itinerario">{display ? 'view less' : 'view more'} </Button>
+                    {display && <h1> Under Construction</h1>}      
+                </Card>              
                         )
-                        }  
-            <Button onClick={HandleDisplay} className="boton-itinerario">{display ? 'view less' : 'view more'} </Button>
-                    {display && <h1> Under Construction</h1>}            
+                    }  
+                       
                             
             </>
     )

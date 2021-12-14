@@ -1,5 +1,5 @@
 const inicialState = {
-    usuario : null
+    usuario : {nombre: null}
 }
 
 const authReducer = (state = inicialState, action) => {
@@ -13,8 +13,13 @@ const authReducer = (state = inicialState, action) => {
             }
         
         case 'cerrarSesion':
+            localStorage.removeItem('token')
+            localStorage.removeItem('nombre')
+            localStorage.removeItem('url')
+
             return{
-                ...inicialState,
+                ...state,
+                usuario: null
     
             } 
             default:

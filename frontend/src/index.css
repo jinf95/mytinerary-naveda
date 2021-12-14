@@ -496,7 +496,10 @@ background-color: rgb(171, 171, 245);
   } */
 
 /* SIGN IN */
-
+.foto-perfil{
+  border-radius: 50%;
+  height: 5vh;
+}
 .signIn-contenedor{
   display: flex;
   justify-content: center;

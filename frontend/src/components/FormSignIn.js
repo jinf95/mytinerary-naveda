@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import authActions from "../redux/actions/authActions";
 import GoogleLogin from 'react-google-login';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const FormSignIn = (props) => {
@@ -42,20 +41,10 @@ const FormSignIn = (props) => {
             props.iniciarSesion(ingresarUsuario)
         }
 
-        // toast('You are logged in', {
-        //     position: "top-left",
-        //     autoClose: 2000,
-        //     hideProgressBar: false,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: true,
-        //     progress: undefined,
-        // });
 
     return (
         <div className="signIn-contenedor">
             <img className="fondo-signIn" src="./assets/fondo-signIn.jpg" alt="fund-signIn" />
-            {/* <ToastContainer></ToastContainer> */}
             <Form className="form-signIn" onSubmit={submitForm}>
                 <Form.Group className="col-12 mb-3" controlId="formGroupEmail">
                     <Form.Label>Email address</Form.Label>
