@@ -34,7 +34,7 @@ Router.route('/signUp')
 .post(validator, nuevoUsuario)
 
 Router.route('/signIn/token')
-.post(passport.authenticate('jwt', {session:false}), validator, accederConToken)
+.post(passport.authenticate('jwt', {session:false}), accederConToken)
 
 Router.route('/signIn')
 .post(accederACuenta)

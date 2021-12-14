@@ -1,9 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import { Form, Button, Nav, NavLink } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import authActions from "../redux/actions/authActions";
 import GoogleLogin from 'react-google-login';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
 
 const FormSignIn = (props) => {
 
@@ -12,11 +15,13 @@ const FormSignIn = (props) => {
             contraseña: "",
         })
     
-        const inputHandler = (e) => {
-            console.log(e.target.value)
+        const email = useRef();
+        const contraseña = useRef();
+
+        const inputHandler = (ref, input) => {
             setIngresarUsuario({
-                ...ingresarUsuario, 
-                [e.target.name]: e.target.value
+                ...ingresarUsuario,
+                [input]: ref.current.value
             })
         }
 
@@ -37,20 +42,31 @@ const FormSignIn = (props) => {
             props.iniciarSesion(ingresarUsuario)
         }
 
+        // toast('You are logged in', {
+        //     position: "top-left",
+        //     autoClose: 2000,
+        //     hideProgressBar: false,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true,
+        //     progress: undefined,
+        // });
+
     return (
         <div className="signIn-contenedor">
             <img className="fondo-signIn" src="./assets/fondo-signIn.jpg" alt="fund-signIn" />
-            <Form className="form-signIn">
-                <Form.Group className="mb-3" controlId="formGroupEmail">
+            {/* <ToastContainer></ToastContainer> */}
+            <Form className="form-signIn" onSubmit={submitForm}>
+                <Form.Group className="col-12 mb-3" controlId="formGroupEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" onChange={inputHandler} placeholder="EMAIL" required="required" autoComplete="off"/>
+                    <Form.Control type="email" onChange={()=>inputHandler(email, "email")} ref={email} placeholder="EMAIL" required="required" autoComplete="off"/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formGroupPassword">
+                <Form.Group className="col-12 mb-3" controlId="formGroupPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" onChange={inputHandler} placeholder="PASSWORD" required="required" />
+                    <Form.Control type="password" onChange={()=>inputHandler(contraseña, "contraseña")} ref={contraseña} placeholder="PASSWORD" required="required" />
                 </Form.Group>
                 <div className="mb-2">
-                <Button variant="primary" type="submit" onChange={submitForm}>
+                <Button variant="primary" type="submit" >
                     Get in
                 </Button>
                 </div>              

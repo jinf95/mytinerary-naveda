@@ -3,11 +3,12 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap/'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import {connect} from 'react-redux'
+import authActions from "../redux/actions/authActions";
 
 
 const SideNav = (props) => {
 
-    console.log(props)
+   
     const logo = <img src='/assets/logosesion.svg' alt = "logoSesion" />
 
     return (
@@ -23,12 +24,13 @@ const SideNav = (props) => {
                         <Nav>
                             <Nav.Link as={Link} to="/"  className="hover-nav">HOME</Nav.Link>
                             <Nav.Link as={Link} to="/Cities"  className="hover-nav">CITIES</Nav.Link>
-                            <NavDropdown title={logo} id="collasible-nav-dropdown">
-                                <NavDropdown.Item as={Link} to="/SignIn">Sign In</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/SignUp">Sign Up</NavDropdown.Item>
-                            </NavDropdown>
+                            {props.usuario && <NavDropdown title={logo} id="collasible-nav-dropdown">
+                                {!props.usuario && <NavDropdown.Item as={Link} to="/SignIn">Sign In</NavDropdown.Item>}
+                                {!props.usuario && <NavDropdown.Item as={Link} to="/SignUp">Sign Up</NavDropdown.Item>}
+                                {props.usuario && <p onClick={() => props.cerrarSesion()}>Log Out</p>}
+                            </NavDropdown>}
                         </Nav>
-                        {props.usuario.email !== "" ? <h1 className="bienvenida-sidenav">Bienvenido {props.usuario.email}</h1> : <h1 className="bienvenida-sidenav">No estas registrado</h1>}
+                        {props.usuario.nombre ? <h1 className="bienvenida-sidenav">Bienvenido {props.usuario.nombre}</h1> : <h1 className="bienvenida-sidenav">No estas registrado</h1>}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
@@ -40,8 +42,12 @@ const SideNav = (props) => {
 
 const mapStateToProps = (state) => {
     return{
-        usuario: state.authReducer.usuario
+        usuario: state.authReducer.usuario,
+        url: state.authReducer.url
     }
 }
+const mapDispatchToProps = {
+    cerrarSesion : authActions.cerrarSesion
+}
 
-export default connect(mapStateToProps)(SideNav)
+export default connect(mapStateToProps, mapDispatchToProps)(SideNav)

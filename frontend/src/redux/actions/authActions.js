@@ -4,18 +4,19 @@ const authActions = {
 
     registrarUsuario : (nuevoUsuario) => {
         return async (dispatch, getState) => {
+            console.log(nuevoUsuario)
             try{
                 const usuario = await axios.post('http://localhost:4000/api/signUp',{...nuevoUsuario})
+                console.log(usuario)
                 if(usuario.data.success && !usuario.data.error){
                 localStorage.setItem('token', usuario.data.response.token)
-                dispatch({type:'usuario', payload:{email: usuario.data.response.nombre}})
-                    
+                dispatch({type:'usuario', payload:{nombre: usuario.data.response.nombre, url: usuario.data.response.url}})
                 }else{
-                    console.log(usuario.data.error)
+                    alert("Else de registrar usuario")
 
                 }                                  
             } catch(error){
-
+                alert("Cayo en el catch RegistrarUsuario")
             }
         }
     },
@@ -33,7 +34,7 @@ const authActions = {
                     console.log(usuario.data.response)
                 }
             }catch(error){
-
+               alert("Cayo en cath IniciarSesion")
             }
         }
     },
@@ -53,10 +54,11 @@ const authActions = {
                     'Authorization':'Bearer '+token
                 }
             })
-            usuario.data.success && dispatch({type:'usuario', payload: {nombre: usuario.data.response.nombre} })
+            console.log(usuario.data)
+            usuario.data.success && dispatch({type:'usuario', payload: {nombre: usuario.data.response.nombre, url: usuario.data.response.url} })
             }
             catch(error) {
-                console.log(error)
+               alert("Cayo en catch loguearConToken")
             }
         }
     }

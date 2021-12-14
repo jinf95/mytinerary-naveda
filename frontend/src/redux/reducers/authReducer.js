@@ -1,5 +1,5 @@
 const inicialState = {
-    usuario : {email: ""}
+    usuario : null
 }
 
 const authReducer = (state = inicialState, action) => {

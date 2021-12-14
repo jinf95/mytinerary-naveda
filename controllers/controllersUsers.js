@@ -11,7 +11,7 @@ const controllersUsers = {
 
             const emailExiste = await Persona.findOne({ email })
             if (emailExiste){
-                res.json({succes: false, response: null, error: "El email ya esta en uso"})
+                res.json({succes: false, response: null, error: "Email is already in use"})
             }
 
             else{
@@ -27,7 +27,6 @@ const controllersUsers = {
                 pais,
                 google
             })
-            console.log("Console log linea 30")
             console.log(nuevoUsuario)
             const token = jwt.sign({...nuevoUsuario}, process.env.SECRET_KEY)
 
@@ -37,7 +36,7 @@ const controllersUsers = {
             }
           
         } catch (error) {
-            res.json({ success: false, response: "Llegue aca", error: null })
+            res.json({ success: false, response: null, error: null })
 
         }
              
@@ -48,9 +47,9 @@ const controllersUsers = {
         console.log(req.body)
     try{
         const usuarioExiste = await Persona.findOne({email})
-        if(usuarioExiste.google && !google) throw new Error ("Email Invalido")
+        if(usuarioExiste.google && !google) throw new Error ("Invalid Email")
         if(!usuarioExiste){
-            res.json({success: false, error: "Usuario y/o contraseña incorrectos"})
+            res.json({success: false, error: "Incorrect user name and/or password"})
         }else{
             let autContraseña = bcryptjs.compareSync(contraseña, usuarioExiste.contraseña)
             if(autContraseña){
@@ -66,8 +65,8 @@ const controllersUsers = {
     },
 
     accederConToken: async(req,res) => {
+        console.log(req.user)
         let {nombre, email, url} = req.user
-
         res.json({success: true, response: {nombre, email, url}})
         
     }
