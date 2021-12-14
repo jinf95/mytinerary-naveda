@@ -52,15 +52,15 @@ const FormSignIn = (props) => {
                 </Form.Group>
                 <Form.Group className="col-12 mb-3" controlId="formGroupPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" onChange={()=>inputHandler(contraseña, "contraseña")} ref={contraseña} placeholder="PASSWORD" required="required" />
+                    <Form.Control type="password" onChange={()=>inputHandler(contraseña, "contraseña")} ref={contraseña} placeholder="PASSWORD" required="required" autoComplete="off" />
                 </Form.Group>
-                <div className="mb-2">
-                <Button variant="primary" type="submit" >
+                <div className="boton-contenedor mb-2">
+                <Button className="boton-form" variant="primary" type="submit" >
                     Get in
                 </Button>
                 </div>              
                
-                <GoogleLogin
+                <GoogleLogin className="google "
                     clientId="31750726580-hd0f94k1n8pudt2igabf9l9mp13vr7m1.apps.googleusercontent.com"
                     buttonText="Log In with Google"
                     onSuccess={responseGoogle}

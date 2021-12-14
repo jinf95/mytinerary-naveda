@@ -22,7 +22,7 @@ const token = localStorage.getItem("token")
 useEffect(() => {
     props.loguearConToken(token)
 
-},[])    
+}, [])    
 
     return (
       <BrowserRouter>

@@ -7,9 +7,8 @@ import authActions from "../redux/actions/authActions";
 
 
 const SideNav = (props) => {
-console.log(props)
     const logo = <img src='/assets/logosesion.svg' alt = "logoSesion" />
-    const perfil = <img className="foto-perfil" src={localStorage.getItem('url')}/>
+    const perfil = <img className="foto-perfil" src={localStorage.getItem('url')} alt="logo-perfil"/>
 
     const nombre = localStorage.getItem('nombre');
     return (

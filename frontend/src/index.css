@@ -478,22 +478,22 @@ background-color: rgb(171, 171, 245);
   
   }
 .google{
-  width: 60%;
-  height: 6vh;
-}
-/* .div-form{
+  width: 100%;
   display: flex;
-  } */
-/* 
+  justify-content: center;
+  /* height: 6vh; */
+}
+ /* .div-form{
+  display: flex;
+  }  */
+ 
   .boton-contenedor{
     display: flex;
     justify-content: center;
   }
-  .boton-Up{
-    display: flex;
-    justify-content: center;
-    width: 20%;
-  } */
+  .boton-form{
+      width: 100%;
+  } 
 
 /* SIGN IN */
 .foto-perfil{
@@ -509,7 +509,7 @@ background-color: rgb(171, 171, 245);
 }
 
 .form-signIn{
-  width: 35%;
+  width: 40%;
   padding: 2vh;
   border-radius: 5%;
   background-color: rgb(59, 59, 59);

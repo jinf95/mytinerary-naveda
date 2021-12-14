@@ -57,11 +57,9 @@ const authActions = {
                     'Authorization':'Bearer '+token
                 }
             })
-            console.log(usuario.data)
-            usuario.data.success && dispatch({type:'usuario', payload: {nombre: usuario.data.response.nombre, url: usuario.data.response.url} })
+                 usuario.data.success && dispatch({type:'usuario', payload: {nombre: usuario.data.response.nombre, url: usuario.data.response.url} })
             }
             catch(error) {
-               console.log(error)
             }
         }
     }
