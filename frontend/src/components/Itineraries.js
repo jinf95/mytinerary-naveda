@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { Card, Button} from 'react-bootstrap'
 
-const Itinerary = ({ itinerarios }) => {
+const Itinerary = ({ itinerario }) => {
 
     const [display, setDisplay] = useState(false)
     const HandleDisplay = () => setDisplay(!display)
 
     return (
         <>
-            {itinerarios.map(itinerario =>
-                <Card key={itinerario.titulo} className="card-itinerary text-center">
+               <Card key={itinerario.titulo} className="card-itinerary text-center">
                     <Card.Header className="titulo-itinerario">{itinerario.titulo} </Card.Header>
                     <Card.Body className="body-itinerary">
                         <div className="celebrity-fondo">
@@ -36,8 +35,8 @@ const Itinerary = ({ itinerarios }) => {
                          <Button onClick={HandleDisplay} className="boton-itinerario">{display ? 'view less' : 'view more'} </Button>
                     {display && <h1> Under Construction</h1>}      
                 </Card>              
-                        )
-                    }  
+                        
+                     
                        
                             
             </>
