@@ -6,9 +6,9 @@ import { Navigate } from 'react-router-dom';
 class SignIn extends React.Component {
   
     render() {
-        const nombre = localStorage.getItem('nombre');
+        const token = localStorage.getItem('token');
 
-        if (nombre) {
+        if (token) {
             return <Navigate to='/' />
         }
         return (

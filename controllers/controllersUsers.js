@@ -27,7 +27,6 @@ const controllersUsers = {
                 pais,
                 google
             })
-            console.log(nuevoUsuario)
             const token = jwt.sign({...nuevoUsuario}, process.env.SECRET_KEY)
 
             await nuevoUsuario.save()
@@ -44,7 +43,6 @@ const controllersUsers = {
 
     accederACuenta: async(req, res) => {
         const {email, contraseña, google} = req.body
-        console.log(req.body)
     try{
         const usuarioExiste = await Persona.findOne({email})
         if(usuarioExiste.google && !google) throw new Error ("Invalid Email")
@@ -65,7 +63,6 @@ const controllersUsers = {
     },
 
     accederConToken: async(req,res) => {
-        console.log(req.user)
         let {nombre, email, url} = req.user
         res.json({success: true, response: {nombre, email, url}})
         

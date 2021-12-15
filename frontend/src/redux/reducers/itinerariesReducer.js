@@ -1,11 +1,11 @@
 const inicialState = {
-    itinerarios:[]
+    itinerarios: null
 
 }
 
 const itinerariesReducer = (state = inicialState, action) =>{
     switch (action.type){
-         case 'fetch':
+        case 'fetchItineraries':
 
                 return {
                     ...state,

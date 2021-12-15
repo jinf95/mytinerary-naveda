@@ -8,7 +8,6 @@ const controllerCities = {
 
       try{
        ciudades = await Ciudad.find()
-       console.log(ciudades)
 
      }catch(error){
             error = true

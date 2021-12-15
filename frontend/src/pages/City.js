@@ -22,7 +22,6 @@ class City extends React.Component {
         this.props.fetchearItinerarios(this.props.params.id)
      
     }
-
     render() {
         window.scrollTo(0, 0);
 
@@ -33,16 +32,20 @@ class City extends React.Component {
                 {this.props.ciudad && <img src= {`/assets/ciudades/${this.props.ciudad.imagen}`} alt="city" className="imagenHeader"></img> }
             </div>
             <div className="main-city d-flex align-items-center flex-column">
-            {this.props.itinerarios.map(itinerario => 
-            <Itinerary itinerario={itinerario}/>
-                )  }
-                                
-            {/* //  <div class="loader"></div> */}
-            <Alert className="alerta-itinerarios" variant="primary">
-                 <p className="mensaje-itinerarios">
-                    THERE ARE NO ITINERARIES YET FOR THIS CITY
-            </p>
-            </Alert> 
+                
+            {this.props.itinerarios 
+            ? (this.props.itinerarios.map(itinerario => {
+               return <Itinerary itinerario={itinerario} key={itinerario.titulo}/>
+            }
+             )) 
+            : (<Alert className="alerta-itinerarios" variant="primary">
+            <p className="mensaje-itinerarios">
+               THERE ARE NO ITINERARIES YET FOR THIS CITY
+                </p>
+           </Alert>)
+            }
+                     
+            {/* <div class="loader"></div>  */}
             
                 <Button size="lg" as={Link} to='/Cities' className="boton-cities">
                     Cities
@@ -54,6 +57,7 @@ class City extends React.Component {
 }
 
 const mapStateToProps = (state) =>{
+    
     return {
         ciudad: state.citiesReducer.ciudad,
         itinerarios: state.itinerariesReducer.itinerarios

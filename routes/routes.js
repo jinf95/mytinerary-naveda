@@ -3,11 +3,14 @@ const validator = require('../config/validator')
 const controllerCities = require('../controllers/controllerCities')
 const controllerItineraries = require('../controllers/controllerItineraries')
 const controllersUsers = require('../controllers/controllersUsers')
+const controllerActivities = require('../controllers/controllerActivities')
 const passport = require('../config/passport')
+
 
 const {obtenerCities, obtenerCity, cargarCity,borrarCity,actualizarCity} = controllerCities
 const {obtenerItineraries,obtenerItinerary,obtenerItineraryByCity, cargarItinerary,borrarItinerary, modificarItinerary} = controllerItineraries
 const {nuevoUsuario, accederACuenta, accederConToken} = controllersUsers
+const {cargarActividad,obtenerActPorItinerario} = controllerActivities
 
 Router.route('/ciudades')
 .get(obtenerCities)
@@ -38,5 +41,11 @@ Router.route('/signIn/token')
 
 Router.route('/signIn')
 .post(accederACuenta)
+
+Router.route('/actividades')
+.post(cargarActividad)
+
+Router.route('/actividades/itinerarios/:id')
+.get(obtenerActPorItinerario)
 
 module.exports = Router

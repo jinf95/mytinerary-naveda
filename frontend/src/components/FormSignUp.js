@@ -44,7 +44,6 @@ const FormSignUp = (props) => {
     }   
 
 const responseGoogle = (res) => {
-    console.log(res)
         let googleUser = {
             nombre: res.profileObj.givenName,
             apellido: res.profileObj.familyName,

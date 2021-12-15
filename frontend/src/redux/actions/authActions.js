@@ -8,10 +8,8 @@ const authActions = {
                 const usuario = await axios.post('http://localhost:4000/api/signUp',{...nuevoUsuario})
                 if(usuario.data.success && !usuario.data.error){
                 localStorage.setItem('token', usuario.data.response.token)
-                localStorage.setItem('nombre', usuario.data.response._doc.nombre)
-                localStorage.setItem('url', usuario.data.response._doc.url)
-
-                dispatch({type:'usuario', payload:{nombre: usuario.data.response.nombre, url: usuario.data.response.url}})
+              
+                dispatch({type:'usuario', payload:{nombre:usuario.data.response.nombre, url: usuario.data.response.url}})
                 }else{
                     console.log(usuario.data.response)
 
@@ -25,14 +23,12 @@ const authActions = {
     iniciarSesion :(ingresarUsuario) =>{
         return async(dispatch, getState) => {
             try{
-                console.log(ingresarUsuario)
                 const usuario = await axios.post('http://localhost:4000/api/signIn', {...ingresarUsuario})
                 if(usuario.data.success && !usuario.data.error){
-                    console.log(usuario.data)
                     localStorage.setItem('token', usuario.data.response.token)
-                    localStorage.setItem('nombre', usuario.data.response._doc.nombre)
-                    localStorage.setItem('url', usuario.data.response._doc.url)
-                dispatch({type:'usuario', payload: {email: usuario.data.response.email}})
+            
+                dispatch({type:'usuario', payload: {nombre:usuario.data.response.nombre, url: usuario.data.response.url}})
+                console.log(usuario.data.response._doc)
                 }else{
                     console.log(usuario.data.response)
                 }
@@ -54,11 +50,14 @@ const authActions = {
             try{
             const usuario = await axios.post('http://localhost:4000/api/signIn/token', {}, {
                 headers:{
-                    'Authorization':'Bearer '+token
+                    'Authorization':'Bearer '+ token
                 }
             })
-                 usuario.data.success && dispatch({type:'usuario', payload: {nombre: usuario.data.response.nombre, url: usuario.data.response.url} })
-            }
+                 usuario.data.success && dispatch({type:'usuario', payload: {token, nombre: usuario.data.response.nombre, url: usuario.data.response.url}})
+                 console.log(usuario.data.response)
+
+                }
+            
             catch(error) {
             }
         }

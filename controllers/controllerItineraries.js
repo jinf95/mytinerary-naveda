@@ -43,7 +43,6 @@ const controllerItineraries = {
 
     cargarItinerary: async(req,res)=>{
         const itinerario =  req.body
-        console.log(req.body)
         let respuesta
         try{
 
