@@ -6,8 +6,8 @@ import authActions from "../redux/actions/authActions";
 import GoogleLogin from 'react-google-login';
 
 
-
 const FormSignIn = (props) => {
+
 
         const [ingresarUsuario, setIngresarUsuario] = useState ({
             email: "", 
@@ -28,12 +28,10 @@ const FormSignIn = (props) => {
             let googleUser = {
                 email: res.profileObj.email, 
                 contraseña: res.profileObj.googleId,
-                google: true
             }
     
-            props.iniciarSesion(googleUser)
-            .then((response) => response.data.success)
-            .catch((error) => console.log(error))
+            props.iniciarSesion(googleUser.email, googleUser.contraseña)
+           
           }
 
         const submitForm = (e) => {

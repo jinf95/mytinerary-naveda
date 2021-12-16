@@ -9,8 +9,7 @@ import authActions from "../redux/actions/authActions";
 const SideNav = (props) => {
     console.log(props)
     const logo = <img src='/assets/logosesion.svg' alt = "logoSesion" />
-    const perfil = <img className="foto-perfil" src={props.usuario.url} alt="logo-perfil"/>
-console.log(props.usuario.url)
+    const perfil = <img className="foto-perfil" src={props.usuario ? props.usuario.url : ""} alt="logo-perfil"/>
     return (
 
         <>
@@ -24,13 +23,13 @@ console.log(props.usuario.url)
                         <Nav>
                             <Nav.Link as={Link} to="/"  className="hover-nav">HOME</Nav.Link>
                             <Nav.Link as={Link} to="/Cities"  className="hover-nav">CITIES</Nav.Link>
-                                <NavDropdown title={props.usuario.token ? perfil : logo } id="collasible-nav-dropdown">
-                                {!props.usuario.token && <NavDropdown.Item as={Link} to="/SignIn">Sign In</NavDropdown.Item>}
-                                {!props.usuario.token && <NavDropdown.Item as={Link} to="/SignUp">Sign Up</NavDropdown.Item>}
-                                {props.usuario.token && <NavDropdown.Item onClick={() => props.cerrarSesion()}>Sign Out</NavDropdown.Item>}
+                                <NavDropdown title={props.usuario ? perfil : logo } id="collasible-nav-dropdown">
+                                {!props.usuario && <NavDropdown.Item as={Link} to="/SignIn">Sign In</NavDropdown.Item>}
+                                {!props.usuario && <NavDropdown.Item as={Link} to="/SignUp">Sign Up</NavDropdown.Item>}
+                                {props.usuario && <NavDropdown.Item onClick={() => props.cerrarSesion()}>Sign Out</NavDropdown.Item>}
                             </NavDropdown>
                         </Nav>
-                        {props.usuario.token ? <h1 className="bienvenida-sidenav">Welcome {props.usuario.nombre}</h1> : <h1 className="bienvenida-sidenav">You are not registered</h1>}
+                        {props.usuario ? <h1 className="bienvenida-sidenav">Welcome {props.usuario.nombre}</h1> : <h1 className="bienvenida-sidenav">You are not registered</h1>}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
@@ -44,8 +43,7 @@ const mapStateToProps = (state) => {
     
     return{
         usuario: state.authReducer.usuario,
-      
-                
+                      
     }
 }
 const mapDispatchToProps = {

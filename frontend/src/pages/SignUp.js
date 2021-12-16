@@ -1,9 +1,13 @@
 import React from "react";
 import FormSignUp from "../components/FormSignUp";
 import { Navigate } from 'react-router-dom';
+import {connect} from 'react-redux'
 
 
 class SignUp extends React.Component {
+    constructor(props){
+        super(props)
+    }
   
     
     render() {
@@ -19,5 +23,10 @@ class SignUp extends React.Component {
     }
 
 }
+const mapStateToProps = (state) => {
+    return{
+            usuario : state.authReducer.usuario
+    }
+}
 
-export default SignUp
+export default connect(mapStateToProps) (SignUp)

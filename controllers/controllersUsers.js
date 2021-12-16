@@ -42,10 +42,10 @@ const controllersUsers = {
     },
 
     accederACuenta: async(req, res) => {
-        const {email, contraseña, google} = req.body
+        const {email, contraseña} = req.body
     try{
         const usuarioExiste = await Persona.findOne({email})
-        if(usuarioExiste.google && !google) throw new Error ("Invalid Email")
+        // if(usuarioExiste.google && !google) throw new Error ("Invalid Email")
         if(!usuarioExiste){
             res.json({success: false, error: "Incorrect user name and/or password"})
         }else{
@@ -62,11 +62,10 @@ const controllersUsers = {
         }
     },
 
-    accederConToken: async(req,res) => {
-        let {nombre, email, url} = req.user
-        res.json({success: true, response: {nombre, email, url}})
-        
+    accederConToken : (req, res) => {
+        res.json({nombre: req.user.nombre, url:req.user.url, _id:req.user._id})
     }
+
 
 }
 

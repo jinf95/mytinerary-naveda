@@ -15,6 +15,8 @@ const controllerActivities = {
 
         res.json(respuesta)
     },
+
+    
 }
 
 module.exports = controllerActivities

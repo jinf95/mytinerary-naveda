@@ -17,9 +17,10 @@ const CityC = withRouter(City)
 
 const App = (props) => {
 
-const token = localStorage.getItem("token")
 
 useEffect(() => {
+
+    const token = localStorage.getItem("token")
     props.loguearConToken(token)
 
 }, [])    
@@ -45,13 +46,9 @@ useEffect(() => {
   }
 
 
-const mapStateToProps = (state) =>{
-  return {
-    usuario : state.authReducer.usuario
-  }
-} 
 
 const mapDispatchToProps = {
   loguearConToken : authActions.loguearConToken
 }
-export default connect(mapStateToProps, mapDispatchToProps) (App)
+
+export default connect(null, mapDispatchToProps) (App)

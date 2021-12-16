@@ -5,6 +5,7 @@ const Router = require('./routes/routes')
 require('./config/database')
 const passport = require('passport')
 const app = express()
+require('./config/passport')
 
 
 
