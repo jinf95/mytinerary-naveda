@@ -5,6 +5,7 @@ import axios from "axios";
 import authActions from "../redux/actions/authActions";
 import { connect } from 'react-redux'
 import GoogleLogin from 'react-google-login';
+import Swal from "sweetalert2";
 
 
 
@@ -26,7 +27,7 @@ const FormSignUp = (props) => {
         const url = useRef();
         const ciudad = useRef();
 
-
+    const [error, setError] = useState ({})
 
     const inputHandler = (ref, input) => {
         setNuevoUsuario({
@@ -41,7 +42,19 @@ const FormSignUp = (props) => {
             ...nuevoUsuario,
             "pais" : e.target.value
         })
-    }   
+    }  
+    
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
 const responseGoogle = (res) => {
         let googleUser = {
@@ -60,9 +73,28 @@ const responseGoogle = (res) => {
         .catch((error) => console.log(error))
       }
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault()
-        props.registrarUsuario(nuevoUsuario)
+        const usuario = await props.registrarUsuario(nuevoUsuario)
+       console.log(usuario)
+       if(usuario.success && !usuario.error){
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Correctly Registered!',
+            showConfirmButton: false,
+            timer: 8500
+          })
+       }else{
+      
+        Toast.fire({
+            icon: 'error',
+            html:  usuario.response.map(
+                e => `<p>${e.message}</p>`
+            )
+          })         
+        
+       }
         
     }
 

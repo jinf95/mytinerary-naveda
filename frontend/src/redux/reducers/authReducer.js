@@ -3,7 +3,6 @@ const inicialState = {
 }
 
 const authReducer = (state = inicialState, action) => {
-    console.log(action.payload)
     switch(action.type){
 
         case 'usuario':

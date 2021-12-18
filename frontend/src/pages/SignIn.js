@@ -11,7 +11,6 @@ class SignIn extends React.Component {
   
     render() {
         const token = localStorage.getItem('token');
-        console.log(token)
 
         if (token) {
             return <Navigate to='/' />

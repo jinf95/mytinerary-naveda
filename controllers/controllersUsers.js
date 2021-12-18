@@ -11,7 +11,7 @@ const controllersUsers = {
 
             const emailExiste = await Persona.findOne({ email })
             if (emailExiste){
-                res.json({succes: false, response: null, error: "Email is already in use"})
+                res.json({succes: false, response: [{message : "Email is already in use"}], error: true })
             }
 
             else{
@@ -31,11 +31,11 @@ const controllersUsers = {
 
             await nuevoUsuario.save()
 
-            res.json({ success: true, response: {token,...nuevoUsuario}, error: null })
+            res.json({ success: true, response: {token,...nuevoUsuario}, error: false })
             }
           
         } catch (error) {
-            res.json({ success: false, response: null, error: null })
+            res.json({ success: false, response: [{message: "Algo Fallo"}], error: true })
 
         }
              
@@ -47,22 +47,23 @@ const controllersUsers = {
         const usuarioExiste = await Persona.findOne({email})
         // if(usuarioExiste.google && !google) throw new Error ("Invalid Email")
         if(!usuarioExiste){
-            res.json({success: false, error: "Incorrect user name and/or password"})
+            res.json({success: false, response: [{message:  "Incorrect email and/or password"}], error: true})
         }else{
             let autContraseña = bcryptjs.compareSync(contraseña, usuarioExiste.contraseña)
             if(autContraseña){
                 const token = jwt.sign({...usuarioExiste}, process.env.SECRET_KEY)
-            res.json({success: true , response: {token,...usuarioExiste}, error: null})
+            res.json({success: true , response: {token,...usuarioExiste}})
 
             }  
         }
         
         }catch(error){
-            res.json({success: false, response: null, error: error})
+            res.json({success: false, response: [{message: "Algo fallo"}], error: true})
         }
     },
 
     accederConToken : (req, res) => {
+        console.log(req)
         res.json({nombre: req.user.nombre, url:req.user.url, _id:req.user._id})
     }
 

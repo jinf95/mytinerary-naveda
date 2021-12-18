@@ -9,12 +9,12 @@ const authActions = {
                 if(usuario.data.success && !usuario.data.error){       
                 localStorage.setItem('token', usuario.data.response.token)    
                 dispatch({type:'usuario', payload: usuario.data.response})
+                     return usuario.data
                 }else{
-                    console.log(usuario.data.response)
-
+                       return usuario.data
                 }                                  
             } catch(error){
-                
+                console.log(error)
             }
         }
     },
@@ -26,9 +26,9 @@ const authActions = {
                 if(usuario.data.success && !usuario.data.error){           
                 localStorage.setItem('token', usuario.data.response.token)
                 dispatch({type:'usuario', payload: usuario.data.response._doc})
-                console.log(usuario.data.response._doc)
+                return usuario.data
                 }else{
-                    console.log(usuario.data.error)
+                 return usuario.data
                 }
             }catch(error){
                console.log(error)
