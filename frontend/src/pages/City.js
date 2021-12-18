@@ -17,11 +17,19 @@ class City extends React.Component {
     }
     
     componentDidMount() {
-       
-        this.props.obtenerCiudad(this.props.params.id)
-        this.props.fetchearItinerarios(this.props.params.id)
+     this.props.fetchearItinerarios(this.props.params.id)
      
+     this.props.ciudades.length > 0
+     ? this.props.obtenerCiudad(this.props.params.id)
+     : this.props.obtenerCiudades()
     }
+
+    componentDidUpdate(prevProps){
+        prevProps.ciudades != this.props.ciudades &&
+        this.props.obtenerCiudad(this.props.params.id)
+    }
+
+  
     render() {
         window.scrollTo(0, 0);
 
@@ -60,6 +68,7 @@ const mapStateToProps = (state) =>{
     
     return {
         ciudad: state.citiesReducer.ciudad,
+        ciudades: state.citiesReducer.ciudades,
         itinerarios: state.itinerariesReducer.itinerarios
     }
 }
@@ -67,6 +76,7 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = {
     
     obtenerCiudad : citiesActions.obtenerCiudad,
+    obtenerCiudades: citiesActions.obtenerCiudades,
     fetchearItinerarios : itinerariesActions.fetchearItinerarios
 }
 
