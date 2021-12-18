@@ -8,7 +8,6 @@ import GoogleLogin from 'react-google-login';
 import Swal from "sweetalert2";
 
 
-
 const FormSignUp = (props) => {
     const [nuevoUsuario, setNuevoUsuario] = useState({
         nombre: "",
@@ -27,7 +26,6 @@ const FormSignUp = (props) => {
         const url = useRef();
         const ciudad = useRef();
 
-    const [error, setError] = useState ({})
 
     const inputHandler = (ref, input) => {
         setNuevoUsuario({
@@ -72,11 +70,11 @@ const responseGoogle = (res) => {
         .then((res) => console.log(res.data.success))
         .catch((error) => console.log(error))
       }
-
+   
+ 
     const submitForm = async (e) => {
         e.preventDefault()
         const usuario = await props.registrarUsuario(nuevoUsuario)
-       console.log(usuario)
        if(usuario.success && !usuario.error){
         Swal.fire({
             position: 'top-end',
@@ -86,14 +84,15 @@ const responseGoogle = (res) => {
             timer: 8500
           })
        }else{
-      
+
         Toast.fire({
             icon: 'error',
+            toast: true,
             html:  usuario.response.map(
-                e => `<p>${e.message}</p>`
+            e => `<p>${e.message}</p>`
             )
           })         
-        
+     
        }
         
     }
@@ -110,8 +109,8 @@ const responseGoogle = (res) => {
 
         <div className="form-contenedor">
             <img className="fondo-signUp" src="./assets/fondo-signUp.jpg" alt="fund-signUp" />
-
-            <Form className="formulario-signUp" onSubmit={submitForm}>                
+                           
+            <Form className="formulario-signUp" onSubmit={submitForm}> 
              <div className="row">
                  <Form.Group className="col-12 col-sm-6 mb-3" controlId="formFirstName">
                 <Form.Label>Name</Form.Label>

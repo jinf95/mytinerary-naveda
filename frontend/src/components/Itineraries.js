@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Card, Button, Carousel } from 'react-bootstrap'
 import activitiesActions from '../redux/actions/activitiesActions'
 import { connect } from 'react-redux'
-// import Activities from './Activities'
 
 const Itinerary = (props) => {
     
@@ -26,7 +25,7 @@ const Itinerary = (props) => {
     return (
         <>
 
-            <Card className="card-itinerary text-center">
+            <Card className="card-itinerary mb-0 text-center">
                 <Card.Header className="titulo-itinerario">{props.itinerario.titulo} </Card.Header>
                 <Card.Body className="body-itinerary">
                     <div className="celebrity-fondo">
@@ -50,34 +49,34 @@ const Itinerary = (props) => {
                         <p className="hashtag">{props.itinerario.hashtag}</p>
                     </div>
                 </Card.Body>
-
             </Card>
-            <Button onClick={HandleDisplay} className="boton-itinerario">{display ? 'view less' : 'view more'} </Button>
-            
+            <Button onClick={HandleDisplay} className="boton-itinerario">{display ? 'View less' : 'View more'} </Button>
             {(display && actividades)
             && <Carousel className="actividades">
             {actividades.map((actividad) => {
                 const imagen = `/assets/actividades/${actividad.src}`
                 return (
-                <Carousel.Item>
-                  <img className="d-block w-100" src={imagen} alt="First slide"
-                  />
-                  <Carousel.Caption>
-                    <h3>{actividad.nombre} </h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                  </Carousel.Caption>
+                <Carousel.Item className="carrousel-item">                    
+                <Card.Img className='img-carrousel' src={imagen} alt="First slide"/>
+                  <h3 className='nombre-actividad'>{actividad.nombre} </h3>
                 </Carousel.Item>               
+               
                 )
-              }
-              
-             )}
+            }
+            )}
               </Carousel>
-             }
+            }
 
         </>
     )
 
 }
+
+// const mapStateToProps = (state) =>{
+//     return {
+//         // usuario : state.use
+//     }
+// }
 
 const mapDispatchToProps = {
 

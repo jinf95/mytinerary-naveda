@@ -25,7 +25,7 @@ class City extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        prevProps.ciudades != this.props.ciudades &&
+        prevProps.ciudades !== this.props.ciudades &&
         this.props.obtenerCiudad(this.props.params.id)
     }
 

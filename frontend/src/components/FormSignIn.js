@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import authActions from "../redux/actions/authActions";
 import GoogleLogin from 'react-google-login';
+import Swal from "sweetalert2";
+
 
 
 const FormSignIn = (props) => {
@@ -34,9 +36,41 @@ const FormSignIn = (props) => {
            
           }
 
-        const submitForm = (e) => {
+
+
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+
+        const submitForm = async (e) => {
             e.preventDefault()
-            props.iniciarSesion(ingresarUsuario)
+        const usuario = await props.iniciarSesion(ingresarUsuario)
+            if(usuario.success && !usuario.error){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'You are successfully logged in!',
+                    showConfirmButton: false,
+                    timer: 8500
+                  })
+                }else{
+                    // Toast.fire({
+                    //     icon: 'error',
+                    //     html:  usuario.response.map(
+                    //         e => `<p>${e.message}</p>`
+                    //     )
+                    //   }) 
+                   
+                }
         }
 
 

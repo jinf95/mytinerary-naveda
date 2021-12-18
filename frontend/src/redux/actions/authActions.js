@@ -9,9 +9,9 @@ const authActions = {
                 if(usuario.data.success && !usuario.data.error){       
                 localStorage.setItem('token', usuario.data.response.token)    
                 dispatch({type:'usuario', payload: usuario.data.response})
-                     return usuario.data
+                    return usuario.data
                 }else{
-                       return usuario.data
+                    return usuario.data
                 }                                  
             } catch(error){
                 console.log(error)
@@ -52,9 +52,7 @@ const authActions = {
                     Authorization: 'Bearer '+ token
                 }
             })
-            console.log(usuario.data)
                  dispatch({type:'usuario', payload: usuario.data})
-                 console.log(usuario.data.response)
 
                 }
             

@@ -63,7 +63,6 @@ const controllersUsers = {
     },
 
     accederConToken : (req, res) => {
-        console.log(req)
         res.json({nombre: req.user.nombre, url:req.user.url, _id:req.user._id})
     }
 
