@@ -326,7 +326,6 @@ background-color: rgb(171, 171, 245);
   background-color:rgba(43, 132, 233, 0.541);
   display: flex;
   justify-content: space-between;
-  height: 80vh;
   color: white;
 
 }
@@ -567,6 +566,9 @@ background-color: rgb(171, 171, 245);
   100% { transform: rotate(360deg); }
 } 
 
+.comentario-contenedor{
+  width: 70%;
+}
 /* 
 @media screen and (max-width:375px) {
    .formulario-signUp{

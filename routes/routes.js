@@ -8,7 +8,7 @@ const passport = require('../config/passport')
 
 
 const {obtenerCities, obtenerCity, cargarCity,borrarCity,actualizarCity} = controllerCities
-const {obtenerItineraries,obtenerItinerary,obtenerItineraryByCity, cargarItinerary,borrarItinerary, modificarItinerary} = controllerItineraries
+const {obtenerItineraries,obtenerItinerary,obtenerItineraryByCity, cargarItinerary,borrarItinerary, modificarItinerary, likeItinerario} = controllerItineraries
 const {nuevoUsuario, accederACuenta, accederConToken} = controllersUsers
 const {obtenerActividades, cargarActividad, obtenerActPorItinerario} = controllerActivities
 
@@ -48,5 +48,11 @@ Router.route('/actividades')
 
 Router.route('/actividades/itinerarios/:id')
 .get(obtenerActPorItinerario)
+
+Router.route('/itinerarios/like/:id')
+.put(passport.authenticate("jwt", {session: false}),likeItinerario)
+
+Router.route('itinerarios/comentario/:id')
+.put(passport.authenticate("jwt", {session: false}),editarComentario)
 
 module.exports = Router

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Button, Carousel } from 'react-bootstrap'
+import { Card, Button, Carousel, Form, FloatingLabel } from 'react-bootstrap'
 import activitiesActions from '../redux/actions/activitiesActions'
 import { connect } from 'react-redux'
 
 const Itinerary = (props) => {
     
     const [actividades, setActividades] = useState(null)
-
+    
 
     const [display, setDisplay] = useState(false)
     const HandleDisplay = () => setDisplay(!display)
@@ -59,14 +59,20 @@ const Itinerary = (props) => {
                 <Carousel.Item className="carrousel-item">                    
                 <Card.Img className='img-carrousel' src={imagen} alt="First slide"/>
                   <h3 className='nombre-actividad'>{actividad.nombre} </h3>
-                </Carousel.Item>               
-               
-                )
+                </Carousel.Item>             
+               )
             }
             )}
-              </Carousel>
-            }
-
+              </Carousel>}
+            {display &&
+            <div className='comentario-contenedor'>
+                <FloatingLabel controlId="floatingTextarea" label="Comments" className="mb-3">
+              <Form.Control as="textarea" placeholder="Leave a comment here" />
+            </FloatingLabel> 
+            <Button>Submit</Button>
+            </div>            
+           
+             }            
         </>
     )
 
