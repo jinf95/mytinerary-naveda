@@ -6,11 +6,15 @@ import Swal from 'sweetalert2'
 const Comment = (props) => {
     console.log(props)
 
+    const token = localStorage.getItem('token')
+
   
     const inputValue = useRef()
     const[cambiarInput, setcambiarInput] = useState(false)
 
-    const usuarioValido = props.comentario === props.usuario._id
+    const usuarioValido = props.comentario.idUsuario === props.usuario._id
+    console.log(props.usuario)
+    console.log(usuarioValido)
 
     useEffect(()=>{
         setcambiarInput(false)
@@ -27,7 +31,7 @@ const Comment = (props) => {
             confirmButtonText: 'Yes, delete it!'
           }).then((respuesta) => {
             if (respuesta.isConfirmed) {
-            props.delete(props.itinerario._id, props.comentario._id, props.usuario.token)
+            props.borrar(props.idItinerario, props.comentario._id,token)
               Swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',
@@ -38,32 +42,34 @@ const Comment = (props) => {
         }
 
     const comentarioDeUsuario = 
-    <div >
+    <div className="comentario-botones">
         {!cambiarInput 
-        ? <p>{props.comentario}</p> 
+        ? <p className="zona-comentario">{props.comentario.comentario}</p> 
         :   <>
-                <input type="text"  defaultValue={props.comentario} ref={inputValue} />
-                <button onClick={()=> props.editarComentario(props.comentarios._id, inputValue.current.value, props.usuario.token)}>✔️</button>
+                <input type="text"  defaultValue={props.comentario.comentario} ref={inputValue} />
+                <button onClick={()=> props.editar(props.comentario._id, inputValue.current.value, token)}>✔️</button>
             </> }
-            <div>
+            <div className="botones">
                 <button onClick={()=>setcambiarInput(!cambiarInput)}>✏️</button>
                 <button onClick={Toast}>🗑️</button>
             </div>    
     </div>
 
-    const comentarioValido = usuarioValido ? (comentarioDeUsuario) : <p>{props.comentario}</p>
+    const comentarioValido = usuarioValido ? (comentarioDeUsuario) : <p>{props.comentario.comentario}</p>
 
 
 
     return (
         <>
-            <div>
-                {/* <img src={props} alt="..."/> */}
-                {/* <p>{props}</p> */}
+            <div className="comentarios">
+            <div className="datos-usuario">
+                <img className="imagen-usuario" src={props.usuario.url} alt="..."/>
+                <p className="nombre-usuario">{props.usuario.nombre}</p>
             </div>    
-            <div>
+            <div className="comentario">
                 {comentarioValido}
             </div>   
+            </div>
         </>
     )
 }

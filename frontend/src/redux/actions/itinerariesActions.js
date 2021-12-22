@@ -15,12 +15,14 @@ const itinerariesActions = {
 
     agregarComentario: (id, comentario, token) => {
         return async ()=> {
+            console.log(id, comentario, token)
             try {
                 let response = await axios.put(`http://localhost:4000/api/itinerarios/comentarios/`+ id, {comentario, type:"agregarComentario"}, 
                 {headers: {
                     Authorization: "Bearer " + token
                     }
                 })
+                console.log(response)
                 if (response.data.success) 
                     return {success: true, response: response}
                 

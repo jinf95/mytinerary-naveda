@@ -8,6 +8,8 @@ import Swal from 'sweetalert2'
 const Comments = (props) => {
     console.log(props)
 
+    const token = localStorage.getItem('token')
+
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -22,14 +24,15 @@ const Comments = (props) => {
 
     const [render, setRender] = useState(false)
 
-    const [comentarios, setComentarios] = useState(props.comentario) 
+    const [comentarios, setComentarios] = useState(props.comentario)
+    console.log(props.comentario) 
 
     const inputValue = useRef()
   
 const borrarComentario=(idItinerario, idComentario, token)=>{
     props.borrarComentario(idItinerario, idComentario, token)
     .then(res=>{
-        if(res.success) 
+        if(res.success)        
         setComentarios(comentarios.filter(comentario => comentario._id !== idComentario))
         else throw new Error()
     })
@@ -47,7 +50,6 @@ const editarComentario = (idComentario, comentario, token)=> {
          }
     })
     setComentarios(comentarios) 
-    console.log(comentarios)  
         setRender(!render)
         }
     })
@@ -59,7 +61,7 @@ const sendHandler = () =>{
     let valueComentario = inputValue.current.value
     console.log(valueComentario)
     
-    props.agregarComentario(props._id, valueComentario, props.usuario._id)
+    props.agregarComentario(props.idItinerario, valueComentario, token)
     .then(res=> setComentarios(res.response), inputValue.current.value="")
     .catch(error => 
         console.log(error))
@@ -78,18 +80,26 @@ const handleKeyPress = (e) => {
       }) 
     
   }
-
     return (
         <>
-        <h4>Comments</h4>
         <div className="comentarios-cont">
-            {comentarios.map((comentario, index) => <Comment key={index} comentario={comentario} borrar={borrarComentario} idItinerario={props._id} editar={editarComentario} renderizar={render}/> )}
+
+        <h4>Comments</h4>
+        <div >
+            <div >
+            {comentarios.length > 0 && 
+            comentarios.map((comentario, index) => <Comment key={index} comentario={comentario} borrar={borrarComentario} idItinerario={props.idItinerario} editar={editarComentario} renderizar={render}/> )
+             }
+
+            </div>
             
-        </div>   
-            <div>
-                <input type="text" ref={inputValue} placeholder={props.usuario._id ? "Write a comment" : "You need log for comment"} disabled={props.usuario._id ? false : true} onKeyPress={handleKeyPress}/>   
-                <button onClick={props.usuario._id ? sendHandler : warning}>✔️</button>
+            <div >
+                <input className="input-comentario" type="text" ref={inputValue} placeholder={token ? "Write a comment" : "You need log for comment"} disabled={token ? false : true} onKeyPress={handleKeyPress}/>   
+                <button onClick={token ? sendHandler : warning}>✔️</button>
+                
             </div> 
+        </div>   
+        </div>
 
         </>
     )

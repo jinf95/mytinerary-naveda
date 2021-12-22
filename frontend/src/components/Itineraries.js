@@ -102,7 +102,7 @@ const Itinerary = (props) => {
             )}
               </Carousel>}
             {display &&
-            <Comments comentario = {props.itinerario.comentarios} id = {props.itinerario._id} />          
+            <Comments comentario = {props.itinerario.comentarios} idItinerario = {props.itinerario._id} />          
              }            
         </>
     )

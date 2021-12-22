@@ -577,3 +577,71 @@ background-color: rgb(171, 171, 245);
    }
    
 }  */
+.comentarios-cont{
+  height: 100%;
+  width: 70%;
+  
+}
+
+.comentarios{
+  border: 2px solid black;
+  background-color: lightslategray;
+  display: flex;
+  height: 100%;
+  margin-bottom: 2vh;
+}
+.datos-usuario{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(0, 0, 105);
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem;
+  width: 25%;
+  text-align: center;
+}
+.imagen-usuario{
+  border-radius: 50%;
+  height: 50%;
+  
+}
+.nombre-usuario{
+  font-size: 15px;
+}
+
+.comentario{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-content:space-between;
+}
+
+.comentario-botones{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  height: 100%;
+}
+.zona-comentario{
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.botones{
+  display: flex;
+  justify-content: end;
+}
+.input-comentario{
+  width: 96%;
+}
+/* 
+@media screen and (max-width:495px) {
+ .imagen-usuario{
+   
+ }
+    } */
