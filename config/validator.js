@@ -11,12 +11,12 @@ const validator = (req, res, next) => {
     }),
     contraseña: joi.string().required().trim().min(8).messages({
         'string.min':'The password field must have 8 characters includin letters and numbers.',
-        'string.empty':'This field cannot be empty, it is required',
+        'string.empty':'This field cannot be empty, it is required'
     }),
     url: joi.required(),
     ciudad: joi.string().optional(),
     pais: joi.required().messages({
-        'string.empty':'This field cannot be empty, it is required',
+        'string.empty':'This field cannot be empty, it is required'
     }),
     google: joi.boolean(),
 

@@ -1,15 +1,49 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Button, Carousel, Form, FloatingLabel } from 'react-bootstrap'
+import { Card, Button, Carousel} from 'react-bootstrap'
 import activitiesActions from '../redux/actions/activitiesActions'
+import itinerariesActions from '../redux/actions/itinerariesActions'
+import Comments from './Comments'
 import { connect } from 'react-redux'
+import Swal from 'sweetalert2'
+
 
 const Itinerary = (props) => {
+    console.log(props)
     
     const [actividades, setActividades] = useState(null)
     
 
     const [display, setDisplay] = useState(false)
     const HandleDisplay = () => setDisplay(!display)
+
+    const [iconoLike, seticonoLike] = useState(true) 
+    const [likeItinerarios, setlikeItinerarios] = useState(props.itinerario.likes)
+
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      const likeItinerario = async () =>{
+        seticonoLike(false)
+        if(!props.usuario.token){
+            Toast.fire({
+                icon: 'error',
+                title: "You need log for to interact"
+            }) 
+        }else {
+            let response = await props.likeItinerario(props.usuario.token, props.usuario._id)
+            setlikeItinerarios(response)
+        }
+        seticonoLike(true)
+    }
 
     useEffect(() => {
 
@@ -41,8 +75,11 @@ const Itinerary = (props) => {
                         </div>
                         <p className="duration">DURATION: {props.itinerario.duracion}</p>
                         <div className="favorito">
-                            <img src={"/assets/iconos/favorito.png"} alt="favorito" />
-                            <p className="ms-3">{props.itinerario.likes} </p>
+                        {/* <button id="boton-like" onClick={(iconoLike ? likeItinerario : null)}><p className = "like"> {likeItinerarios.includes(props.usuario._id) ? "❤️" : "🤍"}</p></button> */}
+                        {/* <p>{likeItinerarios.length}</p> */}
+                        {/* <button onClick={likeItinerario}></button> */}
+                        {/* <p>{likeItinerarios.length}</p> */} 
+
                         </div>
                     </div>
                     <div className="hashtag-container">
@@ -65,30 +102,27 @@ const Itinerary = (props) => {
             )}
               </Carousel>}
             {display &&
-            <div className='comentario-contenedor'>
-                <FloatingLabel controlId="floatingTextarea" label="Comments" className="mb-3">
-              <Form.Control as="textarea" placeholder="Leave a comment here" />
-            </FloatingLabel> 
-            <Button>Submit</Button>
-            </div>            
-           
+            <Comments comentario = {props.itinerario.comentarios} id = {props.itinerario._id} />          
              }            
         </>
     )
 
 }
 
-// const mapStateToProps = (state) =>{
-//     return {
-//         // usuario : state.use
-//     }
-// }
+const mapStateToProps = (state) =>{
+    return {
+        usuario : state.authReducer.usuario,
+       itinerarios: state.itinerariesReducer.itinerarios
+
+    }
+}
 
 const mapDispatchToProps = {
 
-    fetchearActividades: activitiesActions.fetchearActividades
+    fetchearActividades: activitiesActions.fetchearActividades,
+    likeItinerario: itinerariesActions.likeIitinerario
 
 }
 
-export default connect(null, mapDispatchToProps)(Itinerary)
+export default connect(mapStateToProps, mapDispatchToProps)(Itinerary)
 

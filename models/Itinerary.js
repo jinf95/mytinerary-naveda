@@ -8,7 +8,10 @@ const itinerarioSchema = new mongoose.Schema({
     duracion:{type: String, required:true},
     likes:{type: Number,requerided : true},
     hashtag:{type: Array, required:true},  
-    comentarios:{type: String},
+    comentarios:[{
+        comentario:{type: String},
+        idUsuario: {type:mongoose.Types.ObjectId, ref: "usuario"}
+    }],
 
     ciudades: { type:[{type: mongoose.Types.ObjectId, ref: 'ciudad', required: true}], required: true }
 
