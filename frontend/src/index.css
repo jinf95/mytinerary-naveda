@@ -639,9 +639,9 @@ background-color: rgb(171, 171, 245);
 .input-comentario{
   width: 96%;
 }
-/* 
+
 @media screen and (max-width:495px) {
  .imagen-usuario{
-   
+  width: 100%;   
  }
-    } */
+    } 

@@ -9,16 +9,16 @@ import Swal from 'sweetalert2'
 
 const Itinerary = (props) => {
     console.log(props)
-    
+    const token = localStorage.getItem('token')
+
     const [actividades, setActividades] = useState(null)
     
-
     const [display, setDisplay] = useState(false)
     const HandleDisplay = () => setDisplay(!display)
 
     const [iconoLike, seticonoLike] = useState(true) 
     const [likeItinerarios, setlikeItinerarios] = useState(props.itinerario.likes)
-
+    console.log(props.itinerario.likes)
 
     const Toast = Swal.mixin({
         toast: true,
@@ -33,13 +33,13 @@ const Itinerary = (props) => {
       })
       const likeItinerario = async () =>{
         seticonoLike(false)
-        if(!props.usuario.token){
+        if(!token){
             Toast.fire({
                 icon: 'error',
                 title: "You need log for to interact"
             }) 
         }else {
-            let response = await props.likeItinerario(props.usuario.token, props.usuario._id)
+            let response = await props.likeItinerario(token, props.usuario._id)
             setlikeItinerarios(response)
         }
         seticonoLike(true)
@@ -75,11 +75,9 @@ const Itinerary = (props) => {
                         </div>
                         <p className="duration">DURATION: {props.itinerario.duracion}</p>
                         <div className="favorito">
-                        {/* <button id="boton-like" onClick={(iconoLike ? likeItinerario : null)}><p className = "like"> {likeItinerarios.includes(props.usuario._id) ? "❤️" : "🤍"}</p></button> */}
-                        {/* <p>{likeItinerarios.length}</p> */}
-                        {/* <button onClick={likeItinerario}></button> */}
-                        {/* <p>{likeItinerarios.length}</p> */} 
-
+                        <button id="boton-like" onClick={(iconoLike ? likeItinerario : null)}></button>
+                         {/* <p>{likeItinerarios.length}</p>                   */}
+                         {/* <p className = "like"> {likeItinerarios.includes(props.usuario._id) ? "❤️" : "🤍"}</p> */}
                         </div>
                     </div>
                     <div className="hashtag-container">

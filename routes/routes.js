@@ -52,7 +52,7 @@ Router.route('/actividades/itinerarios/:id')
 Router.route('/itinerarios/like/:id')
 .put(passport.authenticate("jwt", {session: false}),likeItinerario)
 
-Router.route('itinerarios/comentarios/:id')
+Router.route('/itinerarios/comentarios/:id')
 .put(passport.authenticate("jwt", {session: false}),comentario)
 
 module.exports = Router

@@ -30,6 +30,7 @@ const Comments = (props) => {
     const inputValue = useRef()
   
 const borrarComentario=(idItinerario, idComentario, token)=>{
+    console.log(idComentario)
     props.borrarComentario(idItinerario, idComentario, token)
     .then(res=>{
         if(res.success)        
@@ -59,10 +60,12 @@ const editarComentario = (idComentario, comentario, token)=> {
 
 const sendHandler = () =>{
     let valueComentario = inputValue.current.value
-    console.log(valueComentario)
     
     props.agregarComentario(props.idItinerario, valueComentario, token)
-    .then(res=> setComentarios(res.response), inputValue.current.value="")
+    .then(res=>{
+        console.log(res)
+        setComentarios(res.response.data.response)
+         inputValue.current.value=""})
     .catch(error => 
         console.log(error))
 }
@@ -87,8 +90,8 @@ const handleKeyPress = (e) => {
         <h4>Comments</h4>
         <div >
             <div >
-            {comentarios.length > 0 && 
-            comentarios.map((comentario, index) => <Comment key={index} comentario={comentario} borrar={borrarComentario} idItinerario={props.idItinerario} editar={editarComentario} renderizar={render}/> )
+            {console.log(comentarios)}
+            {comentarios.map((comentario, index) => <Comment key={index} comentario={comentario} borrar={borrarComentario} idItinerario={props.idItinerario} editar={editarComentario} renderizar={render}/> )
              }
 
             </div>

@@ -15,7 +15,7 @@ const itinerariesActions = {
 
     agregarComentario: (id, comentario, token) => {
         return async ()=> {
-            console.log(id, comentario, token)
+            // console.log(id, comentario, token)
             try {
                 let response = await axios.put(`http://localhost:4000/api/itinerarios/comentarios/`+ id, {comentario, type:"agregarComentario"}, 
                 {headers: {
@@ -54,7 +54,7 @@ const itinerariesActions = {
     borrarComentario: (id, idComentario, token) => {
         return async ()=> {
             try {
-                let response = await axios.put(`http://localhost:4000/api/itinerarios/comentarios/`+ id, {idComentario, type:"borrarComentario"}, 
+                let response = await axios.put(`http://localhost:4000/api/itinerarios/comentarios/`+ id, {idComentario, type:"borrarComentario"},
                 {headers: {
                     Authorization: "Bearer " + token
                     }

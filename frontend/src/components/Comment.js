@@ -12,7 +12,8 @@ const Comment = (props) => {
     const inputValue = useRef()
     const[cambiarInput, setcambiarInput] = useState(false)
 
-    const usuarioValido = props.comentario.idUsuario === props.usuario._id
+    const usuarioValido = props.comentario.idUsuario._id === props.usuario._id
+    console.log(props.comentario)
     console.log(props.usuario)
     console.log(usuarioValido)
 
@@ -63,8 +64,8 @@ const Comment = (props) => {
         <>
             <div className="comentarios">
             <div className="datos-usuario">
-                <img className="imagen-usuario" src={props.usuario.url} alt="..."/>
-                <p className="nombre-usuario">{props.usuario.nombre}</p>
+                <img className="imagen-usuario" src={props.comentario.idUsuario.url} alt="user-image"/>
+                <p className="nombre-usuario">{props.comentario.idUsuario.nombre}</p>
             </div>    
             <div className="comentario">
                 {comentarioValido}
