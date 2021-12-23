@@ -8,7 +8,6 @@ import Swal from 'sweetalert2'
 
 
 const Itinerary = (props) => {
-    console.log(props.itinerario.likes)
     const token = localStorage.getItem('token')
 
     const [actividades, setActividades] = useState(null)
@@ -35,7 +34,7 @@ const Itinerary = (props) => {
         if(!token){
             Toast.fire({
                 icon: 'error',
-                title: "You need log for to interact"
+                title: "You need to be logged in to like"
             }) 
         }else {
             let response = await props.likeItinerario(token,props.itinerario._id, props.usuario._id)
@@ -75,8 +74,8 @@ const Itinerary = (props) => {
                         </div>
                         <p className="duration">DURATION: {props.itinerario.duracion}</p>
                         <div className="favorito">
-                        <button id="boton-like" onClick={(iconoLike ? likeItinerario : null)}>
-                            <p className = "like"> {likes}</p></button>
+                        <button className="boton-like" onClick={(iconoLike ? likeItinerario : null)}>
+                        <p className = "like"> {likes}</p></button>
                          <p>{likeItinerarios.length}</p>                  
                         </div>
                     </div>
