@@ -15,14 +15,12 @@ const itinerariesActions = {
 
     agregarComentario: (id, comentario, token) => {
         return async ()=> {
-            // console.log(id, comentario, token)
             try {
                 let response = await axios.put(`http://localhost:4000/api/itinerarios/comentarios/`+ id, {comentario, type:"agregarComentario"}, 
                 {headers: {
                     Authorization: "Bearer " + token
                     }
                 })
-                console.log(response)
                 if (response.data.success) 
                     return {success: true, response: response}
                 
@@ -70,15 +68,15 @@ const itinerariesActions = {
         }
     },
 
-    likeIitinerario: (id, token) => {
+    likeIitinerario: (token,id, idUsuario) => {
         return async () => {
             try {
-                const response = await axios.put(`http://localhost:4000/api/itinerarios/like/`+ id, 
+                const response = await axios.put(`http://localhost:4000/api/itinerarios/like/`+ id, {idUsuario},
                 {headers: {
                     Authorization: "Bearer "+ token
                     }
                 })
-                return response
+                return response.data.response
                 
             }catch (error) {
                 console.log(error)

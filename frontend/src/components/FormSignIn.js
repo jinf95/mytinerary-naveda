@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 
 
 const FormSignIn = (props) => {
+    console.log(props)
 
 
         const [ingresarUsuario, setIngresarUsuario] = useState ({

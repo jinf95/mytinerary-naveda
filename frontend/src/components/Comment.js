@@ -4,18 +4,15 @@ import { connect } from "react-redux"
 import Swal from 'sweetalert2'
 
 const Comment = (props) => {
-    console.log(props)
 
     const token = localStorage.getItem('token')
 
   
     const inputValue = useRef()
     const[cambiarInput, setcambiarInput] = useState(false)
-
-    const usuarioValido = props.comentario.idUsuario._id === props.usuario._id
-    console.log(props.comentario)
-    console.log(props.usuario)
-    console.log(usuarioValido)
+    let usuarioValido;
+    props.usuario && (usuarioValido = props.comentario.idUsuario._id === props.usuario._id)
+      
 
     useEffect(()=>{
         setcambiarInput(false)
@@ -47,11 +44,11 @@ const Comment = (props) => {
         {!cambiarInput 
         ? <p className="zona-comentario">{props.comentario.comentario}</p> 
         :   <>
-                <input type="text"  defaultValue={props.comentario.comentario} ref={inputValue} />
-                <button onClick={()=> props.editar(props.comentario._id, inputValue.current.value, token)}>✔️</button>
+                <input className="comentario-editar" type="text"  defaultValue={props.comentario.comentario} ref={inputValue} />
+                <button className="boton-editar-check" onClick={()=> props.editar(props.comentario._id, inputValue.current.value, token)}>✔️</button>
             </> }
             <div className="botones">
-                <button onClick={()=>setcambiarInput(!cambiarInput)}>✏️</button>
+                <button className="boton-editar" onClick={()=>setcambiarInput(!cambiarInput)}>✏️</button>
                 <button onClick={Toast}>🗑️</button>
             </div>    
     </div>

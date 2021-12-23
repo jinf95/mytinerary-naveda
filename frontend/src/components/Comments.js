@@ -6,7 +6,6 @@ import Swal from 'sweetalert2'
 
 
 const Comments = (props) => {
-    console.log(props)
 
     const token = localStorage.getItem('token')
 
@@ -25,12 +24,10 @@ const Comments = (props) => {
     const [render, setRender] = useState(false)
 
     const [comentarios, setComentarios] = useState(props.comentario)
-    console.log(props.comentario) 
 
     const inputValue = useRef()
   
 const borrarComentario=(idItinerario, idComentario, token)=>{
-    console.log(idComentario)
     props.borrarComentario(idItinerario, idComentario, token)
     .then(res=>{
         if(res.success)        
@@ -63,7 +60,6 @@ const sendHandler = () =>{
     
     props.agregarComentario(props.idItinerario, valueComentario, token)
     .then(res=>{
-        console.log(res)
         setComentarios(res.response.data.response)
          inputValue.current.value=""})
     .catch(error => 
@@ -90,7 +86,6 @@ const handleKeyPress = (e) => {
         <h4>Comments</h4>
         <div >
             <div >
-            {console.log(comentarios)}
             {comentarios.map((comentario, index) => <Comment key={index} comentario={comentario} borrar={borrarComentario} idItinerario={props.idItinerario} editar={editarComentario} renderizar={render}/> )
              }
 

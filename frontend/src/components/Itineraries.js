@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 
 const Itinerary = (props) => {
-    console.log(props)
+    console.log(props.itinerario.likes)
     const token = localStorage.getItem('token')
 
     const [actividades, setActividades] = useState(null)
@@ -18,7 +18,6 @@ const Itinerary = (props) => {
 
     const [iconoLike, seticonoLike] = useState(true) 
     const [likeItinerarios, setlikeItinerarios] = useState(props.itinerario.likes)
-    console.log(props.itinerario.likes)
 
     const Toast = Swal.mixin({
         toast: true,
@@ -39,7 +38,7 @@ const Itinerary = (props) => {
                 title: "You need log for to interact"
             }) 
         }else {
-            let response = await props.likeItinerario(token, props.usuario._id)
+            let response = await props.likeItinerario(token,props.itinerario._id, props.usuario._id)
             setlikeItinerarios(response)
         }
         seticonoLike(true)
@@ -55,6 +54,7 @@ const Itinerary = (props) => {
                 console.log(error)
             })
     }, [])
+    let likes = likeItinerarios.includes(props.usuario && props.usuario._id) ? "❤️" : "🤍"
 
     return (
         <>
@@ -75,9 +75,9 @@ const Itinerary = (props) => {
                         </div>
                         <p className="duration">DURATION: {props.itinerario.duracion}</p>
                         <div className="favorito">
-                        <button id="boton-like" onClick={(iconoLike ? likeItinerario : null)}></button>
-                         {/* <p>{likeItinerarios.length}</p>                   */}
-                         {/* <p className = "like"> {likeItinerarios.includes(props.usuario._id) ? "❤️" : "🤍"}</p> */}
+                        <button id="boton-like" onClick={(iconoLike ? likeItinerario : null)}>
+                            <p className = "like"> {likes}</p></button>
+                         <p>{likeItinerarios.length}</p>                  
                         </div>
                     </div>
                     <div className="hashtag-container">
@@ -88,10 +88,10 @@ const Itinerary = (props) => {
             <Button onClick={HandleDisplay} className="boton-itinerario">{display ? 'View less' : 'View more'} </Button>
             {(display && actividades)
             && <Carousel className="actividades">
-            {actividades.map((actividad) => {
+            {actividades.map((actividad, index) => {
                 const imagen = `/assets/actividades/${actividad.src}`
                 return (
-                <Carousel.Item className="carrousel-item">                    
+                <Carousel.Item key={index} className="carrousel-item">                    
                 <Card.Img className='img-carrousel' src={imagen} alt="First slide"/>
                   <h3 className='nombre-actividad'>{actividad.nombre} </h3>
                 </Carousel.Item>             
