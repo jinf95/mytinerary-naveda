@@ -52,7 +52,7 @@ const Itinerary = (props) => {
             .catch((error) => {
                 console.log(error)
             })
-    }, [])
+    }, [props])
     let likes = likeItinerarios.includes(props.usuario && props.usuario._id) ? "❤️" : "🤍"
 
     return (

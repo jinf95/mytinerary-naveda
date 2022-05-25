@@ -63,12 +63,12 @@ const FormSignIn = (props) => {
                     timer: 8500
                   })
                 }else{
-                    // Toast.fire({
-                    //     icon: 'error',
-                    //     html:  usuario.response.map(
-                    //         e => `<p>${e.message}</p>`
-                    //     )
-                    //   }) 
+                    Toast.fire({
+                        icon: 'error',
+                        html:  usuario.response.map(
+                            e => `<p>${e.message}</p>`
+                        )
+                      }) 
                    
                 }
         }

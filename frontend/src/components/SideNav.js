@@ -28,7 +28,7 @@ const SideNav = (props) => {
                                 {props.usuario && <NavDropdown.Item onClick={() => props.cerrarSesion()}>Sign Out</NavDropdown.Item>}
                             </NavDropdown>
                         </Nav>
-                        {props.usuario ? <h1 className="bienvenida-sidenav">Welcome {props.usuario.nombre}</h1> : <h1 className="bienvenida-sidenav">You are not registered</h1>}
+                        {props.usuario && <h1 className="bienvenida-sidenav">Welcome {props.usuario.nombre}</h1>}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

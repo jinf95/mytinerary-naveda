@@ -61,7 +61,7 @@ const Comment = (props) => {
         <>
             <div className="comentarios">
             <div className="datos-usuario">
-                <img className="imagen-usuario" src={props.comentario.idUsuario.url} alt="user-image"/>
+                <img className="imagen-usuario" src={props.comentario.idUsuario.url} alt={props.comentario.idUsuario.nombre}/>
                 <p className="nombre-usuario">{props.comentario.idUsuario.nombre}</p>
             </div>    
             <div className="comentario">

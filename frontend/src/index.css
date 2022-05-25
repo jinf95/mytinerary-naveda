@@ -9,13 +9,21 @@ html{
  
 }
 /* SIDENAV */
+.hover-nav{
+  font-size: 1.3rem;
+  color: #000000 !important;
+}
 .hover-nav:hover{
   background-color: rgb(232, 232, 232);
-  border-radius: 15%;
 
 }
 .navbar{
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  position: sticky;
+  top: 0%;
+  background-color: #ffffff;
+  height: 12vh;
+  z-index: 1;
 }
 /* HERO */
 .heroContenedor{
@@ -124,6 +132,7 @@ background-color: rgb(171, 171, 245);
 }
 .carousel-control-next-icon{
   background-color: black;
+  /* height: 5vh; */
 }
 .carousel-control-prev-icon{
   background-color: black;
