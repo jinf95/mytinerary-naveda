@@ -1,5 +1,5 @@
 import React from "react"
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap/'
+import { NavDropdown } from 'react-bootstrap/'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import {connect} from 'react-redux'
@@ -12,26 +12,24 @@ const SideNav = (props) => {
     return (
 
         <>
-            <Navbar collapseOnSelect expand="lg" className ="navbar">
-                <Container>
+            <div collapseOnSelect expand="lg" className ="navbar">
                 <img width="70" height="70" src="/assets/logo.png" alt="imagen"/>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                        </Nav>
-                        <Nav>
-                            <Nav.Link as={Link} to="/"  className="hover-nav">HOME</Nav.Link>
-                            <Nav.Link as={Link} to="/Cities"  className="hover-nav">CITIES</Nav.Link>
+                    {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
+                    <div className="responsive-navbar">
+                        {/* <Nav className="me-auto">
+                        </Nav> */}
+                        <div className="links">
+                            <Link as={Link} to="/"  className="link">HOME</Link>
+                            <Link as={Link} to="/Cities"  className="link">CITIES</Link>
                                 <NavDropdown title={props.usuario ? perfil : logo } id="collasible-nav-dropdown">
                                 {!props.usuario && <NavDropdown.Item as={Link} to="/SignIn">Sign In</NavDropdown.Item>}
                                 {!props.usuario && <NavDropdown.Item as={Link} to="/SignUp">Sign Up</NavDropdown.Item>}
                                 {props.usuario && <NavDropdown.Item onClick={() => props.cerrarSesion()}>Sign Out</NavDropdown.Item>}
                             </NavDropdown>
-                        </Nav>
+                        </div>
                         {props.usuario && <h1 className="bienvenida-sidenav">Welcome {props.usuario.nombre}</h1>}
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+                    </div>
+            </div>
 
         </>
     )

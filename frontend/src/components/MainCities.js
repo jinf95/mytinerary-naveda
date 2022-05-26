@@ -1,21 +1,21 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { InputGroup, FormControl, Alert} from "react-bootstrap";
+import { Alert} from "react-bootstrap";
 import { connect } from 'react-redux'
-import citiesActions from '../redux/actions/citiesActions';
+// import citiesActions from '../redux/actions/citiesActions';
 
 const MainCities = (props) => {
 
-const filtrar = e => props.filtro(e.target.value)
+// const filtrar = e => props.filtro(e.target.value)
 
     return (
         <div className="card-contenedor">
-            <div className="input-contenedor ">
+            {/* <div className="input-contenedor ">
                 <InputGroup size="sm">
                     <FormControl onChange={filtrar} placeholder="FIND YOUR FAVORITE DESTINATION" aria-describedby="inputGroup-sizing-sm" />
                 </InputGroup>
-            </div>
+            </div> */}
            {props.lugaresFiltrados.length > 0 
             ? props.lugaresFiltrados.map(ciudad => 
                 <Card key={ciudad.nombre} as={Link} to={`/City/${ciudad._id}`} className="tarjetas bg-dark text-white" datos={ciudad}>
@@ -41,9 +41,9 @@ const mapStateToProps = (state) => {
     return { lugaresFiltrados: state.citiesReducer.auxiliar }
 }
 
-const mapDispatchToProps = {
-    filtro: citiesActions.filtro
+// const mapDispatchToProps = {
+//     filtro: citiesActions.filtro
 
-}
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainCities)
+export default connect(mapStateToProps)(MainCities)
