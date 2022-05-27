@@ -5,9 +5,9 @@ const citiesActions = {
     obtenerCiudades: () =>{
         return(dispatch, getState) =>{
              axios.get(`http://localhost:4000/api/ciudades`)
-        .then(res => dispatch({type:'fetch', payload: res.data.respuesta}))
-        }
-    },
+             .then(res => dispatch({type:'fetch', payload: res.data.respuesta}))
+    }
+},
 
     obtenerCiudad: (id) =>{
         return(dispatch, getState) =>{

@@ -76,7 +76,7 @@ const FormSignIn = (props) => {
 
     return (
         <div className="signIn-contenedor">
-            <img className="fondo-signIn" src="./assets/fondo-signIn.jpg" alt="fund-signIn" />
+            <img className="img-signIn" src="./assets/fondo-signIn.png" alt="travel" />
             <Form className="form-signIn" onSubmit={submitForm}>
                 <Form.Group className="col-12 mb-3" controlId="formGroupEmail">
                     <Form.Label>Email address</Form.Label>

@@ -8,16 +8,14 @@ import authActions from "../redux/actions/authActions";
 
 const SideNav = (props) => {
     const logo = <img src='/assets/logosesion.svg' alt = "logoSesion" />
-    const perfil = <img className="foto-perfil" src={props.usuario ? props.usuario.url : ""} alt="logo-perfil"/>
+    const perfil = <img className="foto-perfil" src={props.usuario && props.usuario.url } alt="logo-perfil"/>
     return (
 
         <>
             <div collapseOnSelect expand="lg" className ="navbar">
-                <img width="70" height="70" src="/assets/logo.png" alt="imagen"/>
-                    {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
+                <img width="50" height="50" src="/assets/logo.png" alt="imagen"/>
                     <div className="responsive-navbar">
-                        {/* <Nav className="me-auto">
-                        </Nav> */}
+                    
                         <div className="links">
                             <Link as={Link} to="/"  className="link">HOME</Link>
                             <Link as={Link} to="/Cities"  className="link">CITIES</Link>
@@ -26,8 +24,8 @@ const SideNav = (props) => {
                                 {!props.usuario && <NavDropdown.Item as={Link} to="/SignUp">Sign Up</NavDropdown.Item>}
                                 {props.usuario && <NavDropdown.Item onClick={() => props.cerrarSesion()}>Sign Out</NavDropdown.Item>}
                             </NavDropdown>
+                        {/* {props.usuario && <h1 className="bienvenida-sidenav">Welcome {props.usuario.nombre}</h1>} */}
                         </div>
-                        {props.usuario && <h1 className="bienvenida-sidenav">Welcome {props.usuario.nombre}</h1>}
                     </div>
             </div>
 
@@ -48,3 +46,4 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideNav)
+

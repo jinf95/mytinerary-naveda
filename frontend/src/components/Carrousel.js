@@ -1,70 +1,67 @@
-import React from "react";
-import { Carousel, Row, Col, Card } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
+import { EffectCoverflow } from "swiper";
+import citiesActions from "../redux/actions/citiesActions";
 
+import "swiper/swiper.min.css";
+import "swiper/swiper-bundle.min.css";
 
+import "swiper/modules/pagination/pagination.min.css";
+import "swiper/modules/navigation/navigation.min.css";
+import "swiper/modules/scrollbar/scrollbar.min.css";
+import "swiper/modules/autoplay/autoplay.min.css";
+import "swiper/modules/effect-coverflow/effect-coverflow.min.css";
+import Loader from "../elements/Loader";
 
-const Carrousel = () => {
+const Carrousel = ({fetchCiudades,ciudades}) => {
+  
+  const [cities, setCities] = useState([]);
 
-    const ciudades = [
-        [
-            { ciudad: "New York", pais: "United States", imagen: "newYork.jpg" },
-            { ciudad: "Paris", pais: "France", imagen: "paris.jpg" },
-            { ciudad: "Rome", pais: "Italy", imagen: "roma.jpg" },
-            { ciudad: "Moscow", pais: "Russia", imagen: "moscu.jpg" },
-        ],
-        [
-            { ciudad: "Guiza", pais: "Egypt", imagen: "egipto.jpg" },
-            { ciudad: "Pekin", pais: "China", imagen: "china.jpg" },
-            { ciudad: "Tokyo", pais: "Japan", imagen: "tokio.jpg" },
-            { ciudad: "Sidney", pais: "Australia", imagen: "sidney.jpg" },
-        ],
-        [
-            { ciudad: "San Juan", pais: "Argentina", imagen: "sanJuan.jpg" },
-            { ciudad: "Misiones", pais: "Argentina", imagen: "misiones.jpg" },
-            { ciudad: "Rio de Janeiro", pais: "Brazil", imagen: "rioDeJaneiro.jpg" },
-            { ciudad: "Cancún", pais: "Mexico", imagen: "cancun.jpg" },
-        ]
-    ]
+  useEffect(() => {
+    fetchCiudades(ciudades)
+    setCities(ciudades)
+  }, [ciudades, fetchCiudades]);
 
-    return (
+  return (
+   
+    <div>
+      <h2 className="titulo-carrousel">POPULAR MYTINERARIES</h2>
+       <Swiper
+        className="swiper"
+        modules={[EffectCoverflow]}
+        effect="coverflow"
+        loop="true"
+        preloadImages="true"
+        slidesPerView={3}
+        spaceBetween={80}
+        centeredSlides={false}
+      >
+        {cities.length > 0 ? (
+          cities.map((ciudad) => (
+            <SwiperSlide key={ciudad.id}>
+              <img
+                className="img-carousel"
+                src={`./assets/ciudades/${ciudad.imagen}`}
+                alt={ciudad.nombre}
+              />
+              <h4>{ciudad.nombre}</h4>
+            </SwiperSlide>
+          ))
+        ) : (
+          <Loader />
+        )}
+      </Swiper>
+    </div>
+  );
+};
 
-        <div >
-            <h2 className="titulo-carrousel">POPULAR MYTINERARIES</h2>
-            <Carousel  >
-            {ciudades.map((arrayCiudad,index) => {
-                return (
-                    <Carousel.Item key={index} className="item">
-                        <Row xs={1} md={2} className="g-4">
-                            {arrayCiudad.map((ciudad, index) => {
-                                let imagenes = `./assets/ciudades/${ciudad.imagen}`
-                                return (
-                                    <Col key={index} className="d-flex justify-content-center">
-                                        <Card className="card-carousel">
-                                            <Card.Img variant="top" src={imagenes} className="imagen-cards"/>
-                                            <Card.Body className="card-body">
-                                                <Card.Title>{ciudad.ciudad} </Card.Title>
-                                                <Card.Text>
-                                                    {ciudad.pais}
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                 )
-                            })}
-                        </Row>
-                    </Carousel.Item>
-
-                )
-            }
-            )}
-
-        </Carousel>
-        </div>
-        
-    )
+const mapStateToProps = (state) => {
+  return { ciudades: state.citiesReducer.ciudades }
 }
 
-export default Carrousel
+const mapDispatchToProps = {
+    fetchCiudades: citiesActions.obtenerCiudades     
+}
 
-
-
+export default connect(mapStateToProps,mapDispatchToProps)(Carrousel);

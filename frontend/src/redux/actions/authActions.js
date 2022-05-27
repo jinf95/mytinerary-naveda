@@ -38,8 +38,13 @@ const authActions = {
 
     cerrarSesion:() => {
         return (dispatch, getState) => {
+            try{
                 localStorage.clear()
-                dispatch({type: "cerrarSesion", payload: {}})            
+                dispatch({type: "cerrarSesion", payload: {}})
+                            
+            }catch(err){
+                console.log(err);
+            }
         }
         
     },
