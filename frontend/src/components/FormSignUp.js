@@ -213,11 +213,11 @@ const FormSignUp = (props) => {
           </NavLink>
         </Nav>
       </Form>
-      <img
+      {/* <img
         className="img-signIn"
         src="./assets/fondo-signIn.png"
         alt="fund-signUp"
-      />
+      /> */}
     </div>
   );
 };

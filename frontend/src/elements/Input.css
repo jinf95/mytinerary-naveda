@@ -1,0 +1,71 @@
+.form {
+  --input-text-color: #495867;
+  --input-bg-color: #f7f7ff;
+  --focus-input-bg-color: #f7f7ff50;
+  --text-color: #495867;
+  --active-color: #577399;
+  --width-of-input: 50%;
+  --inline-padding-of-input: 1.2em;
+  --gap: 0.9rem;
+}
+
+.form {
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.8em;
+  padding-inline: var(--inline-padding-of-input);
+  width: var(--width-of-input);
+  position: relative;
+  isolation: isolate;
+  top: 3.6vh;
+}
+
+.fancy-bg {
+  position: absolute;
+  width: 100%;
+  inset: 0;
+  background: var(--input-bg-color);
+  border-radius: 30px;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.search{
+  position: absolute;
+}
+
+.search {
+  fill: var(--text-color);
+  left: var(--inline-padding-of-input);
+  width: 17px;
+}
+
+.input {
+  color: var(--input-text-color);
+  width: 100%;
+  margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+  background: transparent;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text-color);
+}
+
+.input:focus ~ .fancy-bg {
+  border: 1px solid var(--active-color);
+  background: var(--focus-input-bg-color);
+}
+
+.input:focus ~ .search {
+  fill: var(--active-color);
+}
+

@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
 
     const redes = [
-        { imagen: "facebook.svg"},
-        { imagen: "instagram.svg"},
-        { imagen: "whatsapp.svg"},
-        { imagen: "youtube.svg"},
+        { imagen: "facebook.svg", url: "https://www.facebook.com/"},
+        { imagen: "instagram.svg", url: "https://www.instagram.com/"},
+        { imagen: "linkedin.svg", url: "https://www.linkedin.com/in/juanignacionaveda"},
+        { imagen: "youtube.svg", url: "https://www.youtube.com/"},
 
     ]
     return (
@@ -26,10 +26,10 @@ const Footer = () => {
                         <p className="copyright m-auto">MYTINERAY | COPYRIGHT-ALL RIGHTS RESERVED</p>
                     </Nav>
                     <div>
-                        {redes.map((red)=>{
+                        {redes.map((red,index)=>{
                             let logo = `/assets/${red.imagen}`
                             return(
-                                 <img key={red.imagen} src= {logo} alt="social networks" className="logos me-2 ms-2"/>
+                                 <a key={index} href={red.url} target="_blank" rel="noopener noreferrer"><img key={red.imagen} src= {logo} alt="social networks" className="logos"/></a>
                             )
                         })}
                     </div>

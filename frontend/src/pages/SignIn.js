@@ -8,6 +8,8 @@ class SignIn extends React.Component {
   
   
     render() {
+    window.scrollTo(0, 0);
+
         const token = localStorage.getItem('token');
 
         if (token) {

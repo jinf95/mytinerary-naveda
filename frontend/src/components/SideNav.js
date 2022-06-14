@@ -24,7 +24,6 @@ const SideNav = (props) => {
                                 {!props.usuario && <NavDropdown.Item as={Link} to="/SignUp">Sign Up</NavDropdown.Item>}
                                 {props.usuario && <NavDropdown.Item onClick={() => props.cerrarSesion()}>Sign Out</NavDropdown.Item>}
                             </NavDropdown>
-                        {/* {props.usuario && <h1 className="bienvenida-sidenav">Welcome {props.usuario.nombre}</h1>} */}
                         </div>
                     </div>
             </div>

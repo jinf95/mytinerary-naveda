@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Alert} from "react-bootstrap";
 import { connect } from 'react-redux'
 
 const MainCities = (props) => {
@@ -19,12 +18,11 @@ const MainCities = (props) => {
                                 <Card.Text className="card-title" >{ciudad.pais}</Card.Text>
                             </Card.ImgOverlay>
                         </Card> )
-            :   <Alert className="alerta-filtro" variant="primary">
-                 <Alert.Heading>HEY, NICE TO SEE YOU</Alert.Heading>
-                 <p>
+            :   <div className="alerta-filtro">
+                 <p className="mje-filtro">HEY, NICE TO SEE YOU<br/>                 
                  VERIFY THAT THE NAME OF THE CITY YOU ARE LOOKING FOR IS SPELLED CORRECTLY
                 </p>
-            </Alert>
+            </div>
                    }
         </div>
 

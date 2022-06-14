@@ -35,7 +35,7 @@ class City extends React.Component {
 
         return (
             <>
-             <div className="headerContenedor">
+             <div className="headerCity">
                 {this.props.ciudad && <h1 className="nombre-ciudad">{this.props.ciudad.nombre}</h1>}
                 {this.props.ciudad && <img src= {`/assets/ciudades/${this.props.ciudad.imagen}`} alt="city" className="imagenHeader"></img> }
             </div>
@@ -46,11 +46,11 @@ class City extends React.Component {
                return <Itinerary itinerario={itinerario} key={itinerario.titulo}/>
             }
              )) 
-            : (<Alert className="alerta-itinerarios" variant="primary">
+            : (<div className="alerta-itinerarios" >
             <p className="mensaje-itinerarios">
                THERE ARE NO ITINERARIES YET FOR THIS CITY
                 </p>
-           </Alert>)
+           </div>)
             }
                      
             {/* <div class="loader"></div>  */}

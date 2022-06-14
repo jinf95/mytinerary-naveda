@@ -1,0 +1,52 @@
+.scroll-container{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.scroll-hero{
+  display: flex;
+}
+.scrollTop {
+    position: fixed; 
+    width: 4vw;
+    right: 2vw;
+    bottom: 5vh;
+    height: 6vh;
+    z-index: 1000;
+    cursor: pointer;
+    animation: fadeIn 0.3s;
+    transition: opacity 0.4s;
+    background-color: #ff534780;
+    color: #ffffff;
+    padding: .5rem;
+    border-radius: 10%;
+  }
+
+  .scrollTop:hover{
+    background-color: #ff5347;
+  }
+  .scrollBottom{
+    position: fixed; 
+    width: 4vw;
+    right: 50%;
+    top: 90vh;
+    height: 8vh;
+    z-index: 1000;
+    cursor: pointer;
+    animation: fadeIn 0.3s;
+    transition: opacity 0.4s;
+    color: #ffffff;
+    padding: .5rem;
+    transform: rotate(180deg);
+    background-color: #00000005;
+
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
+
 html {
   margin: 0;
   padding: 0;
@@ -39,13 +41,12 @@ html {
   justify-content: space-between;
   width: 20%;
 }
-.dropdown-toggle{
+.dropdown-toggle {
   padding: 0%;
-
 }
-.dropdown-toggle::after{
+.dropdown-toggle::after {
   padding: 0;
-  content: none;  
+  content: none;
 }
 
 .navbar {
@@ -64,7 +65,7 @@ html {
 }
 /* HERO */
 .heroContenedor {
-  height: 80vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,34 +73,44 @@ html {
 .videoHero {
   position: absolute;
   object-fit: cover;
-  height: 80vh;
+  height: 90%;
   width: 100%;
   z-index: -1;
-  border-radius: 0 0 85% 85% / 10%;
-
+  border-radius: 0 0 85% 85% / 15%;
 }
 .bienvenida {
-  color: black;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-.mensaje {
-  font-size: 3vh;
-  background-color: rgb(255, 255, 255, 0.5);
-  padding: 1rem;
+  border: 4px double #495867;
+  border-width: 4px 0;
+  padding: 1.5em 0em;
+  position: absolute;
+  top: 25vh;
+  width: 90%;
+  background-color: #00000015;
   text-align: center;
+  font-weight: bold;
+  color: #ff5347;
+  -webkit-text-stroke: 0.5px #000000;
+}
+.mensaje {
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
 }
 
 /* CALL TO ACTION */
 .callToAction {
-  height: 70vh;
+  height: 95vh;
   display: flex;
   background-color: #f7f7ff;
-
 }
 .texto-call {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -117,37 +128,60 @@ html {
 }
 
 /* CARROUSEL */
-
-.titulo-carrousel {
-  background-color: #577399;
-  color: #f7f7ff;
+.carousel-cont {
+  display: flex;
+  height: 80vh;
+}
+.titulo-carrousel{
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #ff5347;
+  color: #f7f7ff;
+  font-size: 1.5rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  margin: 0%;
-  padding: 1rem;
+  padding: 2rem;
+  height: 25vh;
+  width: 15vw;
+  border-radius: 70% 0 70% 0;
 }
 
-.swiper{
+.swiper {
   height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 10vh 10vw 0 0;
-  
 }
-.swiper-slide{
+.swiper-slide {
   height: 50vh !important;
+  position: relative;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.img-carousel{
+.img-carousel {
   height: 100%;
-  width: 35vw;
-  
+  width: 40vw;
 }
-
+.img-carousel:hover {
+  opacity: 0.4;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  -ms-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+.city-carousel {
+  position: absolute;
+  z-index: -1;
+  padding: 10px;
+  margin: 0;
+}
 
 /* FOOTER */
 .footer {
@@ -157,7 +191,6 @@ html {
   align-items: center;
   background-color: #577399;
   color: white;
-  
 }
 /* .link-footer{
   width: 20%;
@@ -168,7 +201,7 @@ html {
   /* font-weight: bold; */
   color: #ffffff;
 }
-.hover-footer{
+.hover-footer {
   font-size: 1.2rem;
   position: relative;
   text-decoration: none;
@@ -184,8 +217,17 @@ html {
 
 .logos {
   padding: 1vh;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 30%;
+  margin: 0 0.5vw 0 0.5vw;
+  height: 5vh;
+}
+.logos:hover {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
 }
 
 .hover-footer:hover {
@@ -241,21 +283,19 @@ html {
 /* PAGINA CITIES */
 
 .cities {
-  background-color: #bdd5ea;
+  background-color: #f7f7ff;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  min-height: 80vh;
+  min-height: 40vh;
 }
 
 /* HEADER */
 .headerContenedor {
   height: 50vh;
   display: flex;
-  flex-direction: column;
-  justify-content:space-evenly;
+  flex-direction: column-reverse;
+  justify-content: space-between;
   align-items: center;
-  background-attachment:fixed;
 }
 
 .imagenHeader {
@@ -268,18 +308,21 @@ html {
 
 /* INPUT BUSQUEDA */
 .input-contenedor {
-  width: 50%;
- 
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /* TARJETAS */
 .card-contenedor {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   padding: 5vh 0 5vh 0;
   width: 100%;
+
 }
 .tarjetas:hover {
   -webkit-transform: scale(1.1);
@@ -291,8 +334,8 @@ html {
 
 .tarjetas {
   height: 40vh;
-  width: 80%;
-  margin: 2vh;
+  width: 30%;
+  margin: 1rem;
   transition: transform 1s;
 }
 
@@ -322,8 +365,21 @@ html {
   font-size: 1.2rem;
 }
 
-/* CITY */
+.alerta-filtro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #495867;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
 
+/* CITY */
+.headerCity {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .nombre-ciudad {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
@@ -331,20 +387,24 @@ html {
   width: 40%;
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 .main-city {
-  background-color: rgb(171, 171, 245);
+  display: flex;
+  justify-content: center;
+  background-color: #f7f7ff;
   height: 100%;
+  padding: 5vh 0 5vh 0;
+  min-height: 40vh;
 }
 
 /* ITINERARIES */
 
 .card-itinerary {
-  /* height: 100%; */
   width: 70%;
-  margin-bottom: 3vh;
+  /* margin-bottom: 3vh; */
   background-color: black;
   font-size: 100%;
   color: white;
@@ -374,7 +434,7 @@ html {
 .celebrity-fondo {
   width: 100%;
   height: 30vh;
-  background-color: rgb(0, 4, 59);
+  /* background-color: rgb(0, 4, 59); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -410,30 +470,27 @@ html {
 }
 
 .alerta-itinerarios {
-  margin-top: 3vh;
-  padding: 3vh;
   height: 15vh;
   width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
+  color: #495867;
+  font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  text-align: center;
-}
-.mensaje-itinerarios {
-  margin: 0%;
 }
 
 .boton-itinerario {
-  background-color: black;
+  background-color: #1c1c1c;
   border: none;
   font-size: 1.3rem;
   font-weight: bold;
   width: 70%;
+  margin-bottom: 3vh;
 }
 .boton-itinerario:hover {
-  background-color: rgb(66, 65, 65);
+  background-color: #577399;
 }
 .div.carrousel {
   display: flex;
@@ -452,6 +509,7 @@ html {
 .carrousel-item {
   height: 40vh;
   width: 69vw;
+  overflow: hidden;
 }
 .img-carrousel {
   position: relative;
@@ -465,6 +523,12 @@ html {
   margin: 0;
 }
 
+.div-actividades{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 3vh;
+}
 .nombre-actividad {
   background-color: rgba(3, 3, 3);
   display: flex;
@@ -475,10 +539,130 @@ html {
 
 .boton-cities {
   margin: 2vh;
-  background-color: black;
+  background-color: #495867;
+  border: none;
 }
 .boton-cities:hover {
-  background-color: rgb(66, 65, 65);
+  background-color: #577399;
+}
+
+.comentarios-cont {
+  height: 100%;
+  max-height: 100vh;
+  min-height: 20vh;
+  width: 70%;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.comentarios {
+  width: 100%;
+  background-color: #f7f7ff;
+  display: flex;
+  margin-bottom: 2vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #495867;
+  font-weight: bold;
+  padding: 2vh;
+}
+.datos-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #495867;
+  font-weight: bold;
+  padding: 0.5rem;
+  width: 15%;
+  text-align: center;
+}
+.imagen-usuario {
+  border-radius: 50%;
+  /* height: 50%; */
+}
+.nombre-usuario {
+  font-size: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.zona-comentario{
+  width: 100%;
+  height: auto;
+  font-weight: bold;
+  word-wrap: break-word;
+  font-size: 15px;
+  padding: 2vh 1vw 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #495867;
+  margin: 0%;
+}
+.comentario-botones {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.botones {
+  display: flex;
+  height: 30%;
+}
+.comentar{
+  display: flex;
+
+}
+.input-comentario {
+  background-color: #f7f7ff;
+  width: 95%;
+  padding: 0.5rem;
+  margin-right: 1vw;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  resize: none;
+}
+
+.comentario-editar {
+  width: 85%;
+  height: 20vh;
+  resize: none;
+}
+
+.boton-editar {
+  margin-right: 1vw;
+}
+
+.boton-editar-check {
+  height: 30%;
+}
+
+.boton-like {
+
+  margin-right: 1vw;
+  height: 6vh;
+}
+
+@media screen and (max-width: 495px) {
+  .imagen-usuario {
+    width: 100%;
+  }
+  .datos-usuario {
+    width: 35%;
+  }
+  .botones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  .boton-editar {
+    margin-bottom: 2vh;
+    width: 100%;
+  }
+  .boton-editar-check {
+    height: 100%;
+  }
 }
 
 @media screen and (max-width: 495px) {
@@ -514,18 +698,18 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  height: 100%;
-  background-color: #577399;
+  min-height: 90vh;
+  /* height: 100%; */
+  background-color: #f7f7ff;
 }
 
 .formulario-signUp {
   height: 80%;
   width: 40%;
   padding: 2vh;
-  border-radius: 5%;
-  background-color: rgb(59, 59, 59);
-  color: white;
+  /* border-radius: 5%; */
+  /* background-color: rgb(59, 59, 59); */
+  color: #495867;
   font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
@@ -540,6 +724,7 @@ html {
   width: 100%;
   display: flex;
   justify-content: center;
+  color: #1c1c1c !important;
 }
 .boton-contenedor {
   display: flex;
@@ -547,8 +732,15 @@ html {
 }
 .boton-form {
   width: 100%;
+  background-color: #577399;
+  border: none;
 }
-
+.boton-form:hover {
+  background-color: #495867;
+}
+.nav-link {
+  color: #ff5347;
+}
 /* SIGN IN */
 .foto-perfil {
   border-radius: 50%;
@@ -556,18 +748,17 @@ html {
 }
 .signIn-contenedor {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  background-color: #bdd5ea;
+  min-height: 90vh;
+  background-color: #f7f7ff;
 }
 
 .form-signIn {
   width: 30%;
   padding: 1rem;
   border-radius: 5%;
-  background-color: #495867;
-  color: white;
+  color: #495867;
   font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
@@ -582,114 +773,3 @@ html {
   font-size: 1.5rem;
 }
 
-.comentario-contenedor {
-  width: 70%;
-}
-
-.comentarios-cont {
-  height: 100%;
-  width: 70%;
-}
-
-.comentarios {
-  border: 2px solid black;
-  background-color: rgb(217, 226, 235);
-  display: flex;
-  height: 100%;
-  margin-bottom: 2vh;
-}
-.datos-usuario {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: rgb(0, 0, 105);
-  color: white;
-  font-weight: bold;
-  padding: 0.5rem;
-  width: 25%;
-  text-align: center;
-}
-.imagen-usuario {
-  border-radius: 50%;
-  height: 50%;
-}
-.nombre-usuario {
-  font-size: 15px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-.comentario {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  padding: 2vh;
-  font-weight: bold;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-.comentario-botones {
-  display: flex;
-  /* flex-direction: column; */
-  justify-content: space-between;
-  height: 100%;
-}
-.zona-comentario {
-  width: 100%;
-  height: 100%;
-  color: black;
-  font-weight: bold;
-  font-size: 15px;
-  padding: 2vh;
-}
-
-.botones {
-  display: flex;
-  justify-content: end;
-  height: 30%;
-}
-.input-comentario {
-  width: 90%;
-  margin-right: 2vh;
-}
-.comentario-editar {
-  width: 75%;
-}
-
-.boton-editar {
-  margin-right: 1vw;
-}
-
-.boton-editar-check {
-  height: 30%;
-}
-
-.boton-like {
-  background-color: rgb(0, 0, 0, 0.5);
-  border-radius: 50%;
-  margin-right: 1vw;
-  height: 6vh;
-}
-
-@media screen and (max-width: 495px) {
-  .imagen-usuario {
-    width: 100%;
-  }
-  .datos-usuario {
-    width: 35%;
-  }
-  .botones {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-  }
-  .boton-editar {
-    margin-bottom: 2vh;
-    width: 100%;
-  }
-  .boton-editar-check {
-    height: 100%;
-  }
-}

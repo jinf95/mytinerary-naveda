@@ -25,7 +25,7 @@ const Carrousel = ({fetchCiudades,ciudades}) => {
 
   return (
    
-    <div>
+    <div className="carousel-cont">
       <h2 className="titulo-carrousel">POPULAR MYTINERARIES</h2>
        <Swiper
         className="swiper"
@@ -34,9 +34,9 @@ const Carrousel = ({fetchCiudades,ciudades}) => {
         loop="true"
         preloadImages="true"
         slidesPerView={3}
-        spaceBetween={80}
+        spaceBetween={30}
         centeredSlides={false}
-      >
+        >
         {cities.length > 0 ? (
           cities.map((ciudad) => (
             <SwiperSlide key={ciudad.id}>
@@ -45,7 +45,7 @@ const Carrousel = ({fetchCiudades,ciudades}) => {
                 src={`./assets/ciudades/${ciudad.imagen}`}
                 alt={ciudad.nombre}
               />
-              <h4>{ciudad.nombre}</h4>
+              <h4 className="city-carousel">{ciudad.nombre}</h4>
             </SwiperSlide>
           ))
         ) : (

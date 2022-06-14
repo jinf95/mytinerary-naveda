@@ -13,8 +13,8 @@ const CallToAction = () => {
                 <ButtonCall size="lg"/>
             </Link>
             </div>
-            <div className="col-6 p-3">
-                <img width="100%" height="100%" src={imagen} alt="fotoGo"/>
+            <div className="col-6 d-flex justify-content-center align-items-center">
+                <img width="80%" height="80%" src={imagen} alt="fotoGo"/>
             </div>
         </div>
         

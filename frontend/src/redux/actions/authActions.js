@@ -1,7 +1,11 @@
 import axios from 'axios'
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 
 const authActions = {
-
+    
     registrarUsuario : (nuevoUsuario) => {
         return async (dispatch, getState) => {
             try{
@@ -26,6 +30,14 @@ const authActions = {
                 if(usuario.data.success && !usuario.data.error){           
                 localStorage.setItem('token', usuario.data.response.token)
                 dispatch({type:'usuario', payload: usuario.data.response._doc})
+                toast.success("See you next time!", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                  })
                 return usuario.data
                 }else{
                  return usuario.data
@@ -41,7 +53,14 @@ const authActions = {
             try{
                 localStorage.clear()
                 dispatch({type: "cerrarSesion", payload: {}})
-                            
+                toast.success("See you next time!", {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    draggable: true,
+                    progress: undefined,
+                  })
+                  
             }catch(err){
                 console.log(err);
             }

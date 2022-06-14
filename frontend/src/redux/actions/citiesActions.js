@@ -19,7 +19,8 @@ const citiesActions = {
         return(dispatch, getState) =>{
         dispatch({type:'filtro', payload: {value} })
         }
-    }
+    },
+
 }
 
 export default citiesActions

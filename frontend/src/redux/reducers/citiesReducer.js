@@ -1,7 +1,7 @@
 const inicialState = {
     ciudades: [],
     ciudad: {},
-    auxiliar: []
+    auxiliar: [],
 }
 
 const citiesReducer = (state = inicialState, action) => {
@@ -30,6 +30,7 @@ const citiesReducer = (state = inicialState, action) => {
                 ...state,
                 auxiliar: filtrados
             }
+           
             default:
                 return state
     }
