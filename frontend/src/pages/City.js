@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Alert} from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
@@ -17,7 +17,8 @@ class City extends React.Component {
     }
     
     componentDidMount() {
-     this.props.fetchearItinerarios(this.props.params.id)
+        
+        this.props.fetchearItinerarios(this.props.params.id)
      
      this.props.ciudades.length > 0
      ? this.props.obtenerCiudad(this.props.params.id)

@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Carousel } from "react-bootstrap";
 import activitiesActions from "../redux/actions/activitiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Comments from "./Comments";
 import { connect } from "react-redux";
 import Swal from "sweetalert2";
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
+import { EffectCards } from "swiper";
+import "swiper/swiper.min.css";
+import "swiper/swiper-bundle.min.css";
+import "swiper/modules/pagination/pagination.min.css";
+import "swiper/modules/navigation/navigation.min.css";
+import "swiper/modules/scrollbar/scrollbar.min.css";
+import "swiper/modules/autoplay/autoplay.min.css";
+import "swiper/modules/effect-cards/effect-cards.min.css";
 
 const Itinerary = (props) => {
   const token = localStorage.getItem("token");
@@ -64,65 +72,72 @@ const Itinerary = (props) => {
 
   return (
     <>
-      <Card className="card-itinerary mb-0 text-center">
-        <Card.Header className="titulo-itinerario">
-          {props.itinerario.titulo}{" "}
-        </Card.Header>
-        <Card.Body className="body-itinerary">
+      <div className="card-itinerary">
+        <div className="titulo-itinerario">{props.itinerario.titulo}</div>
+        <div className="body-itinerary">
           <div className="celebrity-fondo">
             <img
               className="imagen-celebrity"
               src={`/assets/celebridades/${props.itinerario.imagen}`}
               alt={props.itinerario.publicador}
             />
-            <Card.Text>{props.itinerario.publicador}</Card.Text>
+            <h4>{props.itinerario.publicador}</h4>
           </div>
-          <div className="div-card">
+          <div className="items-container">
             <div className="d-flex">
-              <p className="mb-0">PRICE: </p>
+              <p className="mb-0">Price: </p>
               <img
                 className="money ms-2"
                 src={"/assets/iconos/money.png"}
                 alt="money"
               />
             </div>
-            <p className="duration">DURATION: {props.itinerario.duracion}</p>
+            <p className="duration">Duration: {props.itinerario.duracion}</p>
             <div className="favorito">
               <button
                 className="boton-like"
                 onClick={iconoLike ? likeItinerario : null}
               >
-                <p className="like"> {likes}</p>
+                <p> {likes}</p>
               </button>
               <p>{likeItinerarios.length}</p>
             </div>
           </div>
-          <div className="hashtag-container">
-            <p className="hashtag">{props.itinerario.hashtag}</p>
-          </div>
-        </Card.Body>
-      </Card>
-        <Button onClick={HandleDisplay} className="boton-itinerario">
-          {display ? "View less" : "View more"}{" "}
-        </Button>
+          {/* <div className="hashtag-container"> */}
+          <p className="hashtag">{props.itinerario.hashtag}</p>
+          {/* </div> */}
+        </div>
+      </div>
+      <button onClick={HandleDisplay} className="boton-itinerario">
+        {display ? "View less" : "View more"}{" "}
+      </button>
       <div className="div-actividades">
-        {/* {display && actividades && (
-          <Carousel className="actividades">
+        {display && actividades && (
+          <Swiper
+            className="swiper-itinerario"
+            modules={[EffectCards]}
+            effect="cards"
+            loop="true"
+            preloadImages="true"
+            // slidesPerView={3}
+            // spaceBetween={30}
+            centeredSlides={true}
+          >
             {actividades.map((actividad, index) => {
               const imagen = `/assets/actividades/${actividad.src}`;
               return (
-                <Carousel.Item key={index} className="carrousel-item">
-                  <Card.Img
-                    className="img-carrousel"
+                <SwiperSlide key={index} className="slide">
+                  <img
+                    className="img-act"
                     src={imagen}
-                    alt="First slide"
+                    alt={actividad.nombre}
                   />
-                  <h3 className="nombre-actividad">{actividad.nombre} </h3>
-                </Carousel.Item>
+                  <h4 className="nombre-act">{actividad.nombre}</h4>
+                </SwiperSlide>
               );
             })}
-          </Carousel>
-        )} */}
+          </Swiper>
+        )}
         {display && (
           <Comments
             comentario={props.itinerario.comentarios}
