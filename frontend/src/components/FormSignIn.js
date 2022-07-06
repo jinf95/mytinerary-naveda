@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Form, Button, Nav, NavLink } from "react-bootstrap";
+import { Form, Nav, NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import authActions from "../redux/actions/authActions";
@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 const FormSignIn = (props) => {
   const [ingresarUsuario, setIngresarUsuario] = useState({
     email: "",
-    contraseña: "",
+    contraseña: ""
   });
 
   const email = useRef();
@@ -19,7 +19,7 @@ const FormSignIn = (props) => {
   const inputHandler = (ref, input) => {
     setIngresarUsuario({
       ...ingresarUsuario,
-      [input]: ref.current.value,
+      [input]: ref.current.value
     });
   };
 
@@ -34,18 +34,12 @@ const FormSignIn = (props) => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    await props.iniciarSesion(ingresarUsuario)   
-    
+   await props.iniciarSesion(ingresarUsuario)   
   }
 
   return (
     <div className="signIn-contenedor">
         <ToastContainer/>
-      {/* <img
-        className="img-signIn"
-        src="./assets/fondo-signIn.png"
-        alt="travel"
-      /> */}
       <Form className="form-signIn" onSubmit={submitForm}>
         <Form.Group className="col-12 mb-3" controlId="formGroupEmail">
           <Form.Label>Email address</Form.Label>
@@ -70,9 +64,9 @@ const FormSignIn = (props) => {
           />
         </Form.Group>
         <div className="boton-contenedor mb-2">
-          <Button className="boton-form" variant="primary" type="submit">
+          <button className="boton-form" type="submit">
             Get in
-          </Button>
+          </button>
         </div>
 
         <GoogleLogin

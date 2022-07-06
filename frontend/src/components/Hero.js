@@ -1,6 +1,6 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
-import ScrollArrow from "../elements/ScrollArrow";
+import ScrollArrowBottom from "../elements/ScrollArrowBottom";
 
 const Hero = () => {
   let hero = `./assets/playa.jpg`;
@@ -8,7 +8,7 @@ const Hero = () => {
     <div className="heroContenedor">
       <ToastContainer />
       <img
-        className="videoHero"
+        className="imagenHero"
         src={hero}
         alt="hero"
       />
@@ -18,7 +18,7 @@ const Hero = () => {
         &mdash; designed by insiders who know and love their cities &mdash;
       </p>
       <div className="scroll-hero">
-        <ScrollArrow />
+        <ScrollArrowBottom />
       </div>
     </div>
   );

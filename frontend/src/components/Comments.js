@@ -19,11 +19,19 @@ const Comments = (props) => {
     },
   });
 
+  const [textarea, setTextarea] = useState({comentario : ""});
   const [render, setRender] = useState(false);
-
   const [comentarios, setComentarios] = useState(props.comentario);
-
   const inputValue = useRef();
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+
+    setTextarea({
+        ...textarea,
+        [name] : value 
+    });
+  }
 
   const borrarComentario = (idItinerario, idComentario, token) => {
     props
@@ -79,10 +87,11 @@ const Comments = (props) => {
       title: "You need log for comment",
     });
   };
+
   return (
     <>
       <div className="comentarios-cont">
-        <h4>Comments</h4>
+        <h4 className="titulo-coment">Comments</h4>
         <div>
           {comentarios.map((comentario, index) => (
             <Comment
@@ -102,17 +111,20 @@ const Comments = (props) => {
             )} */}
             {/* <div> */}
               <textarea
+                name="comentario"
+                value={textarea.comentario}
                 className="input-comentario"
-                rows="1"
+                rows="2"
                 type="text"
                 ref={inputValue}
+                onChange={handleChange}
                 placeholder={
                   token ? "Write a comment" : "You need log for comment"
                 }
                 disabled={token ? false : true}
                 // onKeyPress={handleKeyPress}
               />
-              <button onClick={token ? sendHandler : warning}>✔️</button>
+              <button onClick={token ? sendHandler : warning} disabled={textarea.comentario === "" ? true : false}>✔️</button>
             {/* </div> */}
           </div>
         </div>

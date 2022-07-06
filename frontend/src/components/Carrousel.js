@@ -33,13 +33,26 @@ const Carrousel = ({fetchCiudades,ciudades}) => {
         effect="coverflow"
         loop="true"
         preloadImages="true"
-        slidesPerView={3}
-        spaceBetween={30}
+        slidesPerView={1}
         centeredSlides={false}
+        breakpoints={{
+          424:{
+            slidesPerView : 2,
+        spaceBetween : 10
+
+          },
+          768:{
+            slidesPerView : 3,
+        spaceBetween : 20
+
+          },
+
+        }
+        }
         >
         {cities.length > 0 ? (
-          cities.map((ciudad) => (
-            <SwiperSlide key={ciudad.id}>
+          cities.map((ciudad,index) => (
+            <SwiperSlide key={index}>
               <img
                 className="img-carousel"
                 src={`./assets/ciudades/${ciudad.imagen}`}

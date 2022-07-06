@@ -10,10 +10,8 @@ html {
   display: flex;
 }
 /* SIDENAV */
-/* .nav {
-} */
 
-.link {
+/* .link {
   font-size: 1.3rem;
   position: relative;
   color: #000000 !important;
@@ -26,27 +24,32 @@ html {
   width: 20%;
   text-align: start;
   padding: 0;
-}
+} */
 
-.link:hover {
+/* .link:hover {
   background-size: 100% 2px;
-}
-.responsive-navbar {
+} */
+/* .responsive-navbar {
   display: flex;
   justify-content: flex-end;
   width: 80%;
-}
-.links {
+} */
+/* .links {
   display: flex;
   justify-content: space-between;
   width: 20%;
-}
+} */
 .dropdown-toggle {
   padding: 0%;
 }
 .dropdown-toggle::after {
   padding: 0;
   content: none;
+}
+.dropdown-menu.show{
+  border: none;
+  padding: 0%;
+
 }
 
 .navbar {
@@ -63,6 +66,17 @@ html {
   -webkit-box-shadow: 0px 12px 19px 0px rgba(0, 0, 0, 0.79);
   box-shadow: 0px 12px 19px 0px rgba(0, 0, 0, 0.79);
 }
+/* #check{
+  display: none;
+} */
+
+/* .checkbtn{
+  height: 5vh;
+  width: 3vw;
+  cursor: pointer;
+  display: none;
+} */
+
 /* HERO */
 .heroContenedor {
   height: 90vh;
@@ -70,7 +84,7 @@ html {
   justify-content: center;
   align-items: center;
 }
-.videoHero {
+.imagenHero {
   position: absolute;
   object-fit: cover;
   height: 90%;
@@ -112,10 +126,20 @@ html {
   display: flex;
   background-color: #f7f7ff;
 }
+
+.boton-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  
+}
 .texto-call {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: bold;
 }
+
 
 .boton-call {
   background-color: #495867;
@@ -126,7 +150,16 @@ html {
 .boton-call:hover {
   background-color: #577399;
 }
-
+.img-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.img-call{
+  width: 80%;
+  height: 80%;
+}
 /* CARROUSEL */
 .carousel-cont {
   display: flex;
@@ -186,19 +219,17 @@ html {
 /* FOOTER */
 .footer {
   height: 15vh;
+  padding: 0 8vw 0 8vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #577399;
   color: white;
 }
-/* .link-footer{
-  width: 20%;
-} */
+
 .copyright {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 1.2rem;
-  /* font-weight: bold; */
   color: #ffffff;
 }
 .hover-footer {
@@ -234,51 +265,6 @@ html {
   background-size: 100% 2px;
 }
 
-/* MEDIA QUERIES */
-
-@media screen and (max-width: 425px) {
-  .carousel-control-next-icon {
-    display: none;
-  }
-  .carousel-control-prev-icon {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .footer-contenedor {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-  }
-
-  .link-footer {
-    display: flex;
-    flex-direction: row;
-  }
-  .copyright {
-    padding: 0.5rem;
-    text-align: center;
-  }
-  .mensaje {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-  .alerta-filtro {
-    margin-right: 10%;
-    margin-left: 10%;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .link-footer {
-    display: flex;
-    flex-direction: row;
-    margin: 0%;
-    justify-content: space-between;
-  }
-}
 
 /* PAGINA CITIES */
 
@@ -337,6 +323,7 @@ html {
   width: 30%;
   margin: 1rem;
   transition: transform 1s;
+  border: none;
 }
 
 .card-imagen {
@@ -428,12 +415,14 @@ border-radius: 0px 40px 0px 0px;
   align-items: center;
   justify-content: center;
   background-color: #1c1c1c;
+  text-shadow: 1px 1px 1px #577399;
+
 }
 .body-itinerary {
   background-color: #577399;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  text-shadow: 1px 1px 1px #1c1c1c;
 }
 
 .imagen-celebrity {
@@ -457,7 +446,6 @@ border-radius: 0px 40px 0px 0px;
   height: 8vh;
   width: 100%;
   justify-content: space-evenly;
-
   margin-bottom: 2vh;
   
 }
@@ -508,12 +496,6 @@ border-radius: 0px 40px 0px 0px;
   color: #495867;
   /* border: 1px solid #577399;   */
 }
-.div.carrousel {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-}
 
 .footer-itinerario {
   display: flex;
@@ -529,11 +511,32 @@ border-radius: 0px 40px 0px 0px;
 }
 
 .img-act {
-  /* position: relative; */
-  /* object-fit: cover; */
   height: 100%;
-  width: 70%;
-  /* background-position: center; */
+  width: 100%;
+  transition: opacity .8s;
+  border: 5px solid #000000;
+
+}
+
+.img-act:hover{
+  opacity: 0.2;
+}
+.nombre-act-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: #000000;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.nombre-act{
+  text-align: center;
+  position: absolute;
+  margin: 0%;
+  color: #f7f7ff;
+  
 }
 
 .carousel-indicators {
@@ -541,17 +544,17 @@ border-radius: 0px 40px 0px 0px;
 }
 .swiper-itinerario{
  
-  width: 70%;
+  width: 60%;
   margin: 0;
 }
-.nombre-act{
-  background-color: #1c1c1c;
-  color: #f7f7ff;
-}
+
+
+
 .slide{
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: 60vh;
+
 }
 .div-actividades{
   display: flex;
@@ -579,6 +582,10 @@ border-radius: 0px 40px 0px 0px;
   color: #495867;
 }
 
+.titulo-coment{
+  text-shadow: 1px 1px 1px #577399;
+
+}
 .comentarios-cont {
   height: 100%;
   max-height: 100vh;
@@ -677,55 +684,6 @@ border-radius: 0px 40px 0px 0px;
   height: 6vh;
 }
 
-@media screen and (max-width: 495px) {
-  .imagen-usuario {
-    width: 100%;
-  }
-  .datos-usuario {
-    width: 35%;
-  }
-  .botones {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-  }
-  .boton-editar {
-    margin-bottom: 2vh;
-    width: 100%;
-  }
-  .boton-editar-check {
-    height: 100%;
-  }
-}
-
-@media screen and (max-width: 495px) {
-  .div-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .card-itinerary {
-    height: 85vh;
-  }
-  .imagen-celebrity {
-    width: 35%;
-  }
-
-  .duration {
-    margin-top: 3vh;
-  }
-  .favorito {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .div-card {
-    height: 10vh;
-  }
-}
-
 /* SignUp */
 
 .form-contenedor {
@@ -768,6 +726,10 @@ border-radius: 0px 40px 0px 0px;
   width: 100%;
   background-color: #577399;
   border: none;
+  height: 5vh;
+  box-shadow: 2px 2px 2px #495867;
+  color: #f7f7ff;
+  /* font-weight: 100; */
 }
 .boton-form:hover {
   background-color: #495867;
@@ -798,7 +760,6 @@ border-radius: 0px 40px 0px 0px;
 }
 
 .img-signIn {
-  /* position: absolute; */
   width: 30%;
   height: 30vh;
 }
@@ -807,3 +768,105 @@ border-radius: 0px 40px 0px 0px;
   font-size: 1.5rem;
 }
 
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 425px) {
+
+  /* HERO */
+  .bienvenida{
+    font-size: .7rem;
+  }
+  .mensaje{
+    font-size: 2.5rem;
+  }
+  /* CALL TO ACTION */
+  .callToAction{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .boton-container{
+    width: 100%;
+  }
+
+  .img-container{
+    display: none;
+  }
+
+  /* CAROUSEL */
+
+  
+  /* FOOTER */
+
+  /* CITY */
+  .card-itinerary{
+    width: 80%;
+  }
+  .boton-itinerario{
+    width: 80%;
+  }
+   .comentarios-cont{
+    width: 80%;
+  }
+.datos-usuario{
+  margin-right: 5vw;
+}
+
+}
+@media screen and (max-width : 625px){
+  
+  .tarjetas{
+    width: 75%;
+  }
+  .logo{
+    margin-left: 4vw;
+  }
+
+ 
+}
+
+@media screen and (max-width : 767px){
+  /* NAVBAR */
+
+  .nav{
+    display: none;
+  }
+
+  .carousel-cont{
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    margin: 0;
+    overflow: hidden;  
+    
+  }
+  .titulo-carrousel{
+    width: 100%;
+    border-radius: 0%;
+    height: 3vh;
+  }
+  .swiper{
+    margin: 3vh 0 3vh 0;
+    width: 90vw;
+  }
+  
+  .img-carousel{
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer{
+    display: flex;
+    flex-direction: column;
+    height: 35vh;
+    text-align: center;
+    padding: 2vh 1vw 2vh 1vw;
+  }
+}
+
+@media screen and (max-width : 1000px){
+  /* .links{
+    width: 30%;
+  }   */
+}

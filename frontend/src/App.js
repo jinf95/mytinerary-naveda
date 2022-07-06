@@ -8,7 +8,7 @@ import SignUp from "./pages/SignUp.js";
 import SignIn from "./pages/SignIn.js";
 import { connect } from "react-redux";
 import authActions from "./redux/actions/authActions.js";
-import ScrollArrow from "./elements/ScrollArrow";
+import ScrollArrowTop from "./elements/ScrollArrowTop";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import withRouter from "./utils/withRouter.js";
@@ -34,7 +34,7 @@ const App = (props) => {
         <Route path="*" element={<Home />} />
       </Routes>
       <div className="scroll-container">
-        <ScrollArrow />
+        <ScrollArrowTop />
       </div>
       <Footer />
     </BrowserRouter>

@@ -119,8 +119,6 @@ const Itinerary = (props) => {
             effect="cards"
             loop="true"
             preloadImages="true"
-            // slidesPerView={3}
-            // spaceBetween={30}
             centeredSlides={true}
           >
             {actividades.map((actividad, index) => {
@@ -132,7 +130,9 @@ const Itinerary = (props) => {
                     src={imagen}
                     alt={actividad.nombre}
                   />
-                  <h4 className="nombre-act">{actividad.nombre}</h4>
+                  <div className="nombre-act-container">
+                    <h4 className="nombre-act">{actividad.nombre}</h4>
+                  </div>
                 </SwiperSlide>
               );
             })}

@@ -3,15 +3,14 @@ const inicialState = {
 }
 
 const authReducer = (state = inicialState, action) => {
-    switch(action.type){
-
+    switch(action.type){        
         case 'usuario':
+            console.log(action)
             return{
                 ...state,
                 usuario: action.payload
+            }       
              
-            }
-        
         case 'cerrarSesion':
             localStorage.removeItem('token')
            

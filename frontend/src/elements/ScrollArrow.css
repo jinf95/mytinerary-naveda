@@ -1,7 +1,7 @@
 .scroll-container{
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end; 
 }
 .scroll-hero{
   display: flex;
@@ -16,10 +16,11 @@
     cursor: pointer;
     animation: fadeIn 0.3s;
     transition: opacity 0.4s;
-    background-color: #ff534780;
+    background-color: #495867;
     color: #ffffff;
     padding: .5rem;
     border-radius: 10%;
+    border: 2px solid #f7f7ff;
   }
 
   .scrollTop:hover{

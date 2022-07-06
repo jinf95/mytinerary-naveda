@@ -6,12 +6,11 @@ import citiesActions from "../redux/actions/citiesActions";
 
 const HeaderCities = (props) => {
   const filtrar = (e) => props.filtro(e.target.value);
-  // const filtrar = e => console.log(e)
-  let header = "./assets/header.jpg";
+  let imgHeader = "./assets/header.jpg";
 
   return (
     <div className="headerContenedor">
-      <img className="imagenHeader" src={header} alt="foto" />
+      <img className="imagenHeader" src={imgHeader} alt="foto" />
       <div className="bienvenida">
         <h1> MyTinerary!</h1>
       </div>

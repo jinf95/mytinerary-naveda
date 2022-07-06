@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Form, Button, NavLink, Nav } from "react-bootstrap";
+import { Form, NavLink, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import authActions from "../redux/actions/authActions";
 import { connect } from "react-redux";
 import GoogleLogin from "react-google-login";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FormSignUp = (props) => {
   const [nuevoUsuario, setNuevoUsuario] = useState({
@@ -39,17 +41,17 @@ const FormSignUp = (props) => {
     });
   };
 
-  const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener("mouseenter", Swal.stopTimer);
-      toast.addEventListener("mouseleave", Swal.resumeTimer);
-    },
-  });
+
+  const error = (message) =>
+    toast.error(message, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
   const responseGoogle = (res) => {
     let googleUser = {
@@ -65,13 +67,28 @@ const FormSignUp = (props) => {
 
     props
       .registrarUsuario(googleUser)
-      .then((res) => console.log(res.data.success))
-      .catch((error) => console.log(error));
+      .then((res) => {
+        if(res.data.success){
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Correctly Registered!",
+            showConfirmButton: false,
+            timer: 8500,
+          });
+        }else{
+          console.log(res.data)
+        }
+        }
+      )
+      .catch(() => error("An error occurred, try again later"));
   };
+
 
   const submitForm = async (e) => {
     e.preventDefault();
     const usuario = await props.registrarUsuario(nuevoUsuario);
+    console.log(usuario);
     if (usuario.success && !usuario.error) {
       Swal.fire({
         position: "top-end",
@@ -81,11 +98,9 @@ const FormSignUp = (props) => {
         timer: 8500,
       });
     } else {
-      Toast.fire({
-        icon: "error",
-        toast: true,
-        html: usuario.response.map((e) => `<p>${e.message}</p>`),
-      });
+      usuario.response.map((err) => 
+        error(err.message)
+      )
     }
   };
 
@@ -99,6 +114,7 @@ const FormSignUp = (props) => {
 
   return (
     <div className="form-contenedor">
+      <ToastContainer />
       <Form className="formulario-signUp" onSubmit={submitForm}>
         <div className="row">
           <Form.Group
@@ -157,7 +173,7 @@ const FormSignUp = (props) => {
           <Form.Control
             onChange={() => inputHandler(url, "url")}
             ref={url}
-            type="text"
+            type="file"
             placeholder="PHOTO URL"
             rows={3}
             required="required"
@@ -194,9 +210,9 @@ const FormSignUp = (props) => {
         </div>
 
         <div className="boton-contenedor">
-          <Button className="boton-form" variant="primary" type="submit">
+          <button className="boton-form" type="submit">
             Sign Up
-          </Button>
+          </button>
         </div>
         <GoogleLogin
           className="google mt-2"
@@ -213,11 +229,6 @@ const FormSignUp = (props) => {
           </NavLink>
         </Nav>
       </Form>
-      {/* <img
-        className="img-signIn"
-        src="./assets/fondo-signIn.png"
-        alt="fund-signUp"
-      /> */}
     </div>
   );
 };
