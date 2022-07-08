@@ -30,7 +30,7 @@ const SideNav = (props) => {
               <Link to="/">
                 <img
                   width="50"
-                  height="50"
+                  height="40"
                   className="logo"
                   src="/assets/logo.png"
                   alt="imagen"
@@ -39,10 +39,10 @@ const SideNav = (props) => {
             </Navbar.Brand>
             <Nav className="nav justify-content-end flex-grow-1 pe-3">
               <Nav.Link>
-                <Link to="/">Home</Link>
+                <Link to="/">HOME</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to="/Cities">Cities</Link>
+                <Link to="/Cities">CITIES</Link>
               </Nav.Link>
               <NavDropdown
                 title={props.usuario ? perfil : logo}
@@ -50,18 +50,17 @@ const SideNav = (props) => {
               >
                 {!props.usuario && (
                   <NavDropdown.Item as={Link} to="/SignIn">
-                    Sign In
+                    SIGN IN
                   </NavDropdown.Item>
                 )}
                 {!props.usuario && (
                   <NavDropdown.Item as={Link} to="/SignUp">
-                    Sign Up
+                    SIGN UP
                   </NavDropdown.Item>
                 )}
-                {/* <NavDropdown.Divider /> */}
                 {props.usuario && (
                   <NavDropdown.Item onClick={() => props.cerrarSesion()}>
-                    Sign Out
+                    SIGN OUT
                   </NavDropdown.Item>
                 )}
               </NavDropdown>
@@ -78,31 +77,32 @@ const SideNav = (props) => {
                 ></Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Nav className="align-items-center flex-grow-1 pe-3">
                   <Nav.Link>
-                    <Link to="/">Home</Link>
+                    <Link to="/">HOME</Link>
                   </Nav.Link>
                   <Nav.Link>
-                    <Link to="/Cities">Cities</Link>
+                    <Link to="/Cities">CITIES</Link>
                   </Nav.Link>
                   <NavDropdown
                     title={props.usuario ? perfil : logo}
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
+                    className="d-flex flex-column align-items-center"
                   >
                     {!props.usuario && (
-                      <NavDropdown.Item as={Link} to="/SignIn">
-                        Sign In
+                      <NavDropdown.Item as={Link} to="/SignIn"  className="text-center">
+                        SIGN IN
                       </NavDropdown.Item>
                     )}
                     {!props.usuario && (
-                      <NavDropdown.Item as={Link} to="/SignUp">
-                        Sign Up
+                      <NavDropdown.Item as={Link} to="/SignUp"  className="text-center">
+                        SIGN UP
                       </NavDropdown.Item>
                     )}
                     {/* <NavDropdown.Divider /> */}
                     {props.usuario && (
-                      <NavDropdown.Item onClick={() => props.cerrarSesion()}>
-                        Sign Out
+                      <NavDropdown.Item onClick={() => props.cerrarSesion()} className="text-center">
+                        SIGN OUT
                       </NavDropdown.Item>
                     )}
                   </NavDropdown>

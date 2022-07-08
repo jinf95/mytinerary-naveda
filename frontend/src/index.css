@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
+@import url("https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900");
 
 html {
   margin: 0;
@@ -26,19 +26,6 @@ html {
   padding: 0;
 } */
 
-/* .link:hover {
-  background-size: 100% 2px;
-} */
-/* .responsive-navbar {
-  display: flex;
-  justify-content: flex-end;
-  width: 80%;
-} */
-/* .links {
-  display: flex;
-  justify-content: space-between;
-  width: 20%;
-} */
 .dropdown-toggle {
   padding: 0%;
 }
@@ -46,10 +33,9 @@ html {
   padding: 0;
   content: none;
 }
-.dropdown-menu.show{
+.dropdown-menu.show {
   border: none;
   padding: 0%;
-
 }
 
 .navbar {
@@ -65,6 +51,34 @@ html {
   z-index: 2;
   -webkit-box-shadow: 0px 12px 19px 0px rgba(0, 0, 0, 0.79);
   box-shadow: 0px 12px 19px 0px rgba(0, 0, 0, 0.79);
+}
+.offcanvas-end{
+  width: 40%;
+  background-color: #f7f7ff;
+}
+.navbar-nav .nav-link a{
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #000000 !important;
+  background-image: linear-gradient(#000000, #000000);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.5s;
+}
+
+.navbar-nav .nav-link a:hover {
+  background-size: 100% 2px;
+}
+.dropdown-item{
+  background-color: #f7f7ff;
+  font-size: .9rem;
+  color: #000000 !important;
+  background-image: linear-gradient(#000000, #000000);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.5s;
 }
 /* #check{
   display: none;
@@ -127,19 +141,17 @@ html {
   background-color: #f7f7ff;
 }
 
-.boton-container{
+.boton-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   width: 50%;
-  
 }
 .texto-call {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: bold;
 }
-
 
 .boton-call {
   background-color: #495867;
@@ -150,13 +162,13 @@ html {
 .boton-call:hover {
   background-color: #577399;
 }
-.img-container{
+.img-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
 }
-.img-call{
+.img-call {
   width: 80%;
   height: 80%;
 }
@@ -165,7 +177,7 @@ html {
   display: flex;
   height: 80vh;
 }
-.titulo-carrousel{
+.titulo-carrousel {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -265,7 +277,6 @@ html {
   background-size: 100% 2px;
 }
 
-
 /* PAGINA CITIES */
 
 .cities {
@@ -308,7 +319,6 @@ html {
   flex-wrap: wrap;
   padding: 5vh 0 5vh 0;
   width: 100%;
-
 }
 .tarjetas:hover {
   -webkit-transform: scale(1.1);
@@ -401,22 +411,21 @@ html {
   -webkit-border-radius: 0px 40px 0px 0px;
   -moz-border-radius: 0px 40px 0px 0px;
   border-radius: 0px 40px 0px 0px;
-transition: box-shadow .4s;
--webkit-box-shadow: -7px -1px 18px 6px rgba(73,88,103,0.75); 
-box-shadow: -7px -1px 18px 6px rgba(73,88,103,0.75);
+  transition: box-shadow 0.4s;
+  -webkit-box-shadow: -7px -1px 18px 6px rgba(73, 88, 103, 0.75);
+  box-shadow: -7px -1px 18px 6px rgba(73, 88, 103, 0.75);
 }
 
 .titulo-itinerario {
   height: 10vh;
   -webkit-border-radius: 0px 40px 0px 0px;
--moz-border-radius: 0px 40px 0px 0px;
-border-radius: 0px 40px 0px 0px;
+  -moz-border-radius: 0px 40px 0px 0px;
+  border-radius: 0px 40px 0px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #1c1c1c;
   text-shadow: 1px 1px 1px #577399;
-
 }
 .body-itinerary {
   background-color: #577399;
@@ -447,7 +456,6 @@ border-radius: 0px 40px 0px 0px;
   width: 100%;
   justify-content: space-evenly;
   margin-bottom: 2vh;
-  
 }
 
 .money {
@@ -489,7 +497,7 @@ border-radius: 0px 40px 0px 0px;
   height: 8vh;
   margin-bottom: 3vh;
   color: #ffffff;
-  transition: background-color .8s;
+  transition: background-color 0.8s;
 }
 .boton-itinerario:hover {
   background-color: #f7f7ff;
@@ -513,15 +521,14 @@ border-radius: 0px 40px 0px 0px;
 .img-act {
   height: 100%;
   width: 100%;
-  transition: opacity .8s;
+  transition: opacity 0.8s;
   border: 5px solid #000000;
-
 }
 
-.img-act:hover{
+.img-act:hover {
   opacity: 0.2;
 }
-.nombre-act-container{
+.nombre-act-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -531,32 +538,27 @@ border-radius: 0px 40px 0px 0px;
   width: 100%;
   height: 100%;
 }
-.nombre-act{
+.nombre-act {
   text-align: center;
   position: absolute;
   margin: 0%;
   color: #f7f7ff;
-  
 }
 
 .carousel-indicators {
   margin: 0;
 }
-.swiper-itinerario{
- 
+.swiper-itinerario {
   width: 60%;
   margin: 0;
 }
 
-
-
-.slide{
+.slide {
   display: flex;
   flex-direction: column;
   height: 60vh;
-
 }
-.div-actividades{
+.div-actividades {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -575,16 +577,15 @@ border-radius: 0px 40px 0px 0px;
   margin: 2vh;
   background-color: #495867;
   border: none;
-  transition: background-color .5s;
+  transition: background-color 0.5s;
 }
 .boton-cities:hover {
   background-color: #f7f7ff;
   color: #495867;
 }
 
-.titulo-coment{
+.titulo-coment {
   text-shadow: 1px 1px 1px #577399;
-
 }
 .comentarios-cont {
   height: 100%;
@@ -627,7 +628,7 @@ border-radius: 0px 40px 0px 0px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.zona-comentario{
+.zona-comentario {
   width: 100%;
   height: auto;
   font-weight: bold;
@@ -650,9 +651,8 @@ border-radius: 0px 40px 0px 0px;
   display: flex;
   height: 30%;
 }
-.comentar{
+.comentar {
   display: flex;
-
 }
 .input-comentario {
   background-color: #f7f7ff;
@@ -660,7 +660,9 @@ border-radius: 0px 40px 0px 0px;
   padding: 0.5rem;
   margin-right: 1vw;
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
   resize: none;
 }
 
@@ -679,8 +681,7 @@ border-radius: 0px 40px 0px 0px;
 }
 
 .boton-like {
-
-  margin-right: .5vw;
+  margin-right: 0.5vw;
   height: 6vh;
 }
 
@@ -771,102 +772,125 @@ border-radius: 0px 40px 0px 0px;
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 425px) {
-
   /* HERO */
-  .bienvenida{
-    font-size: .7rem;
+  .bienvenida {
+    font-size: 0.7rem;
   }
-  .mensaje{
+  .mensaje {
     font-size: 2.5rem;
   }
   /* CALL TO ACTION */
-  .callToAction{
+  .callToAction {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 115vh;
   }
-  .boton-container{
+  .boton-container {
     width: 100%;
   }
 
-  .img-container{
+  .img-container {
     display: none;
   }
 
   /* CAROUSEL */
 
-  
   /* FOOTER */
 
   /* CITY */
-  .card-itinerary{
+  .card-itinerary {
     width: 80%;
   }
-  .boton-itinerario{
+  .boton-itinerario {
     width: 80%;
   }
-   .comentarios-cont{
-    width: 80%;
+  .comentarios-cont {
+    width: 90%;
   }
-.datos-usuario{
-  margin-right: 5vw;
-}
+  .comentarios{
+    overflow-x:hidden;
+  }
+  .datos-usuario {
+    margin-right: 5vw;
+  }
 
+  /* SIGN UP */
+  .formulario-signUp{
+    width: 90% !important;
+  }
+  .form-signIn{
+    width: 90% !important;
+    justify-content: center;
+  }
 }
-@media screen and (max-width : 625px){
-  
-  .tarjetas{
+@media screen and (max-width: 625px) {
+  .tarjetas {
     width: 75%;
   }
-  .logo{
+  .logo {
     margin-left: 4vw;
   }
-
- 
 }
 
-@media screen and (max-width : 767px){
+@media screen and (max-width: 767px) {
   /* NAVBAR */
 
-  .nav{
+  .nav {
     display: none;
   }
 
-  .carousel-cont{
+  /* CALL TO ACTION */
+
+  .callToAction {
+    height: 115vh;
+  }
+  .img-call{
+    height: 60%;
+  }
+  .carousel-cont {
     display: flex;
     flex-direction: column;
     height: 70vh;
     margin: 0;
-    overflow: hidden;  
-    
+    overflow: hidden;
   }
-  .titulo-carrousel{
+  .titulo-carrousel {
     width: 100%;
     border-radius: 0%;
     height: 3vh;
   }
-  .swiper{
+  .swiper {
     margin: 3vh 0 3vh 0;
     width: 90vw;
   }
-  
-  .img-carousel{
+
+  .img-carousel {
     width: 100%;
     height: 100%;
   }
 
-  .footer{
+  .footer {
     display: flex;
     flex-direction: column;
     height: 35vh;
     text-align: center;
     padding: 2vh 1vw 2vh 1vw;
   }
+  /* SIGN UP */
+  .formulario-signUp{
+    width: 60%;
+  }
+
+  .form-signIn{
+    width: 50%;
+  }
+
+  /* COMMENTS */
+  .comentario-botones{
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-@media screen and (max-width : 1000px){
-  /* .links{
-    width: 30%;
-  }   */
-}
