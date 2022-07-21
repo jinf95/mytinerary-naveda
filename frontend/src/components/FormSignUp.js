@@ -173,7 +173,7 @@ const FormSignUp = (props) => {
           <Form.Control
             onChange={() => inputHandler(url, "url")}
             ref={url}
-            type="file"
+            type="text"
             placeholder="PHOTO URL"
             rows={3}
             required="required"

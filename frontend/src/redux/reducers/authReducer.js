@@ -5,7 +5,7 @@ const inicialState = {
 const authReducer = (state = inicialState, action) => {
     switch(action.type){        
         case 'usuario':
-            console.log(action)
+            // console.log(action)
             return{
                 ...state,
                 usuario: action.payload

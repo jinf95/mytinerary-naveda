@@ -5,6 +5,8 @@ html {
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  /* background-color: #495867; */
+  /* z-index: -999; */
 }
 .body {
   display: flex;
@@ -243,6 +245,10 @@ html {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 1.2rem;
   color: #ffffff;
+}
+.a{
+  text-decoration: none;
+  color: #f7f7ff;
 }
 .hover-footer {
   font-size: 1.2rem;
@@ -807,13 +813,19 @@ html {
     width: 80%;
   }
   .comentarios-cont {
-    width: 90%;
+    width: 95%;
   }
   .comentarios{
     overflow-x:hidden;
   }
   .datos-usuario {
     margin-right: 5vw;
+    padding: 0;
+    justify-content: center;
+  }
+  .imagen-usuario{
+    height: 15vh;
+    width: 15vw;
   }
 
   /* SIGN UP */
@@ -839,6 +851,11 @@ html {
 
   .nav {
     display: none;
+    justify-content: center;
+  }
+  .foto-perfil{
+    width: 8vw;
+    height: 8vh;
   }
 
   /* CALL TO ACTION */
@@ -878,6 +895,10 @@ html {
     text-align: center;
     padding: 2vh 1vw 2vh 1vw;
   }
+  /* CITY */
+  .mensaje-itinerarios{
+    text-align: center;
+  }
   /* SIGN UP */
   .formulario-signUp{
     width: 60%;
@@ -892,5 +913,25 @@ html {
     flex-direction: column;
     align-items: center;
   }
+  .datos-usuario {
+    margin-right: 5vw;
+    padding: 0;
+    justify-content: center;
+  }
+  .imagen-usuario{
+    height: 10vh;
+    width: 10vw;
+  }
 }
 
+@media screen and (max-width: 1000px) {
+  .datos-usuario {
+    margin-right: 5vw;
+    padding: 0;
+    justify-content: center;
+  }
+  .imagen-usuario{
+    height: 15vh;
+    width: 10vw;
+  }
+}

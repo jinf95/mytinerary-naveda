@@ -5,7 +5,7 @@ import ScrollArrowBottom from "../elements/ScrollArrowBottom";
 const Hero = () => {
   let hero = `./assets/playa.jpg`;
   return (
-    <div className="heroContenedor">
+    <div className="heroContenedor" id="top">
       <ToastContainer />
       <img
         className="imagenHero"

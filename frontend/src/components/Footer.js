@@ -22,7 +22,7 @@ const Footer = () => {
                         <Nav.Link className="hover-footer text-white" as={Link} to='/Cities' >CITIES</Nav.Link>
                     </Nav>
                     <Nav>
-                        <p className="copyright m-auto">MYTINERAY | COPYRIGHT-ALL RIGHTS RESERVED</p>
+                        <p className="copyright m-auto">MYTINERAY-<a className="a" href="https://github.com/jinf95" target="_blank" rel="noopener noreferrer">NAVEDA</a> | COPYRIGHT-ALL RIGHTS RESERVED</p>
                     </Nav>
                     <div>
                         {redes.map((red,index)=>{

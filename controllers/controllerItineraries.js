@@ -19,6 +19,7 @@ const controllerItineraries = {
 
         try {
             respuesta = await Itinerario.find({ ciudades: id }).populate('comentarios.idUsuario')
+            // console.log(respuesta);
         } catch (err) {
             console.log(err)
         }
@@ -84,7 +85,7 @@ const controllerItineraries = {
         res.json({ success: modificado ? true : false })
     },
     comentario: async (req, res)=>{
-        console.log(req.body)
+        // console.log(req.body)
         switch(req.body.type){
             case "agregarComentario":
                 try {

@@ -66,7 +66,7 @@ const Itinerary = (props) => {
         console.log(error);
       });
   }, [props]);
-  let likes = likeItinerarios.includes(props.usuario && props.usuario._id)
+  let likes = likeItinerarios?.includes(props.usuario && props.usuario._id)
     ? "❤️"
     : "🤍";
 

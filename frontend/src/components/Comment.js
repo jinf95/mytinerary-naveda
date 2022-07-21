@@ -8,9 +8,9 @@ const Comment = (props) => {
 
   const inputValue = useRef();
   const [cambiarInput, setcambiarInput] = useState(false);
+ 
   let usuarioValido;
-  props.usuario &&
-    (usuarioValido = props.comentario.idUsuario._id === props.usuario._id);
+  props.usuario && (usuarioValido = props.comentario.idUsuario._id === props.usuario._id);
 
   useEffect(() => {
     setcambiarInput(false);
@@ -76,7 +76,7 @@ const Comment = (props) => {
   ) : (
     <p>{props.comentario.comentario}</p>
   );
-
+  
   return (
     <div className="comentarios">
       <div className="datos-usuario">

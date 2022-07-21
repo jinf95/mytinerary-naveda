@@ -6,11 +6,10 @@ const inicialState = {
 const itinerariesReducer = (state = inicialState, action) =>{
     switch (action.type){
         case 'fetchItineraries':
-
+        // console.log(action);
                 return {
                     ...state,
                     itinerarios: action.payload
-                    
                 }   
                           
         default: 

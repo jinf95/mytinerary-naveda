@@ -27,10 +27,10 @@ const authActions = {
         return async(dispatch, getState) => {
             try{
                 const usuario = await axios.post('http://localhost:4000/api/signIn', {email, contraseña})
-                console.log(usuario);
+                // console.log(usuario.data.response);
                 if(usuario.data.success && !usuario.data.error){           
                 localStorage.setItem('token', usuario.data.response.token)
-                dispatch({type:'usuario', payload: usuario.data.response})
+                dispatch({type:'usuario', payload: usuario.data.response}) 
                 toast.success("See you next time!", {
                     position: "top-right",
                     autoClose: 3000,

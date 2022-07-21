@@ -9,7 +9,7 @@ const HeaderCities = (props) => {
   let imgHeader = "./assets/header.jpg";
 
   return (
-    <div className="headerContenedor">
+    <div className="headerContenedor" id="top">
       <img className="imagenHeader" src={imgHeader} alt="foto" />
       <div className="bienvenida">
         <h1> MyTinerary!</h1>

@@ -12,7 +12,7 @@ import "swiper/modules/navigation/navigation.min.css";
 import "swiper/modules/scrollbar/scrollbar.min.css";
 import "swiper/modules/autoplay/autoplay.min.css";
 import "swiper/modules/effect-coverflow/effect-coverflow.min.css";
-import Loader from "../elements/Loader";
+import Loader from "../elements/Loader.js";
 
 const Carrousel = ({fetchCiudades,ciudades}) => {
   

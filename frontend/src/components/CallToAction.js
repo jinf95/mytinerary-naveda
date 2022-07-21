@@ -6,7 +6,7 @@ const CallToAction = () => {
   let imagen = `./assets/fotoGo.jpg`;
 
   return (
-    <div className="callToAction">
+    <div className="callToAction" id="call">
       <div className="boton-container">
         <h1 className="texto-call">Dive into this adventure!</h1>
         <Link as={Link} to="/Cities">

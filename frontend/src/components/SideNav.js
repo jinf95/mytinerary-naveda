@@ -38,12 +38,8 @@ const SideNav = (props) => {
               </Link>
             </Navbar.Brand>
             <Nav className="nav justify-content-end flex-grow-1 pe-3">
-              <Nav.Link>
                 <Link to="/">HOME</Link>
-              </Nav.Link>
-              <Nav.Link>
                 <Link to="/Cities">CITIES</Link>
-              </Nav.Link>
               <NavDropdown
                 title={props.usuario ? perfil : logo}
                 id={`offcanvasNavbarDropdown-expand-${expand}`}
@@ -78,12 +74,8 @@ const SideNav = (props) => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="align-items-center flex-grow-1 pe-3">
-                  <Nav.Link>
                     <Link to="/">HOME</Link>
-                  </Nav.Link>
-                  <Nav.Link>
                     <Link to="/Cities">CITIES</Link>
-                  </Nav.Link>
                   <NavDropdown
                     title={props.usuario ? perfil : logo}
                     id={`offcanvasNavbarDropdown-expand-${expand}`}

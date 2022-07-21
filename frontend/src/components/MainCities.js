@@ -7,7 +7,7 @@ const MainCities = (props) => {
 
 
     return (
-        <div className="card-contenedor">
+        <div className="card-contenedor" >
           
            {props.lugaresFiltrados.length > 0 
             ? props.lugaresFiltrados.map(ciudad => 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SideNav from "./components/SideNav.js";
 import Footer from "./components/Footer.js";
 import Home from "./pages/Home.js";
@@ -12,20 +12,38 @@ import ScrollArrowTop from "./elements/ScrollArrowTop";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import withRouter from "./utils/withRouter.js";
+import InitialLoader from "./elements/InitialLoader.js";
 
 const CityC = withRouter(City);
 
 const App = (props) => {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const timeOut = (ms) => {
+
+    return new Promise(resolve => setIsLoading(resolve, ms))
+  }
+
+  useEffect(() => {
+    const loading = async () => {
+      await timeOut(3000)
+    }
+    loading()
+  }, []);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     props.loguearConToken(token);
   }, [props]);
 
   return (
+    <>
+    {isLoading ? <InitialLoader/> :
     <BrowserRouter>
       <SideNav />
-
       <Routes>
+        
         <Route path="/" element={<Home />} />
         <Route path="Cities" element={<Cities />} />
         <Route path="/City/:id" element={<CityC />} />
@@ -34,10 +52,12 @@ const App = (props) => {
         <Route path="*" element={<Home />} />
       </Routes>
       <div className="scroll-container">
-        <ScrollArrowTop />
+      <ScrollArrowTop />
       </div>
       <Footer />
-    </BrowserRouter>
+      </BrowserRouter>
+    }
+    </>
   );
 };
 

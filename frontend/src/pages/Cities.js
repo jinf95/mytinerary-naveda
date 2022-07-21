@@ -3,7 +3,7 @@ import HeaderCities from "../components/HeaderCities";
 import MainCities from "../components/MainCities";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
-import Loader from "../elements/Loader";
+import Loader from "../elements/Loader.js";
 
 class Cities extends React.Component {
   constructor() {
